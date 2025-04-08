@@ -1,0 +1,345 @@
+/* ================================
+           Base Reset & Body Styling
+        ================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative; /* Needed for particles z-index */
+        }
+
+        main {
+            flex: 1; /* Allows main content to grow */
+            padding-top: 120px; /* Space below fixed navbar */
+            /* Added flex properties for centering */
+            display: flex;
+            align-items: center; /* Vertical centering */
+            justify-content: center; /* Horizontal centering */
+            position: relative; /* Ensure content is above particles */
+            z-index: 1;
+            padding-bottom: 2rem; /* Add some bottom padding */
+        }
+
+        /* ================================
+           Particles Background
+        ================================== */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Position behind all content */
+            background-color: #000;
+        }
+
+        /* ================================
+           Navbar Styling (Consistent Theme)
+        ================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto; /* Auto height for responsiveness */
+            display: flex;
+            flex-direction: column; /* Mobile first: Stack items vertically */
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem; /* Padding using rem */
+            background: rgba(0, 0, 0, 0.4); /* Transparent black */
+            backdrop-filter: blur(10px);
+            z-index: 100; /* High z-index */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-logo img {
+            height: 40px; /* Logo height for mobile */
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar-links {
+            display: flex;
+            flex-direction: column; /* Mobile first: Stack links */
+            align-items: center;
+            margin-top: 1rem; /* Space between logo and links on mobile */
+            width: 100%; /* Take full width for centering */
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500; /* Medium weight */
+            font-family: 'Roboto Mono', monospace;
+            padding: 0.5rem 0.75rem; /* Padding for links */
+            transition: color 0.3s, text-shadow 0.3s;
+            text-align: center;
+            width: 100%; /* Make links take width for centering */
+        }
+
+        .navbar-links a:hover {
+            color: #8300fe; /* Original purple hover */
+            text-shadow: 0 0 8px #8300fe;
+        }
+
+        .navbar-links .login-btn-link {
+            margin-top: 0.5rem; /* Space before button on mobile */
+            width: auto; /* Button width auto */
+        }
+
+        .login-btn {
+            display: inline-block;
+            color: white;
+            background: transparent;
+            border: 2px solid #8300fe;
+            padding: 0.6rem 1.2rem; /* Adjusted padding */
+            border-radius: 6px; /* Slightly more rounded */
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif; /* Original button font */
+            transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+            text-align: center;
+        }
+
+        .login-btn:hover {
+            background: #8300fe;
+            box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
+            color: white;
+        }
+
+        /* ================================
+           Contact Section Styling
+        ================================== */
+        .contact-section-container {
+            max-width: 1152px; /* Consistent max width */
+            width: 90%; /* Ensure it doesn't touch edges on smaller viewports */
+            margin: 2rem auto; /* Vertical margin added, auto for horizontal centering */
+            padding: 2rem; /* Padding inside container */
+            background: rgba(10, 10, 10, 0.6); /* Dark transparent background */
+            border: 1px solid #555; /* Subtle border */
+            border-radius: 12px; /* Consistent rounding */
+            backdrop-filter: blur(8px); /* Blur effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* White glow */
+        }
+
+        .contact-header p {
+            font-family: 'Roboto Mono', monospace;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1em;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column; /* Mobile first */
+            gap: 3rem; /* Space between info and form */
+        }
+
+        /* Contact Info Styling */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem; /* Space between info items */
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-item .icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(131, 0, 254, 0.15); /* Faint purple background */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(131, 0, 254, 0.5);
+        }
+
+        .info-item .icon img {
+            height: 20px;
+            width: 20px;
+            filter: invert(89%) sepia(17%) saturate(3745%) hue-rotate(188deg) brightness(100%) contrast(91%); /* Light blue color like particles */
+        }
+
+        .info-item .details h4 {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.1rem;
+            color: #a855f7; /* Purple heading */
+            margin-bottom: 0.25rem;
+        }
+
+        .info-item .details p {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        /* Contact Form Styling */
+        .contact-form h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #ff6600; /* Orange accent */
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label { /* Optional: Add labels if needed */
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: #1f2937; /* Dark background */
+            border: 1px solid #4b5563; /* Gray border */
+            border-radius: 6px;
+            color: #fff;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8300fe; /* Purple border on focus */
+            box-shadow: 0 0 0 3px rgba(131, 0, 254, 0.3); /* Purple glow on focus */
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn { /* Use specific class */
+            display: inline-block;
+            width: 100%; /* Make button full width */
+            color: white;
+            background: transparent;
+            border: 2px solid #8300fe;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: #8300fe;
+            box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
+            color: white;
+        }
+
+        /* ================================
+           Responsive Media Queries
+        ================================== */
+
+        /* Medium screens (tablets, small laptops) */
+        @media screen and (min-width: 768px) {
+            .navbar {
+                flex-direction: row; /* Align items horizontally */
+                height: 80px; /* Fixed height */
+                padding: 0 2.5rem; /* Horizontal padding */
+            }
+
+            .navbar-logo img {
+                 height: 50px; /* Larger logo */
+            }
+
+            .navbar-links {
+                flex-direction: row; /* Align links horizontally */
+                align-items: center;
+                margin-top: 0; /* Reset margin */
+                width: auto; /* Auto width */
+                gap: 1rem; /* Space between links */
+            }
+             .navbar-links a {
+                 width: auto; /* Auto width for links */
+             }
+             .navbar-links .login-btn-link {
+                 margin-top: 0;
+                 margin-left: 1rem; /* Space before button */
+             }
+
+            .contact-header h1 { font-size: 3em; }
+            .contact-header p { font-size: 1.1em; }
+
+            .contact-content {
+                flex-direction: row; /* Side-by-side layout */
+                gap: 4rem; /* Increase gap */
+            }
+            .contact-info {
+                flex-basis: 40%; /* Adjust basis */
+            }
+            .contact-form {
+                flex-basis: 60%; /* Adjust basis */
+            }
+             .contact-form h3 {
+                 text-align: left; /* Align form heading left */
+             }
+             .submit-btn {
+                 width: auto; /* Auto width for button */
+                 min-width: 150px;
+             }
+        }
+
+        /* Large screens (desktops) */
+        @media screen and (min-width: 1024px) {
+            .navbar { padding: 0 4rem; }
+            .navbar-links { gap: 1.5rem; }
+            .contact-header h1 { font-size: 3.5em; }
+            .contact-header p { font-size: 1.2em; }
+            .contact-section-container { padding: 3rem; }
+        }

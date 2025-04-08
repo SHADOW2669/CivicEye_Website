@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Civic Eye | Contact Us</title>
+    <link rel="shortcut icon" href="IMAGES/ppg.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="conact-us.css" />
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="IMAGES/logo1.png" alt="Civic Eye Logo" onerror="this.onerror=null; this.src='https://placehold.co/150x40/111111/FFFFFF?text=CivicEye';" />
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="download.html">Download</a>
+            <a href="team.html">Team</a>
+            <a href="contact-us.html">Contact Us</a>
+            <a href="login.html" class="login-btn-link">
+                <button class="login-btn">LOGIN / SIGNUP</button>
+            </a>
+        </div>
+    </nav>
+
+    <div id="particles-js"></div>
+
+    <main>
+        <div class="contact-section-container">
+            <div class="contact-header">
+                <h1>Contact Us</h1>
+                <p>Have questions or feedback? We'd love to hear from you. Reach out using the details below or send us a message directly.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="icon">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/map-pin.svg" alt="Address Icon"/>
+                        </div>
+                        <div class="details">
+                            <h4>Address</h4>
+                            <p>Mangaluru, Karnataka 575001, India.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                         <div class="icon">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone.svg" alt="Phone Icon"/>
+                        </div>
+                        <div class="details">
+                            <h4>Phone</h4>
+                            <p>+91 XXXXX-XXXXX</p> </div>
+                    </div>
+                    <div class="info-item">
+                         <div class="icon">
+                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg" alt="Email Icon"/>
+                        </div>
+                        <div class="details">
+                            <h4>Email</h4>
+                            <p>info@civiceye.example.com</p> </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Message</h3>
+                    <form action="#" method="POST"> <div class="form-group">
+                            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Type your Message..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            particlesJS("particles-js", {
+                // Configuration remains the same
+                 particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: "#7BD3EA" }, shape: { type: "circle" }, opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } }, size: { value: 3, random: true, anim: { enable: true, speed: 4, size_min: 0.1, sync: false } }, line_linked: { enable: true, distance: 150, color: "#7BD3EA", opacity: 0.4, width: 1 }, move: { enable: true, speed: 3, direction: "none", random: false, straight: false, out_mode: "out", bounce: false } }, interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } } }, retina_detect: true
+            });
+        });
+    </script>
+</body>
+
+</html>

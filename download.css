@@ -1,0 +1,513 @@
+/* ================================
+   Base Reset & Body Styling
+================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* Needed for particles z-index */
+}
+
+main {
+    flex: 1; /* Allows main content to grow */
+    padding-top: 120px; /* Space below fixed navbar */
+    padding-bottom: 4rem; /* Space before footer */
+    position: relative; /* Ensure content is above particles */
+    z-index: 1;
+}
+
+/* ================================
+   Particles Background
+================================== */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Position behind all content */
+    background-color: #000;
+}
+
+/* ================================
+   Navbar Styling (Consistent Theme)
+================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto; /* Auto height for responsiveness */
+    display: flex;
+    flex-direction: column; /* Mobile first: Stack items vertically */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem; /* Padding using rem */
+    background: rgba(0, 0, 0, 0.4); /* Transparent black */
+    backdrop-filter: blur(10px);
+    z-index: 100; /* High z-index */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo img {
+    height: 40px; /* Logo height for mobile */
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-links {
+    display: flex;
+    flex-direction: column; /* Mobile first: Stack links */
+    align-items: center;
+    margin-top: 1rem; /* Space between logo and links on mobile */
+    width: 100%; /* Take full width for centering */
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500; /* Medium weight */
+    font-family: 'Roboto Mono', monospace;
+    padding: 0.5rem 0.75rem; /* Padding for links */
+    transition: color 0.3s, text-shadow 0.3s;
+    text-align: center;
+    width: 100%; /* Make links take width for centering */
+}
+
+.navbar-links a:hover {
+    color: #8300fe; /* Original purple hover */
+    text-shadow: 0 0 8px #8300fe;
+}
+
+.navbar-links .login-btn-link {
+    margin-top: 0.5rem; /* Space before button on mobile */
+    width: auto; /* Button width auto */
+}
+
+.login-btn { /* Also used for primary download button */
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    justify-content: center; /* Center content */
+    gap: 0.5rem; /* Space between icon and text */
+    color: white;
+    background: transparent;
+    border: 2px solid #8300fe;
+    padding: 0.6rem 1.2rem; /* Adjusted padding */
+    border-radius: 6px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif; /* Original button font */
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+    text-align: center;
+    text-decoration: none; /* Remove underline from link styled as button */
+}
+
+.login-btn:hover {
+    background: #8300fe;
+    box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
+    color: white;
+}
+ .login-btn img { /* Style for icon inside button */
+     height: 1em; /* Match text size */
+     width: 1em;
+     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* White icon */
+ }
+
+
+/* ================================
+   Download Page Specific Styling
+================================== */
+/* Container for general info */
+.download-info-container {
+    max-width: 900px;
+    margin: 0 auto 3rem auto; /* Center container, add space below */
+    padding: 2rem;
+    background: rgba(10, 10, 10, 0.6);
+    border: 1px solid #555;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Wrapper for the two OS containers */
+.os-download-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 2rem; /* Space between OS containers */
+    max-width: 1800px; /* Wider max-width for two columns */
+    margin: 0 auto; /* Center the wrapper */
+    padding: 0 1rem; /* Padding on smaller screens */
+}
+
+/* Individual OS container styling */
+.os-container {
+    flex: 1; /* Allow containers to grow equally */
+    min-width: 0; /* Prevent flex overflow issues */
+    padding: 2rem;
+    background: rgba(15, 15, 15, 0.6); /* Slightly different bg */
+    border: 1px solid #555;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.os-container.windows-container {
+    border-left: 4px solid #a855f7; /* Purple accent for Windows */
+}
+.os-container.linux-container {
+     border-left: 4px solid #ff6600; /* Orange accent for Linux */
+}
+
+
+.download-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 2rem;
+}
+
+.download-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* White glow */
+}
+
+.download-header p {
+    font-family: 'Roboto Mono', monospace;
+    color: #d1d5db;
+    max-width: 700px;
+    margin: 0 auto 1.5rem auto; /* Space below paragraph */
+    font-size: 1em;
+}
+
+/* General section styling (applies to sections in both containers) */
+.download-section {
+    margin-bottom: 2rem; /* Reduced margin between sections */
+}
+ .download-section:last-child {
+     margin-bottom: 0; /* No margin for last section in a container */
+ }
+
+/* Styling for H2 inside general info container */
+.download-info-container .download-section h2 {
+     font-family: 'Orbitron', sans-serif;
+     color: #a855f7; /* Purple */
+     font-size: 1.8em;
+     margin-bottom: 1.5rem;
+     padding-bottom: 0.5rem;
+     border-bottom: 1px solid #555;
+}
+/* Styling for H2 inside OS-specific containers */
+.os-container .download-section h2 {
+     font-family: 'Orbitron', sans-serif;
+     font-size: 1.8em;
+     margin-bottom: 1.5rem;
+     padding-bottom: 0.5rem;
+     border-bottom: 1px solid #555;
+     /* Different colors based on container */
+}
+.windows-container .download-section h2 { color: #a855f7; /* Purple */ }
+.linux-container .download-section h2 { color: #ff6600; /* Orange */ }
+
+ /* Styling for H2 icons */
+ .os-container .download-section h2 img {
+     height: 1em;
+     width: 1em;
+     vertical-align: -0.1em;
+     margin-right: 0.5rem;
+     filter: invert(80%) sepia(10%) saturate(200%) hue-rotate(180deg) brightness(90%) contrast(90%); /* Default subtle filter */
+ }
+ .windows-container .download-section h2 img {
+      filter: invert(67%) sepia(98%) saturate(436%) hue-rotate(219deg) brightness(101%) contrast(93%); /* Purple filter */
+ }
+  .linux-container .download-section h2 img {
+      filter: invert(58%) sepia(58%) saturate(1170%) hue-rotate(359deg) brightness(100%) contrast(103%); /* Orange filter */
+  }
+
+
+.download-section h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ccc; /* More subtle H3 */
+    font-size: 1.4em;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+ .download-section h4 {
+    font-family: 'Roboto Mono', monospace;
+    color: #ccc;
+    font-size: 1.1em;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+ }
+
+.download-section p,
+.download-section li {
+    color: #ccc;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.download-section ul,
+.download-section ol {
+    padding-left: 1.5rem; /* Indentation for lists */
+    margin-bottom: 1rem;
+}
+ .download-section li {
+     margin-bottom: 0.5rem;
+ }
+
+.download-section strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+.download-section a {
+    color: #8300fe; /* Purple links */
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.download-section a:hover {
+    color: #a855f7;
+    text-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+}
+
+.download-section code {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #1f2937; /* Dark background for inline code */
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #fb923c; /* Orange text */
+}
+
+.download-section pre {
+    background-color: #111827; /* Darker background for code blocks */
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    margin: 1rem 0;
+    border: 1px solid #4b5563;
+}
+
+.download-section pre code {
+    background-color: transparent; /* Remove inline background */
+    padding: 0;
+    color: #e5e7eb; /* Light gray text */
+    font-size: 0.9em;
+}
+
+.download-section hr {
+    border: none;
+    border-top: 1px solid #444; /* Subtle horizontal rule */
+    margin: 2.5rem 0;
+}
+
+/* Specific styling for download button */
+.download-button-container {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+/* ================================
+   Footer Styling (Consistent Theme)
+================================== */
+footer {
+    background-color: #000; /* Solid black background */
+    color: #d1d5db; /* Tailwind gray-300 */
+    padding: 3rem 1rem; /* Padding */
+    position: relative;
+    z-index: 10; /* Ensure footer is above particles */
+    font-size: 0.9rem;
+    border-top: 1px solid #333; /* Add subtle top border */
+    margin-top: auto; /* Pushes footer to bottom */
+}
+
+.footer-container {
+    max-width: 1280px; /* Equivalent to max-w-7xl */
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column; /* Mobile first */
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #4b5563; /* Tailwind gray-700 */
+    text-align: center;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-description {
+    max-width: 400px;
+    color: #9ca3af; /* Tailwind gray-400 */
+    font-size: 0.85rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a img { /* Style for Lucide icons */
+     width: 20px;
+     height: 20px;
+     filter: invert(75%) sepia(8%) saturate(886%) hue-rotate(191deg) brightness(90%) contrast(86%); /* Approx gray-400 */
+     transition: filter 0.3s ease;
+}
+ .footer-social a:hover img {
+     filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%); /* Approx purple-600 */
+ }
+
+
+.footer-links-section {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 column */
+    gap: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.footer-links-column h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+.footer-links-column nav a,
+.footer-links-column p {
+    display: block;
+    color: #9ca3af; /* Tailwind gray-400 */
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links-column nav a:hover {
+    color: #8300fe; /* Original purple hover */
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column; /* Mobile first */
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #4b5563; /* Tailwind gray-700 */
+    font-size: 0.8rem;
+    color: #6b7280; /* Tailwind gray-500 */
+    text-align: center;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem; /* Space on mobile */
+}
+
+.footer-bottom-links a {
+    color: #6b7280; /* Tailwind gray-500 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #8300fe; /* Original purple hover */
+}
+
+
+/* ================================
+   Responsive Media Queries
+================================== */
+
+/* Medium screens (tablets, small laptops) */
+@media screen and (min-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Align items horizontally */
+        height: 80px; /* Fixed height */
+        padding: 0 2.5rem; /* Horizontal padding */
+    }
+
+    .navbar-logo img {
+         height: 50px; /* Larger logo */
+    }
+
+    .navbar-links {
+        flex-direction: row; /* Align links horizontally */
+        align-items: center;
+        margin-top: 0; /* Reset margin */
+        width: auto; /* Auto width */
+        gap: 1rem; /* Space between links */
+    }
+     .navbar-links a {
+         width: auto; /* Auto width for links */
+     }
+     .navbar-links .login-btn-link {
+         margin-top: 0;
+         margin-left: 1rem; /* Space before button */
+     }
+
+    .download-header h1 { font-size: 3em; }
+    .download-header p { font-size: 1.1em; }
+
+    .download-info-container .download-section h2 { font-size: 2em; }
+    .os-container .download-section h2 { font-size: 2em; }
+    .download-section h3 { font-size: 1.6em; }
+
+    .os-download-wrapper {
+         padding: 0 2rem; /* Add padding for wrapper */
+    }
+
+    /* Footer layout adjustments */
+    .footer-top { flex-direction: row; justify-content: space-between; align-items: flex-start; text-align: left; }
+    .footer-logo { order: 1; }
+    .footer-description { order: 2; text-align: left; margin: 0; }
+    .footer-social { order: 3; justify-content: flex-end; }
+    .footer-links-section { grid-template-columns: repeat(4, 1fr); text-align: left; }
+    .footer-bottom { flex-direction: row; text-align: left; }
+    .footer-bottom-links { margin-top: 0; }
+}
+
+ /* Large screens (desktops) - Activate two columns */
+@media screen and (min-width: 1024px) {
+     .navbar { padding: 0 4rem; }
+     .navbar-links { gap: 1.5rem; }
+     .download-header h1 { font-size: 3.5em; }
+     .download-header p { font-size: 1.2em; }
+     .download-info-container { padding: 3rem; }
+     .os-container { padding: 2.5rem; }
+
+     .os-download-wrapper {
+         flex-direction: row; /* Side-by-side */
+     }
+}
+

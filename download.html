@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Civic Eye | Download</title>
+    <link rel="shortcut icon" href="IMAGES/ppg.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="download.css" />
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="IMAGES/logo1.png" alt="Civic Eye Logo" onerror="this.onerror=null; this.src='https://placehold.co/150x40/111111/FFFFFF?text=CivicEye';" />
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="download.html">Download</a>
+            <a href="team.html">Team</a>
+            <a href="contact-us.html">Contact Us</a>
+            <a href="login.html" class="login-btn-link">
+                <button class="login-btn">LOGIN / SIGNUP</button>
+            </a>
+        </div>
+    </nav>
+
+    <div id="particles-js"></div>
+
+    <main>
+        <div class="download-info-container">
+             <header class="download-header">
+                <h1>Download CivicEye</h1>
+                <p>Get the latest version of CivicEye for your operating system. AI-powered traffic violation detection, running locally on your machine.</p>
+                <div class="download-button-container">
+                     <a href="https://github.com/SHADOW2669/CivicEye/releases" target="_blank" class="login-btn">
+                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/github.svg" alt=""/>
+                         View Releases on GitHub
+                     </a>
+                </div>
+            </header>
+
+            <section class="download-section">
+                <h2>Introduction</h2>
+                <p>CivicEye is an AI-powered software designed to detect and monitor traffic violations using CCTV cameras. Utilizing YOLOv8 for object detection, it identifies helmet violations in real time and processes them locally on the user's machine.</p>
+            </section>
+
+            <hr/>
+
+            <section class="download-section">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Real-Time Violation Detection</strong>: Detects traffic violations like "No Helmet" using YOLOv8.</li>
+                    <li><strong>Local Processing</strong>: Runs directly on the user's machine, ensuring privacy and eliminating cloud dependencies.</li>
+                    <li><strong>Automated Image Capture</strong>: Captures images of detected violations and stores them locally.</li>
+                    <li><strong>Flexible Video Input</strong>: Supports both pre-recorded videos and real-time webcam feeds.</li>
+                    <li><strong>Secure Login System</strong>: Users must authenticate before accessing detection features.</li>
+                    <li><strong>Graphical User Interface (GUI)</strong>: Simplified and user-friendly interface for easy interaction (Windows v2.0+).</li>
+                 </ul>
+            </section>
+
+             <hr/>
+
+            <section class="download-section">
+                <h2>Technical Overview</h2>
+                <h4>Programming Language:</h4>
+                <p><strong>Python 3.8+</strong>: Used for AI-based image processing and automation.</p>
+
+                <h4>Core Libraries:</h4>
+                <ol>
+                    <li><strong>OpenCV</strong>: Handles video stream processing, frame capture, and image saving.</li>
+                    <li><strong>YOLOv8 (Ultralytics)</strong>: Performs real-time object detection for helmet violations.</li>
+                    <li><strong>cvzone</strong>: Used for drawing bounding boxes and labels on detected objects.</li>
+                    <li><strong>Pillow</strong>: Converts images for display in the GUI.</li>
+                    <li><strong>ttkbootstrap</strong>: Provides enhanced UI styling and elements (Windows v2.0+).</li>
+                </ol>
+            </section>
+
+            <hr/>
+
+            <section class="download-section">
+                <h2>Future Enhancements</h2>
+                 <ul>
+                    <li>Add an executable (<code>.exe</code>) file for easier installation on Windows.</li>
+                    <li>Improve the graphical user interface (GUI) for a better user experience.</li>
+                    <li>Implement centralized reporting to a web server.</li>
+                    <li>Expand violation detection to include "Triple Riding" and other infractions.</li>
+                    <li>Optimize the YOLO model for region-specific traffic conditions.</li>
+                    <li>Add integration for live alerts via email/SMS.</li>
+                 </ul>
+            </section>
+
+             <hr/>
+
+             <section class="download-section">
+                <h2>Support & Contributions</h2>
+                <p>For issues, feature requests, or contributions, please visit the GitHub repository or contact <a href="https://github.com/SHADOW2669" target="_blank">SHADOW</a>.</p>
+                 <div class="download-button-container">
+                     <a href="https://github.com/SHADOW2669/CivicEye/issues" target="_blank" class="login-btn" style="border-color: #ff6600;">
+                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/message-circle-warning.svg" alt=""/>
+                         Report an Issue
+                     </a>
+                </div>
+            </section>
+        </div>
+
+        <div class="os-download-wrapper">
+
+            <div class="os-container windows-container">
+                <section id="windows" class="download-section">
+                    <h2><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/laptop.svg" alt="Windows Icon"/> Windows</h2>
+
+                    <h3>Installation Guide (v2.0+)</h3>
+                    <h4>System Requirements:</h4>
+                    <ul>
+                        <li><strong>OS:</strong> Windows 10 or later</li>
+                        <li><strong>Processor:</strong> Intel i3 or higher</li>
+                        <li><strong>RAM:</strong> 4GB (8GB recommended)</li>
+                        <li><strong>Storage:</strong> 20GB free disk space</li>
+                    </ul>
+
+                    <h4>Setup Instructions:</h4>
+                    <ol>
+                        <li><strong>Download the Latest Release:</strong>
+                            <br/>Get the Windows installer from the <a href="https://github.com/SHADOW2669/CivicEye/releases" target="_blank">CivicEye Releases page on GitHub</a>. Look for the latest Windows release asset (e.g., `.zip` or `.exe` when available).
+                            <div class="download-button-container">
+                                <a href="https://github.com/SHADOW2669/CivicEye/archive/refs/tags/windows.zip"  class="login-btn">
+                                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/download.svg" alt=""/>
+                                    Download Latest (Windows)
+                                </a>
+                            </div>
+                        </li>
+                        <li><strong>Run the Setup Script (if using .zip):</strong>
+                            <br/>Extract the downloaded `.zip` file. Double-click <code>install.bat</code> to install dependencies and set up the virtual environment.
+                        </li>
+                        <li><strong>Launch the Software:</strong>
+                            <br/>Use <code>CivicEye.bat</code> (or the installed shortcut if an `.exe` installer was used) to start the detection software.
+                        </li>
+                    </ol>
+
+                    <h3>Software Workflow (Windows v2.0+)</h3>
+                    <ol>
+                        <li><strong>User Login</strong>: Default credentials: Username: <code>admin</code>, Password: <code>1234</code>. Authentication required.</li>
+                        <li><strong>User Setup</strong>: Choose a video file via the GUI or use the default webcam.</li>
+                        <li><strong>Violation Detection</strong>: YOLOv8 processes video, detects "Without Helmet" violations, displays bounding boxes.</li>
+                        <li><strong>Data Storage</strong>: Violation images saved in the <code>Detects</code> folder.</li>
+                        <li><strong>Real-Time Monitoring</strong>: Video feed shown with overlays. Exit via GUI controls or 'q' key if using console fallback.</li>
+                    </ol>
+
+                    <h3>Version 2.0 Release Notes</h3>
+                    <ul>
+                        <li>Added Windows Support: Fully functional Windows version with <code>.bat</code> scripts.</li>
+                        <li>Graphical User Interface (GUI): Improved user experience.</li>
+                        <li>Refined Detection System: Enhanced tracking and storage.</li>
+                        <li>Secure Login System: Mandatory authentication.</li>
+                        <li>Local Processing: Ensures privacy.</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="os-container linux-container">
+                 <section id="linux" class="download-section">
+                    <h2><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/terminal.svg" alt="Linux Icon"/> Linux</h2>
+
+                    <h3>Installation Guide (v1.2+)</h3>
+                    <h4>System Requirements:</h4>
+                    <ul>
+                        <li><strong>OS:</strong> Linux (Tested on Debian-based, Ubuntu, Arch, Fedora)</li>
+                        <li><strong>Processor:</strong> Intel i3 or higher</li>
+                        <li><strong>RAM:</strong> 4GB (8GB recommended)</li>
+                        <li><strong>Storage:</strong> 20GB free disk space</li>
+                    </ul>
+
+                    <h4>Setup Instructions:</h4>
+                    <ol>
+                        <li><strong>Clone the Repository:</strong>
+                            <pre><code>git clone https://github.com/SHADOW2669/CivicEye.git</code></pre>
+                        </li>
+                        <li><strong>Navigate to the Project Directory:</strong>
+                            <pre><code>cd CivicEye</code></pre>
+                        </li>
+                        <li><strong>Run the Setup Script:</strong>
+                            <pre><code>chmod +x setup_civiceye.sh
+./setup_civiceye.sh</code></pre>
+                        </li>
+                        <li><strong>Run the Software:</strong>
+                            <pre><code>chmod +x run.sh
+./run.sh</code></pre>
+                        </li>
+                    </ol>
+
+                    <h3>Software Workflow (Linux v1.2+)</h3>
+                    <ol>
+                        <li><strong>User Login</strong>: Default credentials: Username: <code>admin</code>, Password: <code>1234</code>. Authentication required.</li>
+                        <li><strong>User Setup</strong>: Provide path to a video file when prompted, or press Enter to use the default webcam.</li>
+                        <li><strong>Violation Detection</strong>: YOLOv8 processes video, detects "Without Helmet" violations, displays bounding boxes.</li>
+                        <li><strong>Data Storage</strong>: Violation images saved in the <code>Detects</code> folder.</li>
+                        <li><strong>Real-Time Monitoring</strong>: Video feed shown with overlays. Exit by pressing 'q'.</li>
+                    </ol>
+
+                    <h3>Version 1.2 Release Notes</h3>
+                    <ul>
+                        <li>Updated Setup Script: Supports multiple Linux distributions.</li>
+                        <li>Refined Run Script: Dedicated <code>run.sh</code> file.</li>
+                        <li>Improved Detection Workflow: Enhanced tracking and storage.</li>
+                        <li>Flexible Video Input: Video file or webcam.</li>
+                        <li>Secure Login System: Mandatory authentication.</li>
+                        <li>Local Processing: Ensures privacy.</li>
+                    </ul>
+                </section>
+            </div>
+
+        </div> </main>
+
+    <footer>
+        <div class="footer-container">
+             <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="IMAGES/logo1.png" alt="Civic Eye Logo" onerror="this.onerror=null; this.src='https://placehold.co/150x40/111111/FFFFFF?text=CivicEye';" />
+                </div>
+                <div class="footer-description">
+                    Civic Eye is an advanced AI-powered software designed to <br>
+                    detect and monitor traffic violations using civilian CCTV cameras.
+                </div>
+                <div class="footer-social">
+                    <a href="#" target="_blank" aria-label="Facebook Profile">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/facebook.svg" alt="Facebook"/>
+                    </a>
+                    <a href="#" target="_blank" aria-label="Instagram Profile">
+                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/instagram.svg" alt="Instagram"/>
+                    </a>
+                    <a href="#" target="_blank" aria-label="LinkedIn Profile">
+                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg" alt="LinkedIn"/>
+                    </a>
+                    <a href="#" target="_blank" aria-label="YouTube Profile">
+                         <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/youtube.svg" alt="YouTube"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links-section">
+                <div class="footer-links-column">
+                    <h3>Quick Links</h3>
+                    <nav> <a href="index.html">Home</a>
+                        <a href="download.html">Download</a>
+                        <a href="team.html">Team</a>
+                        <a href="contact-us.html">Contact Us</a>
+                    </nav>
+                </div>
+                 <div class="footer-links-column">
+                    <h3>Resources</h3> <nav>
+                        <a href="#">Features</a>
+                        <a href="#">Requirements</a>
+                        <a href="#">Documentation</a>
+                    </nav>
+                </div>
+                <div class="footer-links-column">
+                    <h3>Contact Info</h3>
+                    <p>Mangaluru, Karnataka 575001</p>
+                    <p>+91 XXXXX-XXXXX</p>
+                    <p>info@civiceye.example.com</p> </div>
+                 <div class="footer-links-column">
+                      </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2025 Civic Eye. All rights reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            particlesJS("particles-js", {
+                // Configuration remains the same
+                 particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: "#7BD3EA" }, shape: { type: "circle" }, opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } }, size: { value: 3, random: true, anim: { enable: true, speed: 4, size_min: 0.1, sync: false } }, line_linked: { enable: true, distance: 150, color: "#7BD3EA", opacity: 0.4, width: 1 }, move: { enable: true, speed: 3, direction: "none", random: false, straight: false, out_mode: "out", bounce: false } }, interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } } }, retina_detect: true
+            });
+        });
+    </script>
+</body>
+
+</html>
