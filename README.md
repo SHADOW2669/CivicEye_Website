@@ -35,7 +35,7 @@ The website is built using standard web technologies and features a dark, modern
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)<your-username>/<repository-name>.git
+    git clone https://github.com/SHADOW2669/CivicEye_Website.git
     ```
 
 2.  **Navigate to the directory:**

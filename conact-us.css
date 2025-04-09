@@ -173,13 +173,21 @@
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 2rem; /* Space between info items */
+            gap: 1rem; /* Reduced gap for tighter packing */
         }
 
         .info-item {
             display: flex;
             align-items: center;
             gap: 1rem;
+            padding: 0.5rem; /* Add padding for hover background */
+            margin: -0.5rem; /* Negative margin to counteract padding */
+            border-radius: 8px; /* Rounded corners for hover background */
+            transition: background-color 0.3s ease; /* Transition for background */
+        }
+
+        .info-item:hover {
+             background-color: rgba(255, 255, 255, 0.05); /* Subtle background on hover */
         }
 
         .info-item .icon {
@@ -192,7 +200,15 @@
             justify-content: center;
             align-items: center;
             border: 1px solid rgba(131, 0, 254, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; /* Added transitions */
         }
+
+         .info-item:hover .icon {
+             transform: scale(1.1); /* Scale icon on hover */
+             border-color: #8300fe; /* Brighter border on hover */
+             background-color: rgba(131, 0, 254, 0.3); /* Darker bg on hover */
+         }
+
 
         .info-item .icon img {
             height: 20px;
@@ -205,12 +221,29 @@
             font-size: 1.1rem;
             color: #a855f7; /* Purple heading */
             margin-bottom: 0.25rem;
+            transition: color 0.3s ease; /* Add transition */
         }
+
+        .info-item:hover .details h4 {
+             color: #fff; /* Make heading white on hover */
+        }
+
 
         .info-item .details p {
             font-size: 0.95rem;
             color: #ccc;
         }
+        /* Style link within info item paragraph */
+        .info-item .details p a {
+            color: #8300fe;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .info-item .details p a:hover {
+            color: #a855f7;
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+        }
+
 
         /* Contact Form Styling */
         .contact-form h3 {
@@ -280,6 +313,13 @@
             background: #8300fe;
             box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
             color: white;
+        }
+
+        .github-disclaimer {
+            font-size: 0.8rem;
+            text-align: center;
+            color: #aaa;
+            margin-top: 1rem;
         }
 
         /* ================================
