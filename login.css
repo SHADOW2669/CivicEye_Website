@@ -1,0 +1,258 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #111827;
+    /* bg-gray-900 */
+    color: #f3f4f6;
+    /* text-gray-100 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    /* Add some padding for smaller screens */
+}
+
+/* =============================
+           Navbar Styling
+        ============================= */
+/* Navbar styles remain the same */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    /* Auto height for responsiveness */
+    display: flex;
+    flex-direction: column;
+    /* Mobile first: Stack items vertically */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    /* Padding using rem */
+    background: rgba(0, 0, 0, 0.4);
+    /* Slightly darker transparent black */
+    backdrop-filter: blur(10px);
+    z-index: 50;
+    /* Ensure navbar is above sticky elements */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-logo img {
+    height: 40px;
+    /* Logo height for mobile */
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    /* Mobile first: Stack links */
+    align-items: center;
+    margin-top: 1rem;
+    /* Space between logo and links on mobile */
+    width: 100%;
+    /* Take full width for centering */
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    /* Medium weight */
+    font-family: 'Roboto Mono', monospace;
+    padding: 0.5rem 0.75rem;
+    /* Padding for links */
+    transition: color 0.3s, text-shadow 0.3s;
+    text-align: center;
+    width: 100%;
+    /* Make links take width for centering */
+}
+
+.navbar-links a:hover {
+    color: #8300fe;
+    /* Original purple hover */
+    text-shadow: 0 0 8px #8300fe;
+}
+
+.navbar-links .login-btn-link {
+    margin-top: 0.5rem;
+    /* Space before button on mobile */
+    width: auto;
+    /* Button width auto */
+}
+
+.login-btn {
+    display: inline-block;
+    color: white;
+    background: transparent;
+    border: 2px solid #8300fe;
+    padding: 0.6rem 1.2rem;
+    /* Adjusted padding */
+    border-radius: 6px;
+    /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    /* Original button font */
+    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+    text-align: center;
+}
+
+.login-btn:hover {
+    background: #8300fe;
+    box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
+    color: white;
+}
+
+
+/* Custom font class */
+.font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Neon glow effect for the border */
+.neon-glow-border {
+    position: relative;
+    border: 2px solid transparent;
+    /* Base border */
+    box-shadow:
+        0 0 5px rgba(131, 0, 254, 0.8),
+        /* #8300fe */
+        0 0 10px rgba(131, 0, 254, 0.6),
+        0 0 15px rgba(131, 0, 254, 0.4),
+        inset 0 0 5px rgba(131, 0, 254, 0.5);
+    animation: neon-flicker 2s infinite alternate;
+    /* Optional flicker effect */
+}
+
+@keyframes neon-flicker {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 5px rgba(131, 0, 254, 0.8),
+            0 0 10px rgba(131, 0, 254, 0.6),
+            0 0 15px rgba(131, 0, 254, 0.4),
+            inset 0 0 5px rgba(131, 0, 254, 0.5);
+    }
+
+    50% {
+        box-shadow:
+            0 0 7px rgba(131, 0, 254, 0.9),
+            0 0 12px rgba(131, 0, 254, 0.7),
+            0 0 18px rgba(131, 0, 254, 0.5),
+            inset 0 0 7px rgba(131, 0, 254, 0.6);
+    }
+}
+
+/* Ensure form containers are positioned correctly for transitions */
+.form-container {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    /* Each form takes half the width */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    /* p-8 */
+    backface-visibility: hidden;
+    /* Helps prevent flickering during transforms */
+    /* Transition includes left property now */
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out, left 0.7s ease-in-out;
+}
+
+/* --- Initial State (Login Visible Left, Register Hidden Right) --- */
+
+/* Initial state for login form (visible on left) */
+#login-form-container {
+    left: 0%;
+    /* Positioned in the left slot */
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Initial state for register form (hidden on right) */
+#register-form-container {
+    left: 50%;
+    /* Positioned in the right slot */
+    transform: translateX(0%);
+    /* Start at its natural position */
+    opacity: 0;
+    /* But hidden */
+    pointer-events: none;
+}
+
+/* Initial state for login overlay content (visible - "New Here?") */
+#switch-content-login {
+    opacity: 1;
+    pointer-events: auto;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+    transition-delay: 200ms;
+}
+
+/* Initial state for register overlay content (hidden - "One of Us?") */
+#switch-content-register {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* --- State when Register is Shown (`show-register` class added) --- */
+
+/* Move login form off-screen left */
+.show-register #login-form-container {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Make register form visible (it's already positioned right) */
+.show-register #register-form-container {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Move overlay to the left */
+.show-register #switch-overlay {
+    left: 0%;
+    border-radius: 1rem 0 0 1rem;
+    /* rounded-l-2xl */
+    /* Change gradient direction */
+    background-image: linear-gradient(to left, transparent, #0a0a0a, #8300fe);
+}
+
+/* Hide login overlay content ("New Here?") */
+.show-register #switch-content-login {
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: 0ms;
+}
+
+/* Show register overlay content ("One of Us?") */
+.show-register #switch-content-register {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 200ms;
+}
+
+/* Ensure particles div is behind everything */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* Behind content */
+}

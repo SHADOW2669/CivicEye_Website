@@ -1,434 +1,735 @@
+       /* ================================
+           Base Reset & Body Styling
+        ================================== */
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
 
-/* ================================
-   Base Reset & Body Styling
-================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+       html {
+           scroll-behavior: smooth;
+       }
 
-html {
-    scroll-behavior: smooth;
-}
+       body {
+           font-family: 'IBM Plex Sans', sans-serif;
+           background-color: #000;
+           color: #fff;
+           line-height: 1.6;
+           overflow-x: hidden;
+           display: flex;
+           flex-direction: column;
+           min-height: 100vh;
+           position: relative;
+           /* Needed for particles z-index */
+       }
 
-body {
-    font-family: 'IBM Plex Sans', sans-serif;
-    background-color: #000;
-    color: #fff;
-    line-height: 1.6;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative; /* Needed for particles z-index */
-}
+       main {
+           flex: 1;
+           /* Allows main content to grow and push footer down */
+           padding-top: 80px;
+           /* Add padding for fixed navbar height */
+       }
 
-main {
-    flex: 1; /* Allows main content to grow and push footer down */
-    padding-top: 80px; /* Add padding for fixed navbar height */
-}
+       /* ================================
+           Particles Background
+        ================================== */
+       #particles-js {
+           position: fixed;
+           width: 100%;
+           height: 100%;
+           top: 0;
+           left: 0;
+           z-index: -1;
+           /* Position behind all content */
+           background-color: #000;
+       }
 
-/* ================================
-   Particles Background
-================================== */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Position behind all content */
-    background-color: #000;
-}
+       /* =============================
+           Navbar Styling
+        ============================= */
+       /* Navbar styles remain the same */
+       .navbar {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: auto;
+           /* Auto height for responsiveness */
+           display: flex;
+           flex-direction: column;
+           /* Mobile first: Stack items vertically */
+           justify-content: space-between;
+           align-items: center;
+           padding: 1rem 1.5rem;
+           /* Padding using rem */
+           background: rgba(0, 0, 0, 0.4);
+           /* Slightly darker transparent black */
+           backdrop-filter: blur(10px);
+           z-index: 50;
+           /* Ensure navbar is above sticky elements */
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+       }
 
-/* ================================
-   Navbar Styling (Consistent with Landing Page)
-================================== */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto; /* Auto height for responsiveness */
-    display: flex;
-    flex-direction: column; /* Mobile first: Stack items vertically */
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem; /* Padding using rem */
-    background: rgba(0, 0, 0, 0.4); /* Transparent black */
-    backdrop-filter: blur(10px);
-    z-index: 100; /* High z-index */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+       .navbar-logo img {
+           height: 40px;
+           /* Logo height for mobile */
+           transition: transform 0.3s ease;
+       }
 
-.navbar-logo img {
-    height: 40px; /* Logo height for mobile */
-    transition: transform 0.3s ease;
-}
+       .navbar-logo img:hover {
+           transform: scale(1.1);
+       }
 
-.navbar-logo img:hover {
-    transform: scale(1.1);
-}
+       .navbar-links {
+           display: flex;
+           flex-direction: column;
+           /* Mobile first: Stack links */
+           align-items: center;
+           margin-top: 1rem;
+           /* Space between logo and links on mobile */
+           width: 100%;
+           /* Take full width for centering */
+       }
 
-.navbar-links {
-    display: flex;
-    flex-direction: column; /* Mobile first: Stack links */
-    align-items: center;
-    margin-top: 1rem; /* Space between logo and links on mobile */
-    width: 100%; /* Take full width for centering */
-}
+       .navbar-links a {
+           color: white;
+           text-decoration: none;
+           font-weight: 500;
+           /* Medium weight */
+           font-family: 'Roboto Mono', monospace;
+           padding: 0.5rem 0.75rem;
+           /* Padding for links */
+           transition: color 0.3s, text-shadow 0.3s;
+           text-align: center;
+           width: 100%;
+           /* Make links take width for centering */
+       }
 
-.navbar-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500; /* Medium weight */
-    font-family: 'Roboto Mono', monospace;
-    padding: 0.5rem 0.75rem; /* Padding for links */
-    transition: color 0.3s, text-shadow 0.3s;
-    text-align: center;
-    width: 100%; /* Make links take width for centering */
-}
+       .navbar-links a:hover {
+           color: #8300fe;
+           /* Original purple hover */
+           text-shadow: 0 0 8px #8300fe;
+       }
 
-.navbar-links a:hover {
-    color: #8300fe; /* Original purple hover */
-    text-shadow: 0 0 8px #8300fe;
-}
+       .navbar-links .login-btn-link {
+           margin-top: 0.5rem;
+           /* Space before button on mobile */
+           width: auto;
+           /* Button width auto */
+       }
 
-.navbar-links .login-btn-link {
-    margin-top: 0.5rem; /* Space before button on mobile */
-    width: auto; /* Button width auto */
-}
+       .login-btn {
+           display: inline-block;
+           color: white;
+           background: transparent;
+           border: 2px solid #8300fe;
+           padding: 0.6rem 1.2rem;
+           /* Adjusted padding */
+           border-radius: 6px;
+           /* Slightly more rounded */
+           cursor: pointer;
+           font-size: 14px;
+           font-weight: bold;
+           font-family: 'Orbitron', sans-serif;
+           /* Original button font */
+           transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+           text-align: center;
+       }
 
-.login-btn {
-    display: inline-block;
-    color: white;
-    background: transparent;
-    border: 2px solid #8300fe;
-    padding: 0.6rem 1.2rem; /* Adjusted padding */
-    border-radius: 6px; /* Slightly more rounded */
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: 'Orbitron', sans-serif; /* Original button font */
-    transition: background 0.3s, box-shadow 0.3s, color 0.3s;
-    text-align: center;
-}
-
-.login-btn:hover {
-    background: #8300fe;
-    box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
-    color: white;
-}
-
-/* ================================
-   Hero Header Styling
-================================== */
-header.hero {
-    width: 100%;
-    padding: 60px 20px 40px; /* Adjusted padding */
-    text-align: center;
-    /* background: rgba(0, 0, 0, 0.5); No extra background needed if body is black */
-    /* backdrop-filter: blur(5px); Optional: add blur if desired */
-    position: relative;
-    z-index: 1; /* Above particles */
-}
-
-header.hero h1 {
-    font-size: 2.5em; /* Adjusted size */
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-weight: bold; /* Ensure bold */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* White glow */
-}
-
-header.hero p.info { /* Specific selector */
-    font-size: 1.1em; /* Adjusted size */
-    font-family: 'Roboto Mono', monospace;
-    color: #d1d5db; /* Consistent gray */
-    max-width: 800px; /* Limit width */
-    margin: 0 auto;
-    line-height: 1.7;
-    font-weight: bold; /* Make paragraph bold */
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7); /* Softer white glow */
-}
-
-/* ================================
-   Team Section Styling
-================================== */
-.team-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem; /* Consistent gap */
-    padding: 40px 20px 60px;
-    position: relative; /* Ensure it's above particles */
-    z-index: 1;
-}
-
-.team-card {
-    background: rgba(10, 10, 10, 0.6); /* Dark transparent background */
-    border: 1px solid #8300fe; /* Keep purple border */
-    border-radius: 12px; /* Consistent rounding */
-    padding: 1.5rem; /* Consistent padding */
-    max-width: 550px; /* Adjusted max-width */
-    width: 100%;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column; /* Mobile first: stack vertically */
-    align-items: center; /* Center items on mobile */
-    gap: 1.5rem; /* Gap between image and content */
-    overflow: hidden;
-    backdrop-filter: blur(5px); /* Optional blur */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.team-card:hover {
-    transform: translateY(-5px) scale(1.02); /* Add scale effect */
-    box-shadow: 0 0 20px rgba(131, 0, 254, 0.7); /* Enhanced purple shadow */
-}
-
-.team-card img.avatar { /* Specific class for avatar */
-    width: 100px; /* Adjusted size */
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%; /* Circular avatar */
-    border: 2px solid #8300fe;
-    background-color: #222; /* Fallback bg */
-}
-
-.team-card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    width: 100%; /* Take full width */
-    text-align: center; /* Center text on mobile */
-}
-
-.team-card h3 {
-    font-size: 1.5rem; /* Larger name */
-    margin-bottom: 0.25rem;
-    font-family: 'Orbitron', sans-serif;
-    color: #ff6600; /* Keep orange accent */
-}
-
-.team-card p.role { /* Class for role */
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1rem; /* Larger role text */
-    color: #a855f7; /* Purple color for role */
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.team-card p.description { /* Class for description */
-    font-family: 'IBM Plex Sans', sans-serif; /* Main font */
-    font-size: 0.95rem;
-    color: #ccc;
-    margin-bottom: 1rem; /* Space before social links */
-}
-
-.team-card .social-links { /* Specific class */
-    display: flex;
-    justify-content: center; /* Center icons */
-    gap: 1rem; /* Space icons */
-    margin-top: auto; /* Push to bottom if needed */
-}
-
-.team-card .social-links a img { /* Style for Lucide icons */
-    width: 20px;
-    height: 20px;
-    filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(190deg) brightness(95%) contrast(90%); /* Approx gray-300 */
-    transition: filter 0.3s ease;
-}
-
-.team-card .social-links a:hover img {
-    filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%); /* Approx purple-600 */
-}
-
-/* ================================
-   Footer Styling (Consistent with Landing Page)
-================================== */
-footer {
-    background-color: #000; /* Solid black background */
-    color: #d1d5db; /* Tailwind gray-300 */
-    padding: 3rem 1rem; /* Padding */
-    position: relative;
-    z-index: 10; /* Ensure footer is above particles */
-    font-size: 0.9rem;
-    border-top: 1px solid #333; /* Add subtle top border */
-    margin-top: auto; /* Pushes footer to bottom */
-}
-
-.footer-container {
-    max-width: 1280px; /* Equivalent to max-w-7xl */
-    margin: 0 auto;
-}
-
-.footer-top {
-    display: flex;
-    flex-direction: column; /* Mobile first */
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #4b5563; /* Tailwind gray-700 */
-    text-align: center;
-}
-
-.footer-logo img {
-    height: 40px;
-}
-
-.footer-description {
-    max-width: 400px;
-    color: #9ca3af; /* Tailwind gray-400 */
-    font-size: 0.85rem;
-}
-
-.footer-social {
-    display: flex;
-    gap: 1rem;
-}
-
-.footer-social a img { /* Style for Lucide icons */
-     width: 20px;
-     height: 20px;
-     filter: invert(75%) sepia(8%) saturate(886%) hue-rotate(191deg) brightness(90%) contrast(86%); /* Approx gray-400 */
-     transition: filter 0.3s ease;
-}
- .footer-social a:hover img {
-     filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%); /* Approx purple-600 */
- }
+       .login-btn:hover {
+           background: #8300fe;
+           box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
+           color: white;
+       }
 
 
-.footer-links-section {
-    display: grid;
-    grid-template-columns: 1fr; /* Mobile: 1 column */
-    gap: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
+       /* ================================
+           Hero Header Styling
+        ================================== */
+       header.hero {
+           width: 100%;
+           padding: 60px 20px 40px;
+           /* Adjusted padding */
+           text-align: center;
+           position: relative;
+           z-index: 1;
+           /* Above particles */
+       }
 
-.footer-links-column h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 0.75rem;
-}
+       header.hero h1 {
+           font-size: 2.5em;
+           /* Adjusted size */
+           font-family: 'Orbitron', sans-serif;
+           color: #ffffff;
+           margin-bottom: 15px;
+           font-weight: bold;
+           /* Ensure bold */
+           text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+           /* White glow */
+       }
 
-.footer-links-column nav a,
-.footer-links-column p {
-    display: block;
-    color: #9ca3af; /* Tailwind gray-400 */
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
+       header.hero p.info {
+           /* Specific selector */
+           font-size: 1.1em;
+           /* Adjusted size */
+           font-family: 'Roboto Mono', monospace;
+           color: #d1d5db;
+           /* Consistent gray */
+           max-width: 800px;
+           /* Limit width */
+           margin: 0 auto;
+           line-height: 1.7;
+           font-weight: bold;
+           /* Make paragraph bold */
+           text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+           /* Softer white glow */
+       }
 
-.footer-links-column nav a:hover {
-    color: #8300fe; /* Original purple hover */
-}
+       /* ================================
+           Team Section Styling
+        ================================== */
+       .team-section {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: center;
+           gap: 2rem;
+           /* Consistent gap */
+           padding: 40px 20px 60px;
+           position: relative;
+           /* Ensure it's above particles */
+           z-index: 1;
+       }
 
-.footer-bottom {
-    display: flex;
-    flex-direction: column; /* Mobile first */
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 2rem;
-    border-top: 1px solid #4b5563; /* Tailwind gray-700 */
-    font-size: 0.8rem;
-    color: #6b7280; /* Tailwind gray-500 */
-    text-align: center;
-}
+       .team-card {
+           background: rgba(10, 10, 10, 0.6);
+           /* Dark transparent background */
+           border: 1px solid #8300fe;
+           /* Keep purple border */
+           border-radius: 12px;
+           /* Consistent rounding */
+           padding: 1.5rem;
+           /* Consistent padding */
+           max-width: 550px;
+           /* Adjusted max-width */
+           width: 100%;
+           transition: transform 0.3s, box-shadow 0.3s;
+           display: flex;
+           flex-direction: column;
+           /* Mobile: stack avatar/social and text */
+           align-items: center;
+           /* Center items on mobile */
+           gap: 1.5rem;
+           /* Gap between avatar/social column and text column on desktop */
+           overflow: hidden;
+           backdrop-filter: blur(5px);
+           /* Optional blur */
+           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+       }
 
-.footer-bottom-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.5rem; /* Space on mobile */
-}
+       .team-card:hover {
+           transform: translateY(-5px) scale(1.02);
+           /* Add scale effect */
+           box-shadow: 0 0 20px rgba(131, 0, 254, 0.7);
+           /* Enhanced purple shadow */
+       }
 
-.footer-bottom-links a {
-    color: #6b7280; /* Tailwind gray-500 */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+       /* Column for Avatar and Social Links */
+       .avatar-social-column {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           gap: 1rem;
+           /* Space between avatar and links */
+           width: 100%;
+           /* Full width on mobile */
+           flex-shrink: 0;
+           /* Prevent shrinking on desktop */
+       }
 
-.footer-bottom-links a:hover {
-    color: #8300fe; /* Original purple hover */
-}
+       .avatar-social-column img.avatar {
+           /* Specific class for avatar */
+           width: 100px;
+           /* Adjusted size */
+           height: 100px;
+           object-fit: cover;
+           border-radius: 50%;
+           /* Circular avatar */
+           border: 2px solid #8300fe;
+           background-color: #222;
+           /* Fallback bg */
+       }
+
+       /* Styling for Connect Links / Social Icons (Lucide) - Moved under Avatar */
+       .connect-links {
+           display: flex;
+           justify-content: center;
+           /* Center icons */
+           gap: 1rem;
+           /* Space icons */
+       }
+
+       .connect-links a img {
+           height: 20px;
+           /* Consistent icon size */
+           width: 20px;
+           vertical-align: middle;
+           /* Align icons nicely */
+           filter: invert(75%) sepia(8%) saturate(886%) hue-rotate(191deg) brightness(90%) contrast(86%);
+           /* Approx gray-400 */
+           transition: filter 0.3s ease;
+       }
+
+       .connect-links a:hover img {
+           filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%);
+           /* Approx purple-600 */
+       }
 
 
-/* ================================
-   Responsive Media Queries
-================================== */
+       /* Column for Text Content */
+       .text-content-column {
+           /* Was .team-card-content */
+           display: flex;
+           flex-direction: column;
+           justify-content: flex-start;
+           /* Align text to top */
+           align-items: center;
+           /* Center text on mobile */
+           flex: 1;
+           /* Allow content to take available space */
+           width: 100%;
+           /* Take full width on mobile */
+           text-align: center;
+           /* Center text on mobile */
+       }
 
-/* Medium screens (tablets, small laptops) */
-@media screen and (min-width: 768px) {
-    .navbar {
-        flex-direction: row; /* Align items horizontally */
-        height: 80px; /* Fixed height */
-        padding: 0 2.5rem; /* Horizontal padding */
-    }
+       .text-content-column h3 {
+           font-size: 1.5rem;
+           /* Larger name */
+           margin-bottom: 0.25rem;
+           font-family: 'Orbitron', sans-serif;
+           color: #ff6600;
+           /* Keep orange accent */
+       }
 
-    .navbar-logo img {
-         height: 50px; /* Larger logo */
-    }
+       .text-content-column p.role {
+           /* Class for role */
+           font-family: 'Roboto Mono', monospace;
+           font-size: 1rem;
+           /* Larger role text */
+           color: #a855f7;
+           /* Purple color for role */
+           margin-bottom: 0.5rem;
+           font-weight: bold;
+       }
 
-    .navbar-links {
-        flex-direction: row; /* Align links horizontally */
-        align-items: center;
-        margin-top: 0; /* Reset margin */
-        width: auto; /* Auto width */
-        gap: 1rem; /* Space between links */
-    }
-     .navbar-links a {
-         width: auto; /* Auto width for links */
-     }
-     .navbar-links .login-btn-link {
-         margin-top: 0;
-         margin-left: 1rem; /* Space before button */
-     }
+       .text-content-column p.description {
+           /* Class for description */
+           font-family: 'IBM Plex Sans', sans-serif;
+           /* Main font */
+           font-size: 0.95rem;
+           color: #ccc;
+           margin-bottom: 1rem;
+           /* Space before skills/links */
+       }
 
-    header.hero h1 { font-size: 3em; }
-    header.hero p.info { font-size: 1.2em; }
+       /* Styling for Skills Section */
+       .skills-section {
+           width: 100%;
+           /* Take full width */
+           margin-top: 0.5rem;
+           /* Space above skills */
+           margin-bottom: 1rem;
+           /* Space below skills */
+       }
 
-    .team-card {
-        flex-direction: row; /* Side-by-side layout */
-        align-items: center;
-        text-align: left; /* Align text left */
-        gap: 2rem; /* Increase gap */
-    }
-    .team-card img.avatar {
-        width: 120px; /* Larger avatar */
-        height: 120px;
-    }
-    .team-card-content {
-        align-items: flex-start; /* Align content left */
-        text-align: left;
-    }
-     .team-card .social-links {
-         justify-content: flex-start; /* Align icons left */
-     }
+       .skills-section h6 {
+           font-family: 'Roboto Mono', monospace;
+           font-size: 0.85rem;
+           color: #aaa;
+           margin-bottom: 0.5rem;
+           text-transform: uppercase;
+           letter-spacing: 0.5px;
+       }
 
-    /* Footer layout adjustments */
-    .footer-top { flex-direction: row; justify-content: space-between; align-items: flex-start; text-align: left; }
-    .footer-logo { order: 1; }
-    .footer-description { order: 2; text-align: left; margin: 0; }
-    .footer-social { order: 3; justify-content: flex-end; }
-    .footer-links-section { grid-template-columns: repeat(4, 1fr); text-align: left; }
-    .footer-bottom { flex-direction: row; text-align: left; }
-    .footer-bottom-links { margin-top: 0; }
-}
+       .skills-icons {
+           display: flex;
+           flex-wrap: wrap;
+           justify-content: center;
+           /* Center icons */
+           gap: 0.75rem;
+           /* Space icons */
+           align-items: center;
+       }
 
-/* Large screens (desktops) */
-@media screen and (min-width: 1024px) {
-    .navbar { padding: 0 4rem; }
-    .navbar-links { gap: 1.5rem; }
-    header.hero h1 { font-size: 3.5em; }
-    header.hero p.info { font-size: 1.3em; }
-    .team-card { max-width: 600px; } /* Allow slightly wider cards */
-}
+       .skills-icons img {
+           height: 24px;
+           /* Icon height */
+           vertical-align: middle;
+           filter: none;
+           opacity: 0.9;
+           transition: opacity 0.2s ease-in-out;
+       }
+
+       .skills-icons img:hover {
+           opacity: 1;
+       }
+
+       /* Styling for Repos Section */
+       .repos-section {
+           width: 100%;
+           margin-top: 1rem;
+           padding-top: 1rem;
+           border-top: 1px solid #444;
+           /* Separator line */
+       }
+
+       .repos-section h6 {
+           font-family: 'Roboto Mono', monospace;
+           font-size: 0.85rem;
+           color: #aaa;
+           margin-bottom: 0.75rem;
+           text-transform: uppercase;
+           letter-spacing: 0.5px;
+       }
+
+       .repo-links {
+           display: flex;
+           flex-direction: column;
+           /* Stack repo cards */
+           align-items: center;
+           /* Center cards on mobile */
+           gap: 0.75rem;
+           /* Space between repo cards */
+       }
+
+       .repo-links a {
+           display: block;
+           /* Make link a block for image */
+           max-width: 100%;
+           /* Prevent overflow */
+       }
+
+       .repo-links img {
+           max-width: 100%;
+           /* Ensure image scales down */
+           height: auto;
+           border-radius: 6px;
+           /* Optional rounding */
+           opacity: 0.9;
+           transition: opacity 0.2s ease-in-out;
+       }
+
+       .repo-links a:hover img {
+           opacity: 1;
+       }
+
+
+       /* ================================
+           Footer Styling (Consistent with Landing Page)
+        ================================== */
+       footer {
+           background-color: #000;
+           /* Solid black background */
+           color: #d1d5db;
+           /* Tailwind gray-300 */
+           padding: 3rem 1rem;
+           /* Padding */
+           position: relative;
+           z-index: 10;
+           /* Ensure footer is above particles */
+           font-size: 0.9rem;
+           border-top: 1px solid #333;
+           /* Add subtle top border */
+           margin-top: auto;
+           /* Pushes footer to bottom */
+       }
+
+       .footer-container {
+           max-width: 1280px;
+           /* Equivalent to max-w-7xl */
+           margin: 0 auto;
+       }
+
+       .footer-top {
+           display: flex;
+           flex-direction: column;
+           /* Mobile first */
+           align-items: center;
+           gap: 1.5rem;
+           margin-bottom: 2rem;
+           padding-bottom: 2rem;
+           border-bottom: 1px solid #4b5563;
+           /* Tailwind gray-700 */
+           text-align: center;
+       }
+
+       .footer-logo img {
+           height: 40px;
+       }
+
+       .footer-description {
+           max-width: 400px;
+           color: #9ca3af;
+           /* Tailwind gray-400 */
+           font-size: 0.85rem;
+       }
+
+       .footer-social {
+           display: flex;
+           gap: 1rem;
+       }
+
+       .footer-social a img {
+           /* Style for Lucide icons */
+           width: 20px;
+           height: 20px;
+           filter: invert(75%) sepia(8%) saturate(886%) hue-rotate(191deg) brightness(90%) contrast(86%);
+           /* Approx gray-400 */
+           transition: filter 0.3s ease;
+       }
+
+       .footer-social a:hover img {
+           filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%);
+           /* Approx purple-600 */
+       }
+
+
+       .footer-links-section {
+           display: grid;
+           grid-template-columns: 1fr;
+           /* Mobile: 1 column */
+           gap: 2rem;
+           margin-bottom: 2rem;
+           text-align: center;
+       }
+
+       .footer-links-column h3 {
+           font-size: 1.1rem;
+           font-weight: 600;
+           color: #fff;
+           margin-bottom: 0.75rem;
+       }
+
+       .footer-links-column nav a,
+       .footer-links-column p {
+           display: block;
+           color: #9ca3af;
+           /* Tailwind gray-400 */
+           text-decoration: none;
+           margin-bottom: 0.5rem;
+           font-size: 0.9rem;
+           transition: color 0.3s ease;
+       }
+
+       .footer-links-column nav a:hover {
+           color: #8300fe;
+           /* Original purple hover */
+       }
+
+       .footer-bottom {
+           display: flex;
+           flex-direction: column;
+           /* Mobile first */
+           justify-content: space-between;
+           align-items: center;
+           padding-top: 2rem;
+           border-top: 1px solid #4b5563;
+           /* Tailwind gray-700 */
+           font-size: 0.8rem;
+           color: #6b7280;
+           /* Tailwind gray-500 */
+           text-align: center;
+       }
+
+       .footer-bottom-links {
+           display: flex;
+           gap: 1rem;
+           margin-top: 0.5rem;
+           /* Space on mobile */
+       }
+
+       .footer-bottom-links a {
+           color: #6b7280;
+           /* Tailwind gray-500 */
+           text-decoration: none;
+           transition: color 0.3s ease;
+       }
+
+       .footer-bottom-links a:hover {
+           color: #8300fe;
+           /* Original purple hover */
+       }
+
+
+       /* ================================
+           Responsive Media Queries
+        ================================== */
+
+       /* Medium screens (tablets, small laptops) */
+       @media screen and (min-width: 768px) {
+           .navbar {
+               flex-direction: row;
+               /* Align items horizontally */
+               height: 80px;
+               /* Fixed height */
+               padding: 0 2.5rem;
+               /* Horizontal padding */
+           }
+
+           .navbar-logo img {
+               height: 50px;
+               /* Larger logo */
+           }
+
+           .navbar-links {
+               flex-direction: row;
+               /* Align links horizontally */
+               align-items: center;
+               margin-top: 0;
+               /* Reset margin */
+               width: auto;
+               /* Auto width */
+               gap: 1rem;
+               /* Space between links */
+           }
+
+           .navbar-links a {
+               width: auto;
+               /* Auto width for links */
+           }
+
+           .navbar-links .login-btn-link {
+               margin-top: 0;
+               margin-left: 1rem;
+               /* Space before button */
+           }
+
+           header.hero h1 {
+               font-size: 3em;
+           }
+
+           header.hero p.info {
+               font-size: 1.2em;
+           }
+
+           .team-card {
+               flex-direction: row;
+               /* Side-by-side layout */
+               align-items: flex-start;
+               /* Align columns to top */
+               text-align: left;
+               /* Align text left */
+               gap: 2rem;
+               /* Increase gap */
+           }
+
+           .avatar-social-column {
+               width: auto;
+               /* Allow shrinking based on content */
+               flex-basis: 130px;
+               /* Give it a base width */
+               align-items: center;
+               /* Center avatar/links within column */
+           }
+
+           .avatar-social-column img.avatar {
+               width: 120px;
+               /* Larger avatar */
+               height: 120px;
+           }
+
+           .text-content-column {
+               align-items: flex-start;
+               /* Align content left */
+               text-align: left;
+               width: auto;
+               /* Reset width */
+           }
+
+           .skills-section h6 {
+               text-align: left;
+           }
+
+           .skills-icons {
+               justify-content: flex-start;
+               /* Align icons left */
+           }
+
+           .repos-section h6 {
+               text-align: left;
+           }
+
+           .repo-links {
+               align-items: flex-start;
+               /* Align repo cards left */
+           }
+
+           .connect-links {
+               justify-content: center;
+               /* Keep social links centered under avatar */
+           }
+
+
+           /* Footer layout adjustments */
+           .footer-top {
+               flex-direction: row;
+               justify-content: space-between;
+               align-items: flex-start;
+               text-align: left;
+           }
+
+           .footer-logo {
+               order: 1;
+           }
+
+           .footer-description {
+               order: 2;
+               text-align: left;
+               margin: 0;
+           }
+
+           .footer-social {
+               order: 3;
+               justify-content: flex-end;
+           }
+
+           .footer-links-section {
+               grid-template-columns: repeat(4, 1fr);
+               text-align: left;
+           }
+
+           .footer-bottom {
+               flex-direction: row;
+               text-align: left;
+           }
+
+           .footer-bottom-links {
+               margin-top: 0;
+           }
+       }
+
+       /* Large screens (desktops) */
+       @media screen and (min-width: 1024px) {
+           .navbar {
+               padding: 0 4rem;
+           }
+
+           .navbar-links {
+               gap: 1.5rem;
+           }
+
+           header.hero h1 {
+               font-size: 3.5em;
+           }
+
+           header.hero p.info {
+               font-size: 1.3em;
+           }
+
+           .team-card {
+               max-width: 600px;
+           }
+
+           /* Allow slightly wider cards */
+       }
