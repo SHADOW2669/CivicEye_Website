@@ -7,31 +7,17 @@
             box-sizing: border-box;
         }
 
-
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
         html {
             scroll-behavior: smooth;
-            /* Smooth scrolling for anchor links */
+            scroll-padding-top: 80px; /* Offset for fixed navbar */
         }
 
         body {
             font-family: 'IBM Plex Sans', sans-serif;
             background-color: #000;
-            /* Base background is black */
             color: #fff;
             line-height: 1.6;
-            overflow-x: hidden;
-            /* Prevent horizontal scroll */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         /* =============================
@@ -43,610 +29,351 @@
             height: 100%;
             top: 0;
             left: 0;
-            z-index: -1;
-            /* Behind other content */
+            z-index: -1; /* Behind everything */
             background-color: #000;
         }
 
         /* =============================
-           Navbar Styling
+           Navbar Styling (Original Dark Theme)
         ============================= */
-        /* Navbar styles remain the same */
         .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-            /* Auto height for responsiveness */
-            display: flex;
-            flex-direction: column;
-            /* Mobile first: Stack items vertically */
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            /* Padding using rem */
-            background: rgba(0, 0, 0, 0.4);
-            /* Slightly darker transparent black */
-            backdrop-filter: blur(10px);
-            z-index: 50;
-            /* Ensure navbar is above sticky elements */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: fixed; top: 0; left: 0; width: 100%; height: auto; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            z-index: 100; /* Above other content */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            border-bottom: 1px solid #333; /* Dark border */
         }
-
-        .navbar-logo img {
-            height: 40px;
-            /* Logo height for mobile */
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-logo img:hover {
-            transform: scale(1.1);
-        }
-
-        .navbar-links {
-            display: flex;
-            flex-direction: column;
-            /* Mobile first: Stack links */
-            align-items: center;
-            margin-top: 1rem;
-            /* Space between logo and links on mobile */
-            width: 100%;
-            /* Take full width for centering */
-        }
-
-        .navbar-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            /* Medium weight */
-            font-family: 'Roboto Mono', monospace;
-            padding: 0.5rem 0.75rem;
-            /* Padding for links */
-            transition: color 0.3s, text-shadow 0.3s;
-            text-align: center;
-            width: 100%;
-            /* Make links take width for centering */
-        }
-
-        .navbar-links a:hover {
-            color: #8300fe;
-            /* Original purple hover */
-            text-shadow: 0 0 8px #8300fe;
-        }
-
-        .navbar-links .login-btn-link {
-            margin-top: 0.5rem;
-            /* Space before button on mobile */
-            width: auto;
-            /* Button width auto */
-        }
-
-        .login-btn {
-            display: inline-block;
-            color: white;
-            background: transparent;
-            border: 2px solid #8300fe;
-            padding: 0.6rem 1.2rem;
-            /* Adjusted padding */
-            border-radius: 6px;
-            /* Slightly more rounded */
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            font-family: 'Orbitron', sans-serif;
-            /* Original button font */
-            transition: background 0.3s, box-shadow 0.3s, color 0.3s;
-            text-align: center;
-        }
-
-        .login-btn:hover {
-            background: #8300fe;
-            box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe;
-            color: white;
-        }
-
+        .navbar-logo img { height: 40px; transition: transform 0.3s ease; }
+        .navbar-logo img:hover { transform: scale(1.1); } /* Slight zoom on hover */
+        .navbar-links { display: flex; flex-direction: column; align-items: center; margin-top: 1rem; width: 100%; }
+        .navbar-links a { color: white; text-decoration: none; font-weight: 500; font-family: 'Roboto Mono', monospace; padding: 0.5rem 0.75rem; transition: color 0.3s, text-shadow 0.3s; text-align: center; width: 100%; }
+        .navbar-links a:hover { color: #8300fe; text-shadow: 0 0 8px #8300fe; } /* Purple glow on hover */
+        .navbar-links .login-btn-link { margin-top: 0.5rem; width: auto; }
+        .login-btn { display: inline-block; color: white; background: transparent; border: 2px solid #8300fe; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; font-family: 'Orbitron', sans-serif; transition: background 0.3s, box-shadow 0.3s, color 0.3s, transform 0.3s; text-align: center; }
+        .login-btn:hover { background: #8300fe; box-shadow: 0 0 10px #8300fe, 0 0 15px #8300fe; color: white; transform: scale(1.05); } /* Enhanced hover effect */
 
         /* =============================
-           Hero Section
+           Main Content Area
+        ============================= */
+         main {
+             padding-top: 80px; /* Space for fixed navbar */
+             position: relative;
+             z-index: 10; /* Above particles, below navbar */
+         }
+
+        /* =============================
+           Hero Section Styling (Enhanced V3 - Hook Removed)
         ============================= */
         .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 150px 20px 100px;
-            /* Top padding accounts for fixed navbar */
-            position: relative;
-            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 100vh; /* At least full viewport height */
+            text-align: center; padding: 60px 1.5rem; position: relative; overflow: hidden;
+        }
+        .hero-content {
+            margin-bottom: 2rem; z-index: 5; width: 100%; max-width: 650px;
+            display: flex; flex-direction: column; align-items: center; /* Center content on mobile */
+        }
+
+        .tagline { /* Style for tagline above H1 */
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.8rem; /* Smaller */
+            color: #a0a0a0;
+            letter-spacing: 1.5px; /* Wider spacing */
+            margin-bottom: 0.75rem; /* More space below */
+            text-transform: uppercase;
+            opacity: 0.7; /* Slightly faded */
         }
 
         .hero h1 {
-            font-size: 3rem;
-            /* Responsive font size base */
-            margin: 20px 0 10px;
-            font-family: 'Orbitron', sans-serif;
-            /* Original heading font */
-            color: #fff;
-            font-weight: bold;
-            /* Ensure bold */
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-            /* White glow */
+            font-size: 3rem; margin: 0 0 1rem 0; font-family: 'Orbitron', sans-serif; color: #fff; font-weight: bold;
+            /* Initial glow + animation */
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 12px rgba(139, 0, 254, 0.4); /* Adjusted base glow */
+            animation: pulseGlow 4s infinite ease-in-out; /* Apply pulse animation */
         }
+         @keyframes pulseGlow { /* H1 Glow Animation */
+             0%, 100% { text-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 12px rgba(139, 0, 254, 0.4); }
+             50% { text-shadow: 0 0 14px rgba(255, 255, 255, 0.9), 0 0 22px rgba(139, 0, 254, 0.6); } /* Brighter glow */
+         }
 
-        .hero h2 {
-            font-size: 1.5rem;
-            /* Responsive font size base */
-            color: #a855f7;
-            /* Tailwind purple-500 equivalent */
-            margin-bottom: 1rem;
-            font-weight: bold;
-            /* Ensure bold */
-            text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-            /* White glow */
+        .hero h2 { /* H2 for typewriter */
+            font-size: 1.5rem; color: #a855f7; margin-bottom: 1.5rem; /* Increased margin-bottom */ font-weight: bold;
+            text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+            display: inline-block; /* Needed for cursor */
+            position: relative;
+            min-height: 1.6em; /* Reserve space for text */
         }
+        /* Typewriter Cursor */
+        #typewriter { display: inline; } /* Ensure span is inline */
+        #typewriter::after {
+            content: '|';
+            display: inline-block;
+            animation: blinkCursor 0.7s infinite;
+            color: #a855f7;
+            margin-left: 3px;
+            position: relative; /* Adjust cursor position if needed */
+            top: -1px;
+        }
+         @keyframes blinkCursor {
+             0%, 100% { opacity: 1; }
+             50% { opacity: 0; }
+         }
+
+        /* REMOVED .hero .hook styling as the element is gone */
 
         .hero .info {
-            font-size: 1rem;
-            /* Responsive font size base */
-            font-family: 'Roboto Mono', monospace;
-            /* Original info font */
-            color: #d1d5db;
-            /* Tailwind gray-300 */
-            margin-top: 1rem;
-            max-width: 800px;
-            /* Limit width */
-            line-height: 1.7;
-            font-weight: bold;
-            /* Make paragraph bold */
-            text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
-            /* Slightly softer white glow */
+            font-size: 1rem; font-family: 'Roboto Mono', monospace; color: #d1d5db; margin-top: 0;
+            max-width: 55ch; /* Limit width for readability */ line-height: 1.7; text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); margin-bottom: 2rem; /* Consistent spacing */
+            margin-left: auto; margin-right: auto; /* Center paragraph block on mobile */
         }
+        .hero-buttons {
+            display: flex; flex-direction: column; gap: 1rem; align-items: center; width: 100%; max-width: 250px; /* Match button width */ margin-left: auto; margin-right: auto; /* Center button container */
+        }
+        .hero-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.7rem 1.5rem; border-radius: 6px; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: bold; text-decoration: none; transition: all 0.3s ease; cursor: pointer; width: 100%; /* Full width within container */ }
+        .hero-btn img { width: 1em; height: 1em; } /* Icon size relative to font */
+        .hero-btn.primary { background-color: #8300fe; color: white; border: 2px solid #8300fe; }
+        .hero-btn.primary:hover { background-color: #a855f7; border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.6), 0 0 25px rgba(168, 85, 247, 0.4); transform: scale(1.05); } /* Enhanced Hover */
+        .hero-btn.secondary { background-color: transparent; color: #ccc; border: 2px solid #555; }
+        .hero-btn.secondary:hover { border-color: #8300fe; color: #8300fe; box-shadow: 0 0 10px rgba(131, 0, 254, 0.5), 0 0 15px rgba(131, 0, 254, 0.3); transform: scale(1.05); } /* Enhanced Hover */
+        .hero-btn.primary img { filter: invert(1); } /* White icons */
+        .hero-btn.secondary img { filter: invert(0.8); } /* Light gray icons */
+        .hero-btn.secondary:hover img { filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%); } /* Purple on hover */
+
+
+        .hero-visual { width: 100%; max-width: 400px; height: 300px; position: relative; z-index: 1; order: -1; /* Visual above text on mobile */ }
+        #heroCanvas3D { display: block; width: 100%; height: 100%; cursor: crosshair; }
+
+        /* Floating Icons */
+        .floating-icons { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; overflow: hidden; }
+        .floating-icons img {
+            position: absolute;
+            width: 25px; height: 25px;
+            opacity: 0.15; /* Faint */
+            filter: invert(80%) sepia(10%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(90%); /* Light gray/blue tint */
+            animation: float 8s infinite ease-in-out alternate;
+        }
+         /* Position icons around */
+        .floating-icons img:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+        .floating-icons img:nth-child(2) { top: 60%; left: 25%; animation-delay: -3s; }
+        .floating-icons img:nth-child(3) { top: 30%; right: 20%; animation-delay: -6s; }
+         .floating-icons img:nth-child(4) { bottom: 15%; right: 10%; animation-delay: -1s; }
+
+         @keyframes float { /* Floating animation */
+             0% { transform: translateY(0px) rotate(0deg); }
+             50% { transform: translateY(-15px) rotate(5deg); }
+             100% { transform: translateY(0px) rotate(-5deg); }
+         }
+
+         /* Scroll Down Arrow */
+         .scroll-arrow {
+             position: absolute;
+             bottom: 30px;
+             left: 50%;
+             /* transform: translateX(-50%); Corrected in animation */
+             z-index: 10;
+             animation: fadeBounce 2.5s infinite ease-out; /* Slightly slower */
+             cursor: pointer; /* Make it clickable */
+         }
+         .scroll-arrow img {
+             width: 28px; height: 28px; /* Slightly larger */
+             filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%); /* White */
+         }
+          @keyframes fadeBounce { /* Arrow bounce animation */
+              0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6;} /* Start/end slightly visible */
+              40% { transform: translateX(-50%) translateY(-12px); opacity: 1;} /* Higher bounce */
+              60% { transform: translateX(-50%) translateY(-6px); opacity: 1;}
+          }
+
 
         /* =============================
-           Prepare Section (Separator)
+           Content Section Styling (Frameless Layout)
         ============================= */
-        /* Prepare styles remain the same */
-        .prepare {
-            text-align: center;
-            padding: 4rem 1rem;
-            /* Padding */
-            position: relative;
-            z-index: 10;
-        }
-
-        .prepare h2 {
-            font-size: 2rem;
-            /* Responsive font size */
-            color: #9c27b0;
-            /* Original purple color */
-            font-family: 'Orbitron', sans-serif;
-            /* Original font */
-            font-weight: bold;
-        }
+        .content-section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; position: relative; z-index: 5; }
+        .section-heading { text-align: center; margin-bottom: 3rem; }
+        .section-heading h2 { font-family: 'Orbitron', sans-serif; font-size: 2.2em; color: #a855f7; text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); margin-bottom: 0.5rem; }
+        .section-heading h2.orange-heading { color: #ff6600; text-shadow: 0 0 10px rgba(255, 102, 0, 0.4); }
+        .section-heading p { font-family: 'Roboto Mono', monospace; color: #aaa; font-size: 1rem; max-width: 600px; margin: 0 auto; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .info-card { background: rgba(15, 15, 15, 0.5); border: 1px solid #333; padding: 1.5rem; border-radius: 8px; transition: transform 0.3s ease, background-color 0.3s ease; display: flex; flex-direction: column; gap: 0.75rem; }
+        .info-card:hover { transform: translateY(-5px); background-color: rgba(25, 25, 25, 0.7); }
+        .info-card .icon { line-height: 0; }
+        .info-card .icon img { width: 30px; height: 30px; opacity: 0.9; }
+        .info-card.purple .icon img { filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%);}
+        .info-card.orange .icon img { filter: invert(69%) sepia(63%) saturate(581%) hue-rotate(348deg) brightness(102%) contrast(101%);}
+        .info-card h4 { font-family: 'Roboto Mono', monospace; font-size: 1.1em; color: #eee; margin-bottom: 0.25rem; margin-top: 0; }
+        .info-card.purple h4 { color: #c084fc; }
+        .info-card.orange h4 { color: #fb923c; }
+        .info-card p { font-size: 0.95rem; color: #ccc; }
+        .alternating-section { display: flex; flex-direction: column; align-items: center; gap: 3rem; margin-bottom: 0; padding: 3rem 0; }
+        .alternating-section .section-text { flex: 1; max-width: 600px; text-align: center; }
+        .alternating-section .section-text h3 { font-family: 'Orbitron', sans-serif; font-size: 1.8em; color: #eee; margin-bottom: 1rem; }
+        .alternating-section .section-text p { color: #ccc; margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
+        .alternating-section .section-visual { flex: 1; width: 100%; max-width: 500px; background-color: rgba(255, 255, 255, 0.03); border: 1px solid #444; border-radius: 10px; padding: 1rem; display: flex; align-items: center; justify-content: center; min-height: 250px; }
+        .alternating-section .section-visual img { display: block; max-width: 100%; height: auto; border-radius: 6px; opacity: 0.8; }
+        .alternating-section .section-visual pre { background-color: #111827; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 0; border: 1px solid #4b5563; height: 100%; min-height: 250px; max-height: 400px; overflow-y: auto; width: 100%; }
+        .alternating-section .section-visual code { background-color: transparent; padding: 0; color: #9ca3af; font-size: 0.85em; border: none; font-family: 'Roboto Mono', monospace; }
+        .alternating-section .section-visual .code-keyword { color: #a855f7; }
+        .alternating-section .section-visual .code-string { color: #fb923c; }
+        .alternating-section .section-visual .code-comment { color: #6b7280; font-style: italic; }
+        .alternating-section .section-visual .code-function { color: #7BD3EA; }
+        .requirements-list { list-style: none; padding: 0; max-width: 700px; margin: 1.5rem auto 0 auto; }
+        .requirements-list li { border-bottom: 1px solid #333; padding: 0.8rem 0; font-size: 0.95rem; color: #ccc; display: flex; align-items: center; gap: 0.75rem; }
+        .requirements-list li:last-child { border-bottom: none; }
+        .requirements-list li .icon img { width: 20px; height: 20px; filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%); opacity: 0.8; }
+        .requirements-list strong { color: #fff; font-weight: 600; }
+        .cta-section { text-align: center; padding-top: 2rem; padding-bottom: 0; }
+        .cta-content { max-width: 650px; margin: 0 auto; }
+        .cta-content h2 { color: #fff; font-size: 2em; margin-bottom: 1rem; text-shadow: 0 0 10px rgba(168, 85, 247, 0.6); }
+        .cta-content p { color: #ccc; margin-bottom: 1.5rem; font-size: 1rem; }
+        hr.section-separator { border: none; height: 1px; background: linear-gradient(to right, transparent, #444, transparent); margin: 5rem auto; width: 80%; max-width: 600px; }
 
         /* =============================
-           Main Content Sections (Objectives, Features, Requirements)
+           Footer Styling (Keep Dark Theme)
         ============================= */
-        .main-content {
-            padding-bottom: 50vh;
-            /* Padding for scroll space after last sticky element */
-            position: relative;
-            z-index: 10;
-            /* Ensure content is above particles */
-        }
-
-        .section-container {
-            /* Sticky positioning */
-            position: sticky;
-            /* Adjust top based on estimated mobile navbar height + extra space */
-            top: 150px;
-            /* Increased space below navbar on mobile (130 + 20) */
-
-            /* Existing styles */
-            max-width: 1152px;
-            /* Equivalent to max-w-6xl */
-            /* Increased bottom margin for more space between sections */
-            margin: 0 auto 6rem auto;
-            /* Centered with INCREASED bottom margin */
-            padding: 1.5rem;
-            /* Padding */
-            border: 1px solid #555;
-            /* Adjusted border color for visibility */
-            border-radius: 12px;
-            /* Rounded corners */
-            background: rgba(0, 0, 0, 0.6);
-            /* Slightly increased opacity for readability */
-            backdrop-filter: blur(8px);
-            /* Slightly increased blur */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 15;
-            /* Ensure sticky sections are above normal flow but below navbar */
-        }
-
-        /* Ensure the last section doesn't have the extra large margin */
-        .section-container:last-child {
-            margin-bottom: 3rem;
-            /* Revert to smaller margin for the last item */
-        }
-
-
-        .section-layout {
-            display: flex;
-            flex-direction: column;
-            /* Mobile first */
-            gap: 2rem;
-            /* Space between columns */
-            align-items: flex-start;
-        }
-
-        .section-content {
-            width: 100%;
-            /* Full width on mobile */
-        }
-
-        .section-content h2 {
-            font-size: 1.75rem;
-            /* Heading size */
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #a855f7;
-            /* Tailwind purple-500 */
-        }
-
-        .section-images {
-            width: 100%;
-            /* Full width on mobile */
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            /* Space between images */
-        }
-
-        .section-images img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            /* Rounded images */
-            object-fit: cover;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            aspect-ratio: 16 / 9;
-            /* Maintain aspect ratio */
-            background-color: #333;
-            /* Placeholder background */
-        }
-
-        /* Card Styling (Objectives & Features) */
-        /* Card styles remain the same */
-        .card {
-            background: rgba(20, 20, 20, 0.6);
-            /* Darker transparent background */
-            padding: 1rem 1.25rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            border-left: 5px solid #f97316;
-            /* Tailwind orange-500 */
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            font-size: 0.95rem;
-            /* Slightly smaller text */
-        }
-
-        .card strong {
-            color: #fb923c;
-            /* Tailwind orange-400 */
-            font-weight: 600;
-            /* Semibold */
-            display: block;
-            /* Make strong element block */
-            margin-bottom: 0.25rem;
-            /* Space below strong text */
-        }
-
-        /* =============================
-           Footer Styling
-        ============================= */
-        /* Footer styles remain the same */
-        footer {
-            background-color: #000;
-            /* Solid black background */
-            color: #d1d5db;
-            /* Tailwind gray-300 */
-            padding: 3rem 1rem;
-            /* Padding */
-            position: relative;
-            z-index: 10;
-            /* Ensure footer is above particles */
-            font-size: 0.9rem;
-            border-top: 1px solid #333;
-            /* Add subtle top border */
-        }
-
-        .footer-container {
-            max-width: 1280px;
-            /* Equivalent to max-w-7xl */
-            margin: 0 auto;
-        }
-
-        .footer-top {
-            display: flex;
-            flex-direction: column;
-            /* Mobile first */
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #4b5563;
-            /* Tailwind gray-700 */
-            text-align: center;
-        }
-
-        .footer-logo img {
-            height: 40px;
-        }
-
-        .footer-description {
-            max-width: 400px;
-            color: #9ca3af;
-            /* Tailwind gray-400 */
-            font-size: 0.85rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .footer-social a {
-            color: #9ca3af;
-            /* Tailwind gray-400 */
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: #8300fe;
-            /* Original purple hover */
-        }
-
-        .footer-social img {
-            /* Style for Lucide icons */
-            width: 20px;
-            height: 20px;
-            filter: invert(75%) sepia(8%) saturate(886%) hue-rotate(191deg) brightness(90%) contrast(86%);
-            /* Approx gray-400 */
-            transition: filter 0.3s ease;
-        }
-
-        .footer-social a:hover img {
-            filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%);
-            /* Approx purple-600 */
-        }
-
-
-        .footer-links-section {
-            display: grid;
-            grid-template-columns: 1fr;
-            /* Mobile: 1 column */
-            gap: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .footer-links-column h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links-column nav a,
-        .footer-links-column p {
-            display: block;
-            color: #9ca3af;
-            /* Tailwind gray-400 */
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links-column nav a:hover {
-            color: #8300fe;
-            /* Original purple hover */
-        }
-
-        .footer-bottom {
-            display: flex;
-            flex-direction: column;
-            /* Mobile first */
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 2rem;
-            border-top: 1px solid #4b5563;
-            /* Tailwind gray-700 */
-            font-size: 0.8rem;
-            color: #6b7280;
-            /* Tailwind gray-500 */
-            text-align: center;
-        }
-
-        .footer-bottom-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            /* Space on mobile */
-        }
-
-        .footer-bottom-links a {
-            color: #6b7280;
-            /* Tailwind gray-500 */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-bottom-links a:hover {
-            color: #8300fe;
-            /* Original purple hover */
-        }
+        footer { background-color: #000; color: #d1d5db; padding: 3rem 1rem; position: relative; z-index: 10; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 0; }
+        /* Footer styles omitted for brevity - remain the same */
+         .footer-container { max-width: 1280px; margin: 0 auto; }
+        .footer-top { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #4b5563; text-align: center; }
+        .footer-logo img { height: 40px; }
+        .footer-description { max-width: 400px; color: #9ca3af; font-size: 0.85rem; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a img { width: 20px; height: 20px; filter: invert(75%) sepia(8%) saturate(886%) hue-rotate(191deg) brightness(90%) contrast(86%); transition: filter 0.3s ease; }
+        .footer-social a:hover img { filter: invert(13%) sepia(99%) saturate(6000%) hue-rotate(270deg) brightness(95%) contrast(140%); }
+        .footer-links-section { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; text-align: center; }
+        .footer-links-column h3 { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 0.75rem; }
+        .footer-links-column nav a, .footer-links-column p { display: block; color: #9ca3af; text-decoration: none; margin-bottom: 0.5rem; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-links-column nav a:hover { color: #8300fe; }
+        .footer-bottom { display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid #4b5563; font-size: 0.8rem; color: #6b7280; text-align: center; }
+        .footer-bottom-links { display: flex; gap: 1rem; margin-top: 0.5rem; }
+        .footer-bottom-links a { color: #6b7280; text-decoration: none; transition: color 0.3s ease; }
+        .footer-bottom-links a:hover { color: #8300fe; }
 
 
         /* =============================
            Responsive Design Adjustments
         ============================= */
+        @media screen and (max-width: 767px) { /* Mobile specific adjustments */
+             main { padding-top: 80px;}
+             .navbar { height: auto; }
+             .navbar-links { margin-top: 0.8rem; }
+             .hero { padding: 60px 15px; min-height: 90vh; }
+             .hero h1 { font-size: 2.2rem; }
+             .hero h2 { font-size: 1.2rem; margin-bottom: 1.2rem; /* Adjust spacing */ }
+             .hero .info { font-size: 0.9rem; }
+             .hero-buttons { flex-direction: column; gap: 0.8rem; align-items: center; }
+             .hero-btn { width: 80%; text-align: center; justify-content: center;}
+             .hero-visual { height: 250px; min-height: 250px; max-width: 300px; order: -1; /* Visual first on mobile */ }
+             .hero-content { order: 0; /* Text second on mobile */ }
+             #heroCanvas3D { min-height: 250px; }
+             .floating-icons img { width: 20px; height: 20px; opacity: 0.1; } /* Smaller icons on mobile */
+             .content-section { padding: 3rem 1rem; }
+             .section-heading h2 { font-size: 1.8em; margin-bottom: 2rem; }
+             .info-grid { grid-template-columns: 1fr; }
+             .cta-section { padding: 3rem 1rem; }
+             .cta-content h2 { font-size: 1.8em; }
+             .tech-details-layout { flex-direction: column; }
+             .alternating-section { margin-bottom: 0rem; padding: 2rem 0;} /* Reduced bottom margin */
+             hr.section-separator { margin: 3rem auto; }
+        }
 
-        /* Medium screens (tablets, small laptops) */
         @media screen and (min-width: 768px) {
-            .navbar {
-                flex-direction: row;
-                /* Align items horizontally */
-                height: 80px;
-                /* Fixed height */
-                padding: 0 2.5rem;
-                /* Horizontal padding */
-            }
+            .navbar { flex-direction: row; height: 80px; padding: 0 2.5rem; }
+            .navbar-logo img { height: 50px; }
+            .navbar-links { flex-direction: row; align-items: center; margin-top: 0; width: auto; gap: 1rem; }
+            .navbar-links a { width: auto; }
+            .navbar-links .login-btn-link { margin-top: 0; margin-left: 1rem; }
 
-            .navbar-logo img {
-                height: 50px;
-                /* Larger logo */
-            }
-
-            .navbar-links {
-                flex-direction: row;
-                /* Align links horizontally */
-                align-items: center;
-                margin-top: 0;
-                /* Reset margin */
-                width: auto;
-                /* Auto width */
-                gap: 1rem;
-                /* Space between links */
-            }
-
-            .navbar-links a {
-                width: auto;
-                /* Auto width for links */
-            }
-
-            .navbar-links .login-btn-link {
-                margin-top: 0;
-                margin-left: 1rem;
-                /* Space before button */
-            }
-
-            /* Adjust sticky top offset for desktop navbar + extra space */
-            .section-container {
-                top: 120px;
-                /* Increased space below navbar on desktop (100 + 20) */
-            }
-
-
-            .hero h1 {
-                font-size: 4rem;
-            }
-
-            .hero h2 {
-                font-size: 1.75rem;
-            }
-
-            .hero .info {
-                font-size: 1.1rem;
-            }
-
-            .prepare h2 {
-                font-size: 2.5rem;
-            }
-
-            .section-layout {
-                flex-direction: row;
-            }
-
-            /* Side-by-side layout */
-            .section-content {
-                width: 60%;
-            }
-
-            /* 3/5 width */
-            .section-content h2 {
-                font-size: 2rem;
-            }
-
-            .section-images {
-                width: 40%;
-            }
-
-            /* 2/5 width */
-
-            /* Footer layout adjustments */
-            .footer-top {
-                flex-direction: row;
+            /* Hero Desktop Layout */
+             .hero {
+                flex-direction: row; /* Side-by-side */
                 justify-content: space-between;
-                align-items: flex-start;
-                text-align: left;
+                align-items: center; /* Vertically center columns */
+                min-height: 90vh; /* Keep slightly less than full */
+                padding: 60px 2.5rem;
             }
-
-            .footer-logo {
-                order: 1;
+            .hero-content {
+                text-align: left; /* Align text left */
+                flex-basis: 55%; /* Adjust basis */
+                max-width: none; /* Remove max width */
+                order: 1; /* Text first */
+                 margin-bottom: 0; /* Reset margin */
+                 display: flex; /* Enable flex for alignment */
+                 flex-direction: column; /* Stack items vertically */
+                 align-items: flex-start; /* Align items left */
             }
+             .hero-visual {
+                 flex-basis: 40%; /* Adjust basis */
+                 max-width: 450px;
+                 order: 2; /* Visual second */
+                 height: 400px; /* Adjust height for desktop */
+                 min-height: 400px;
+             }
+             #heroCanvas3D { min-height: 400px; }
 
-            .footer-description {
-                order: 2;
-                text-align: left;
-                margin: 0;
-            }
-
-            .footer-social {
-                order: 3;
-                justify-content: flex-end;
-            }
-
-            .footer-links-section {
-                grid-template-columns: repeat(4, 1fr);
-                text-align: left;
-            }
-
-            .footer-bottom {
-                flex-direction: row;
-                text-align: left;
-            }
-
-            .footer-bottom-links {
-                margin-top: 0;
-            }
-        }
-
-        /* Large screens (desktops) */
-        @media screen and (min-width: 1024px) {
-            .navbar {
-                padding: 0 4rem;
-            }
-
-            .navbar-links {
-                gap: 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 4.5rem;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
+            .hero h1 { font-size: 3.5rem; text-align: left; } /* Ensure left align */
+            .hero h2 { font-size: 1.6rem; text-align: left; margin-bottom: 1.5rem; /* Adjust spacing */ } /* Ensure left align */
             .hero .info {
-                font-size: 1.15rem;
+                font-size: 1.05rem; text-align: left; /* Ensure left align */
+                max-width: 55ch; /* Limit width */
+                margin-left: 0; margin-right: 0; /* Reset margins */
             }
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: flex-start; /* Align buttons left */
+                gap: 1rem;
+                width: auto; /* Allow buttons to determine width */
+                max-width: none;
+                margin-left: 0; margin-right: 0; /* Reset margins */
+            }
+            .hero-btn { width: auto; max-width: none; }
 
-            .prepare h2 {
-                font-size: 2.75rem;
-            }
+             /* Alternating Section Desktop Layout */
+             .alternating-section { flex-direction: row; align-items: center; text-align: left; }
+             .alternating-section:nth-child(even) { flex-direction: row-reverse; } /* Reverse order for even sections */
+             .alternating-section .section-text { text-align: left; }
+             .alternating-section .section-text h3 { text-align: left; }
+             .alternating-section .section-text p { text-align: left; margin-left: 0; margin-right: 0; }
 
-            .section-container {
-                padding: 2rem;
-            }
+             /* Tech Details Desktop Layout */
+             .tech-details-layout { flex-direction: row; align-items: flex-start; }
+             .tech-details-text { flex-basis: 55%; }
+             .tech-details-visual { flex-basis: 45%; }
 
-            .section-content h2 {
-                font-size: 2.25rem;
-            }
+            /* CTA Section Desktop */
+             .cta-section { padding: 4rem 2rem;}
+             .cta-content h2 { text-align: center; } /* Center CTA heading */
+             .cta-content p { text-align: center; } /* Center CTA text */
+
+
+            /* Footer */
+            .footer-top { flex-direction: row; justify-content: space-between; align-items: flex-start; text-align: left; }
+            .footer-logo { order: 1; }
+            .footer-description { order: 2; text-align: left; margin: 0; }
+            .footer-social { order: 3; justify-content: flex-end; }
+            .footer-links-section { grid-template-columns: repeat(4, 1fr); text-align: left; }
+            .footer-bottom { flex-direction: row; text-align: left; }
+            .footer-bottom-links { margin-top: 0; }
         }
+
+        @media screen and (min-width: 1024px) {
+            .navbar { padding: 0 4rem; }
+            .navbar-links { gap: 1.5rem; }
+            .hero { padding: 60px 4rem; }
+            .hero h1 { font-size: 4.2rem; }
+            .hero h2 { font-size: 1.8rem; }
+            .hero .info { font-size: 1.1rem; }
+            .hero-visual { max-width: 500px; height: 400px; min-height: 400px; }
+             #heroCanvas3D { min-height: 400px; }
+            .content-section { padding: 5rem 2rem; }
+            .section-heading h2 { font-size: 2.5em; }
+            .info-grid { grid-template-columns: repeat(3, 1fr); } /* 3 columns on large screens */
+            .cta-section { padding: 5rem 4rem; }
+            .cta-content h2 { font-size: 2.2em; }
+        }
+
+        /* Additional style for tech details list icons */
+        .tech-details-list { list-style: none; padding: 0; margin-top: 1rem; }
+        .tech-details-list li { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; color: #ccc; font-size: 0.95rem; }
+        .tech-details-list li .icon img { width: 20px; height: 20px; filter: invert(69%) sepia(63%) saturate(581%) hue-rotate(348deg) brightness(102%) contrast(101%); /* Orange */ opacity: 0.9; }
+        .tech-details-list strong { color: #fff; font-weight: 600; }
+
