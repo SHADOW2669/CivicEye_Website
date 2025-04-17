@@ -11,222 +11,526 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-static@0.396.0/dist/lucide.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="shortcut icon" href="https://placehold.co/32x32/8300FE/FFFFFF?text=CE" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <link rel="stylesheet" href="style.css" />
 </head>
-
 
 
 <body>
     <div id="particles-js"></div>
 
     <nav class="navbar">
-        <a href="index.html" class="navbar-logo">
-            <img src="IMAGES/logo1.png"
+        <a href="#hero-page" class="navbar-logo"> <img src="IMAGES/logo1.png"
                 onerror="this.onerror=null; this.src='https://placehold.co/150x40/111111/FFFFFF?text=CivicEye';"
-                alt="Civic Eye Logo">
-        </a>
+                alt="Civic Eye Logo"></a>
         <div class="navbar-links">
             <a href="index.html">Home</a>
             <a href="download.html">Download</a>
             <a href="team.html">Team</a>
             <a href="contact-us.html">Contact Us</a>
-            <a href="login.html" class="login-btn-link">
-                <button class="login-btn">LOGIN / SIGNUP</button>
+            <a href="login.html" class="login-btn-link"> <button class="login-btn">LOGIN / SIGNUP</button>
             </a>
         </div>
     </nav>
 
     <main>
-        <header class="hero">
-            <div class="hero-content">
-                <p class="tagline">Revolutionizing Road Safety</p>
+        <header id="hero-page" class="hero centered-hero">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="100">
+                <p class="tagline">The Eye That Sees It All</p>
                 <h1>Civic Eye</h1>
-                <h2><span id="typewriter"></span></h2>
                 <p class="info">
-                    Leveraging advanced AI to detect traffic violations like helmet usage from CCTV feeds in real-time.
-                    Processed locally for privacy and efficiency.
+                    <span class="typed-text"></span><span class="cursor">&nbsp;</span>
                 </p>
-                <div class="hero-buttons">
-                    <a href="download.html" class="hero-btn primary">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/download.svg" alt=""
-                            style="filter: invert(1); margin-right: 0.5em;" />
-                        Get Started
-                    </a>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                    <a href="download.html" class="hero-btn primary"><span>Get Started</span></a>
                     <a href="#features" class="hero-btn secondary">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-right.svg" alt=""
-                            style="filter: invert(0.8); margin-right: 0.5em;" />
-                        Learn More
+                        <span>Learn More</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-right">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
                     </a>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <canvas id="heroCanvas3D"></canvas>
-                <div class="floating-icons">
-                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/traffic-cone.svg"
-                        alt="Traffic Cone Icon" style="top: 20%; left: 15%; animation-delay: 0s;">
-                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain-circuit.svg"
-                        alt="AI Brain Icon" style="top: 60%; left: 25%; animation-delay: -3s;">
-                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/bike.svg" alt="Motorbike Icon"
-                        style="top: 30%; right: 20%; animation-delay: -6s;">
-                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/shield-check.svg"
-                        alt="Shield Icon" style="bottom: 15%; right: 10%; animation-delay: -1s;">
+                <div class="micro-features" data-aos="fade-up" data-aos-delay="500">
+                    <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2z"></polygon>
+                        </svg> Real-Time Detection</span>
+                    <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg> Local Privacy</span>
+                    <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database">
+                            <ellipse cx="12" cy="5" rx="9" ry="3" />
+                            <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+                            <path d="M3 12A9 3 0 0 0 21 12" />
+                        </svg> Evidence Logs</span>
                 </div>
             </div>
-            <a href="#features" class="scroll-arrow" aria-label="Scroll down">
-                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-down.svg" alt="Scroll Down" />
+            <a href="#features" class="hero-scroll-down" aria-label="Scroll to Features" data-aos="fade-up"
+                data-aos-delay="900">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-arrow-down-circle">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v8" />
+                    <path d="m8 12 4 4 4-4" />
+                </svg>
             </a>
         </header>
 
         <section id="features" class="content-section">
-            <div class="section-heading">
+            <div class="section-heading" data-aos="fade-up">
                 <h2 class="orange-heading">Features & Objectives</h2>
-                <p>Harnessing AI for safer roads through local processing and real-time insights.</p>
+                <p class="subtitle">What makes Civic Eye powerful?</p>
             </div>
             <div class="info-grid">
-                <div class="info-card purple">
-                    <div class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/scan-face.svg"
-                            alt="AI Icon" /></div>
+                <div class="info-card purple" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-scan-face">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                            <path d="M9 9h.01" />
+                            <path d="M15 9h.01" />
+                        </svg></div>
                     <h4>AI Detection</h4>
-                    <p>Leverage YOLOv8 to identify violations like "No Helmet" & "Triple Riding" with high accuracy.</p>
+                    <p>Utilizes the powerful YOLOv8 model to accurately identify common traffic violations like 'No
+                        Helmet' usage.</p>
+                    <p class="benefit-caption">🎯 Pinpoint Accuracy</p>
                 </div>
-                <div class="info-card orange">
-                    <div class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/video.svg"
-                            alt="Real-time Icon" /></div>
+                <div class="info-card orange" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-video">
+                            <path d="m22 8-6 4 6 4V8Z" />
+                            <rect width="14" height="12" x="2" y="6" rx="2" ry="2" />
+                        </svg></div>
                     <h4>Real-Time Detection</h4>
-                    <p>Automatically detect and classify traffic violations using YOLOv8 for instant identification.</p>
+                    <p>Analyzes live CCTV or video streams to automatically detect and classify traffic violations as
+                        they happen.</p>
+                    <p class="benefit-caption">⏱️ Zero Lag Detection</p>
                 </div>
-                <div class="info-card purple">
-                    <div class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/file-check.svg"
-                            alt="Reporting Icon" /></div>
+                <div class="info-card purple" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-file-check">
+                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                            <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                            <path d="m9 15 2 2 4-4" />
+                        </svg></div>
                     <h4>Evidence & Reporting</h4>
-                    <p>Automatically capture violation images, timestamps, and types. Store locally and report
-                        centrally.</p>
+                    <p>Automatically captures clear images/clips of detected violations with crucial metadata, stored
+                        locally.</p>
+                    <p class="benefit-caption">🔍 Crystal-Clear Proof</p>
                 </div>
-                <div class="info-card orange">
-                    <div class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/server.svg"
-                            alt="Local Processing Icon" /></div>
+                <div class="info-card orange" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-server">
+                            <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+                            <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+                            <line x1="6" x2="6.01" y1="6" y2="6" />
+                            <line x1="6" x2="6.01" y1="18" y2="18" />
+                        </svg></div>
                     <h4>Local Processing</h4>
-                    <p>Perform AI detection directly on the client’s machine, ensuring privacy and reducing cloud
-                        reliance.</p>
+                    <p>Performs all AI inference directly on the user's machine, enhancing data privacy and reducing
+                        latency.</p>
+                    <p class="benefit-caption">✅ Built for Local Privacy</p>
                 </div>
-                <div class="info-card purple">
-                    <div class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/database.svg"
-                            alt="Database Icon" /></div>
+                <div class="info-card purple" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-database">
+                            <ellipse cx="12" cy="5" rx="9" ry="3" />
+                            <path d="M3 5V19A9 3 0 0 0 21 19V5" />
+                            <path d="M3 12A9 3 0 0 0 21 12" />
+                        </svg></div>
                     <h4>Centralized Management</h4>
-                    <p>Provide a secure web dashboard for users to track, review, and manage violations efficiently.</p>
+                    <p>Offers a secure web dashboard (optional) allowing authorized users to efficiently manage
+                        violation data.</p>
+                    <p class="benefit-caption">📊 Effortless Oversight</p>
                 </div>
-                <div class="info-card orange">
-                    <div class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/camera.svg"
-                            alt="Evidence Icon" /></div>
+                <div class="info-card orange" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-camera">
+                            <path
+                                d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+                            <circle cx="12" cy="13" r="3" />
+                        </svg></div>
                     <h4>Automated Evidence</h4>
-                    <p>Capture high-resolution images and metadata for each violation.</p>
+                    <p>Generates reliable evidence by capturing high-resolution images and metadata for each violation.
+                    </p>
+                    <p class="benefit-caption">📸 Tamper-Proof Records</p>
+                </div>
+            </div>
+            <div class="features-cta" data-aos="fade-up">
+                <a href="#detection-workflow" class="hero-btn primary"> See How It Works
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right" style="filter: invert(1); margin-left: 0.5em;">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <hr class="section-separator" />
+
+        <section id="detection-workflow" class="content-section">
+            <div class="workflow-content-wrapper">
+                <div class="workflow-header" data-aos="fade-up" data-aos-delay="100">
+                    <h2>Detection Workflow</h2>
+                    <p class="subtitle">A 5-step breakdown of how Civic Eye detects and logs traffic violations using AI
+                        and local systems.</p>
+                </div>
+                <div class="workflow-grid-container">
+                    <div class="workflow-visual-panel" data-aos="fade-right" data-aos-delay="300">
+                        <img src="https://placehold.co/600x400/1f2937/c084fc?text=Workflow+Animation+(Camera+%E2%86%92+AI+%E2%86%92+Alert)"
+                            alt="CivicEye Workflow Diagram">
+                    </div>
+                    <div class="workflow-steps-panel" data-aos="fade-left" data-aos-delay="400">
+                        <ol class="workflow-steps-list">
+                            <li class="step-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="step-number-icon"><span>1</span><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-camera">
+                                        <path
+                                            d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+                                        <circle cx="12" cy="13" r="3" />
+                                    </svg></div>
+                                <div class="step-content">
+                                    <h4>Configure Source</h4>
+                                    <p>Easily connect existing CCTV cameras or select local video files as input.</p>
+                                </div>
+                            </li>
+                            <li class="step-card" data-aos="fade-up" data-aos-delay="600">
+                                <div class="step-number-icon"><span>2</span><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-server">
+                                        <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+                                        <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+                                        <line x1="6" x2="6.01" y1="6" y2="6" />
+                                        <line x1="6" x2="6.01" y1="18" y2="18" />
+                                    </svg></div>
+                                <div class="step-content">
+                                    <h4>Run Local Detection</h4>
+                                    <p>Initiate the AI detection process securely on your local machine, ensuring
+                                        privacy.</p>
+                                </div>
+                            </li>
+                            <li class="step-card" data-aos="fade-up" data-aos-delay="700">
+                                <div class="step-number-icon"><span>3</span><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-brain-circuit">
+                                        <path
+                                            d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588 4 4 0 0 0 7.079 1.414 3 3 0 1 0 5.845-1.994 3.999 3.999 0 0 0-1.111-6.224A4 4 0 0 0 12 5Z" />
+                                        <path d="M4.5 7.5h-.01" />
+                                        <path d="M19.5 7.5h.01" />
+                                        <path d="M10 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                        <path d="M14 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z" />
+                                        <path d="M12 19.5v-.01" />
+                                    </svg></div>
+                                <div class="step-content">
+                                    <h4>AI Processing</h4>
+                                    <p>The integrated YOLOv8 model analyzes the feed in real-time to identify
+                                        violations.</p>
+                                </div>
+                            </li>
+                            <li class="step-card" data-aos="fade-up" data-aos-delay="800">
+                                <div class="step-number-icon"><span>4</span><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-clapperboard">
+                                        <path
+                                            d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+                                        <path d="m6.2 5.3 3.1 3.9" />
+                                        <path d="m12.4 3.6 3.1 3.9" />
+                                        <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+                                    </svg></div>
+                                <div class="step-content">
+                                    <h4>Evidence Capture</h4>
+                                    <p>Violations trigger automatic capture of image/clip evidence with timestamp
+                                        metadata.</p>
+                                </div>
+                            </li>
+                            <li class="step-card" data-aos="fade-up" data-aos-delay="900">
+                                <div class="step-number-icon"><span>5</span><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-monitor-check">
+                                        <path d="m9 10 2 2 4-4" />
+                                        <rect width="20" height="14" x="2" y="3" rx="2" />
+                                        <path d="M12 17v4" />
+                                        <path d="M8 21h8" />
+                                    </svg></div>
+                                <div class="step-content">
+                                    <h4>Monitor & Review</h4>
+                                    <p>Access violation logs and evidence locally or via the optional central dashboard.
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="workflow-demo-button-container" data-aos="fade-up" data-aos-delay="1000">
+                    <a href="#tech-details" class="hero-btn secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-play">
+                            <polygon points="6 3 20 12 6 21 6 3" />
+                        </svg>
+                        <span>Start Demo</span>
+                    </a>
                 </div>
             </div>
         </section>
 
         <hr class="section-separator" />
 
-        <section class="content-section alternating-section">
-            <div class="section-text">
-                <h3>Streamlined Detection Workflow</h3>
-                <p>From setup to analysis, CivicEye provides a straightforward process for monitoring traffic and
-                    identifying violations using your existing infrastructure.</p>
-                <ol style="padding-left: 1.5rem; text-align: left; color: #ccc;">
-                    <li style="margin-bottom: 0.5rem;">Configure Camera Source</li>
-                    <li style="margin-bottom: 0.5rem;">Run Local Detection</li>
-                    <li style="margin-bottom: 0.5rem;">AI Processing (YOLOv8)</li>
-                    <li style="margin-bottom: 0.5rem;">Evidence Capture & Storage</li>
-                    <li style="margin-bottom: 0.5rem;">Monitor & Review</li>
-                </ol>
-            </div>
-            <div class="section-visual">
-                <img src="https://placehold.co/600x400/111111/7BD3EA?text=How+It+Works+Visual"
-                    alt="Workflow Placeholder">
-            </div>
-        </section>
+        <section id="tech-details" class="content-section">
+            <div class="tech-layout-container">
+                <div class="tech-text-content" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="orange-heading">Technical Details</h3>
+                    <p>Built with standard, powerful tools for efficient local processing on accessible hardware.</p>
+                    <ul class="tech-specs-grid">
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-monitor-smartphone">
+                                <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" />
+                                <path d="M10 19v-3.96 3.15" />
+                                <path d="M7 19h5" />
+                                <rect width="6" height="10" x="16" y="12" rx="2" />
+                            </svg>
+                            <span><strong>OS:</strong> Windows 10+ or Linux</span>
+                        </li>
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="250">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-cpu">
+                                <rect width="16" height="16" x="4" y="4" rx="2" />
+                                <rect width="6" height="6" x="9" y="9" rx="1" />
+                                <path d="M15 2v2" />
+                                <path d="M15 20v2" />
+                                <path d="M9 2v2" />
+                                <path d="M9 20v2" />
+                                <path d="M20 9h2" />
+                                <path d="M20 15h2" />
+                                <path d="M2 9h2" />
+                                <path d="M2 15h2" />
+                            </svg>
+                            <span><strong>Processor:</strong> Intel i3+ / AMD Ryzen 3+</span>
+                        </li>
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-memory-stick">
+                                <path d="M6 19v-3" />
+                                <path d="M10 19v-3" />
+                                <path d="M14 19v-3" />
+                                <path d="M18 19v-3" />
+                                <path d="M8 11V9" />
+                                <path d="M16 11V9" />
+                                <path d="M12 11V9" />
+                                <path d="M2 15h20" />
+                                <path
+                                    d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z" />
+                            </svg>
+                            <span><strong>RAM:</strong> 4GB+ (8GB Recommended)</span>
+                        </li>
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="350">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-hard-drive">
+                                <line x1="22" x2="2" y1="12" y2="12" />
+                                <path
+                                    d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11Z" />
+                                <line x1="6" x2="6.01" y1="16" y2="16" />
+                                <line x1="10" x2="10.01" y1="16" y2="16" />
+                            </svg>
+                            <span><strong>Storage:</strong> 5GB Free Space</span>
+                        </li>
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-code-2">
+                                <path d="m18 16 4-4-4-4" />
+                                <path d="m6 8-4 4 4 4" />
+                                <path d="m14.5 4-5 16" />
+                            </svg>
+                            <span><strong>Language:</strong> Python 3.8+</span>
+                        </li>
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="450">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-image">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                <circle cx="9" cy="9" r="2" />
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                            </svg>
+                            <span><strong>Core Lib:</strong> OpenCV</span>
+                        </li>
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-brain-circuit">
+                                <path
+                                    d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588 4 4 0 0 0 7.079 1.414 3 3 0 1 0 5.845-1.994 3.999 3.999 0 0 0-1.111-6.224A4 4 0 0 0 12 5Z" />
+                                <path d="M4.5 7.5h-.01" />
+                                <path d="M19.5 7.5h.01" />
+                                <path d="M10 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                <path d="M14 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z" />
+                                <path d="M12 19.5v-.01" />
+                            </svg>
+                            <span><strong>AI Model:</strong> YOLOv8</span>
+                        </li>
+                        <li class="tech-spec-item" data-aos="fade-up" data-aos-delay="550">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon lucide lucide-gpu">
+                                <path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" />
+                                <path d="M6 10h2" />
+                                <path d="M6 14h5" />
+                                <path d="M14 14h4" />
+                                <path d="M15 10h3" />
+                                <path d="M9 6v4" />
+                                <path d="M12 6v4" />
+                                <path d="M15 6v4" />
+                            </svg>
+                            <span><strong>GPU:</strong> Optional (CUDA/ROCm)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="code-block-container" data-aos="fade-left" data-aos-delay="200">
+                    <div class="code-title-bar">
+                        <div class="window-buttons">
+                            <span class="close"></span><span class="minimize"></span><span class="maximize"></span>
+                        </div>
+                        <span class="code-filename">civiceye.py</span>
+                        <button id="copy-code-btn" title="Copy Code">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-clipboard">
+                                <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                            </svg>
+                        </button>
+                    </div>
+                    <pre><code class="language-python" id="code-to-copy">
+<span class="code-keyword">import</span> <span class="code-variable">cv2</span>  <span class="code-comment"># OpenCV for image processing</span>
+<span class="code-keyword">import</span> <span class="code-variable">math</span>  <span class="code-comment"># Math module for calculations</span>
+<span class="code-keyword">import</span> <span class="code-variable">cvzone</span>  <span class="code-comment"># Cvzone for easy OpenCV functionalities</span>
+<span class="code-keyword">import</span> <span class="code-variable">os</span>  <span class="code-comment"># OS module for file operations</span>
+<span class="code-keyword">from</span> <span class="code-variable">ultralytics</span> <span class="code-keyword">import</span> <span class="code-variable">YOLO</span>  <span class="code-comment"># YOLO model for object detection</span>
 
-        <hr class="section-separator" />
+<span class="code-comment"># Ask user for media input</span>
+<span class="code-variable">media_input</span> = <span class="code-builtin">input</span>(<span class="code-string">"Enter video file path or press Enter to use the default camera: "</span>).strip()
+<span class="code-keyword">if</span> <span class="code-variable">media_input</span> == <span class="code-string">""</span>:
+    <span class="code-variable">cap</span> = cv2.VideoCapture(<span class="code-number">0</span>)  <span class="code-comment"># Use default camera</span>
+<span class="code-keyword">else</span>:
+    <span class="code-variable">cap</span> = cv2.VideoCapture(<span class="code-variable">media_input</span>)  <span class="code-comment"># Use provided video file</span>
 
-        <section id="tech-details" class="content-section alternating-section">
-            <div class="section-visual">
-                <pre><code class="language-python">
-<span class="code-comment"># Example: Civic Eye Tkinter GUI Code</span>
-<span class="code-keyword">import</span> cv2
-<span class="code-keyword">import</span> threading
-<span class="code-keyword">import</span> tkinter <span class="code-keyword">as</span> tk
-<span class="code-keyword">from</span> tkinter <span class="code-keyword">import</span> filedialog, messagebox
-<span class="code-keyword">from</span> ultralytics <span class="code-keyword">import</span> YOLO
-<span class="code-keyword">from</span> PIL <span class="code-keyword">import</span> Image, ImageTk
-<span class="code-keyword">import</span> os
-<span class="code-keyword">import</span> webbrowser
-<span class="code-keyword">import</span> ttkbootstrap <span class="code-keyword">as</span> tb
+<span class="code-comment"># Load YOLO model with custom weights</span>
+<span class="code-variable">model</span> = YOLO(<span class="code-string">"Weights/best.pt"</span>)  <span class="code-comment"># Load trained YOLO model</span>
 
-<span class="code-comment"># --- Global Variables ---</span>
-stop_flag = <span class="code-keyword">False</span>
-video_source = <span class="code-keyword">None</span>
-frame_position = 0
-logged_in = <span class="code-keyword">False</span>
+<span class="code-comment"># Define class names</span>
+<span class="code-variable">classNames</span> = [<span class="code-string">'With Helmet'</span>, <span class="code-string">'Without Helmet'</span>]  <span class="code-comment"># Labels for detected objects</span>
 
-<span class="code-comment"># --- Functions (login, open_url, run_detection, etc...) ---</span>
-<span class="code-comment"># ... (Full code omitted for brevity) ...</span>
+<span class="code-comment"># Directory to store detected images</span>
+<span class="code-variable">save_dir</span> = <span class="code-string">"Detects"</span>
+os.makedirs(<span class="code-variable">save_dir</span>, exist_ok=<span class="code-boolean">True</span>)  <span class="code-comment"># Create directory if it doesn't exist</span>
 
-<span class="code-comment"># --- Initialize Tkinter ---</span>
-root = tb.<span class="code-function">Window</span>(themename=<span class="code-string">"darkly"</span>)
-root.<span class="code-function">title</span>(<span class="code-string">"Helmet Detection System"</span>)
-root.<span class="code-function">geometry</span>(<span class="code-string">"700x500"</span>)
+<span class="code-variable">violating_bikes</span> = {}  <span class="code-comment"># Dictionary to track detected bikes with violations</span>
+<span class="code-variable">frame_count</span> = <span class="code-number">0</span>  <span class="code-comment"># Counter to track frames processed</span>
 
-<span class="code-comment"># --- Login Frame UI ---</span>
-login_frame = tb.<span class="code-function">Frame</span>(root)
-<span class="code-comment"># ... (Login UI elements) ...</span>
-login_frame.<span class="code-function">pack</span>(fill=<span class="code-string">"both"</span>, expand=<span class="code-keyword">True</span>)
+<span class="code-keyword">while</span> <span class="code-boolean">True</span>:
+    <span class="code-variable">success</span>, <span class="code-variable">img</span> = <span class="code-variable">cap</span>.<span class="code-method">read</span>()  <span class="code-comment"># Read a frame from the video or camera</span>
+    <span class="code-keyword">if</span> <span class="code-keyword">not</span> <span class="code-variable">success</span>:
+        <span class="code-keyword">break</span>  <span class="code-comment"># Stop processing if video ends or camera fails</span>
 
-<span class="code-comment"># --- App Frame UI (Hidden initially) ---</span>
-app_frame = tb.<span class="code-function">Frame</span>(root)
-<span class="code-comment"># ... (App UI elements: Buttons, Video Label) ...</span>
+    <span class="code-variable">results</span> = <span class="code-variable">model</span>(<span class="code-variable">img</span>, stream=<span class="code-boolean">True</span>)  <span class="code-comment"># Perform object detection on the frame</span>
+    <span class="code-variable">detected_violations</span> = <span class="code-boolean">False</span>  <span class="code-comment"># Flag to track violations in the frame</span>
 
-root.<span class="code-function">mainloop</span>()
-                </code></pre>
-            </div>
-            <div class="section-text">
-                <h3 class="orange-heading">Technical Details</h3>
-                <p>Built with standard, powerful tools for efficient local processing on accessible hardware.</p>
-                <ul class="tech-details-list">
-                    <li><span class="icon"><img
-                                src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/monitor-smartphone.svg"
-                                alt="OS Icon" /></span> <strong>OS:</strong> Windows 10+ or Linux</li>
-                    <li><span class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/cpu.svg"
-                                alt="Processor Icon" /></span> <strong>Processor:</strong> Intel i3+</li>
-                    <li><span class="icon"><img
-                                src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/memory-stick.svg"
-                                alt="RAM Icon" /></span> <strong>RAM:</strong> 4GB+ (8GB Rec.)</li>
-                    <li><span class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/code.svg"
-                                alt="Code Icon" /></span> <strong>Language:</strong> Python 3.8+</li>
-                    <li><span class="icon"><img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/image.svg"
-                                alt="OpenCV Icon" /></span> <strong>OpenCV:</strong> Video Processing</li>
-                    <li><span class="icon"><img
-                                src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/brain-circuit.svg"
-                                alt="YOLO Icon" /></span> <strong>YOLOv8:</strong> Object Detection</li>
-                </ul>
-            </div>
-        </section>
+    <span class="code-keyword">for</span> <span class="code-variable">r</span> <span class="code-keyword">in</span> <span class="code-variable">results</span>:
+        <span class="code-variable">boxes</span> = <span class="code-variable">r</span>.<span class="code-variable">boxes</span>  <span class="code-comment"># Extract bounding boxes</span>
+        <span class="code-keyword">for</span> <span class="code-variable">box</span> <span class="code-keyword">in</span> <span class="code-variable">boxes</span>:
+            <span class="code-variable">x1</span>, <span class="code-variable">y1</span>, <span class="code-variable">x2</span>, <span class="code-variable">y2</span> = <span class="code-builtin">map</span>(<span class="code-builtin">int</span>, <span class="code-variable">box</span>.<span class="code-variable">xyxy</span>[<span class="code-number">0</span>])  <span class="code-comment"># Get bounding box coordinates</span>
+            <span class="code-variable">conf</span> = math.ceil((<span class="code-variable">box</span>.<span class="code-variable">conf</span>[<span class="code-number">0</span>] * <span class="code-number">100</span>)) / <span class="code-number">100</span>  <span class="code-comment"># Confidence score</span>
+            <span class="code-variable">cls</span> = <span class="code-builtin">int</span>(<span class="code-variable">box</span>.<span class="code-variable">cls</span>[<span class="code-number">0</span>])  <span class="code-comment"># Class ID</span>
 
-        <hr class="section-separator" />
+            <span class="code-comment"># Draw bounding box and label</span>
+            cvzone.cornerRect(<span class="code-variable">img</span>, (<span class="code-variable">x1</span>, <span class="code-variable">y1</span>, <span class="code-variable">x2</span> - <span class="code-variable">x1</span>, <span class="code-variable">y2</span> - <span class="code-variable">y1</span>))
+            cvzone.putTextRect(<span class="code-variable">img</span>, <span class="code-string">f'{classNames[cls]} {conf}'</span>, (<span class="code-builtin">max</span>(<span class="code-number">0</span>, <span class="code-variable">x1</span>), <span class="code-builtin">max</span>(<span class="code-number">35</span>, <span class="code-variable">y1</span>)), scale=<span class="code-number">1</span>, thickness=<span class="code-number">1</span>)
 
-        <section class="content-section cta-section">
-            <div class="cta-content">
-                <h2>Get Started with CivicEye</h2>
-                <p>Download the latest version for your operating system and start improving traffic safety today.
-                    Access real-time violation detection powered by AI, right on your local machine.</p>
-                <div class="hero-buttons" style="margin-top: 0; justify-content: center;"> <a href="download.html"
-                        class="hero-btn primary">Download Now</a>
-                    <a href="contact-us.html" class="hero-btn secondary">Contact Us</a>
+            <span class="code-comment"># Check for violation</span>
+            <span class="code-keyword">if</span> <span class="code-variable">classNames</span>[<span class="code-variable">cls</span>] == <span class="code-string">"Without Helmet"</span>:
+                <span class="code-variable">detected_violations</span> = <span class="code-boolean">True</span>
+
+    <span class="code-comment"># Save image if violation detected</span>
+    <span class="code-keyword">if</span> <span class="code-variable">detected_violations</span>:
+        <span class="code-variable">img_id</span> = <span class="code-string">f"violation_{frame_count}.jpg"</span>
+        <span class="code-keyword">if</span> <span class="code-variable">img_id</span> <span class="code-keyword">not</span> <span class="code-keyword">in</span> <span class="code-variable">violating_bikes</span>:
+            <span class="code-variable">filename</span> = os.path.join(<span class="code-variable">save_dir</span>, <span class="code-variable">img_id</span>)
+            cv2.imwrite(<span class="code-variable">filename</span>, <span class="code-variable">img</span>)
+            <span class="code-variable">violating_bikes</span>[<span class="code-variable">img_id</span>] = <span class="code-boolean">True</span>
+            <span class="code-builtin">print</span>(<span class="code-string">f"Saved violation image: {filename}"</span>)
+
+    <span class="code-variable">frame_count</span> += <span class="code-number">1</span>
+
+    cv2.imshow(<span class="code-string">"Image"</span>, <span class="code-variable">img</span>)
+    <span class="code-keyword">if</span> cv2.waitKey(<span class="code-number">1</span>) & <span class="code-number">0xFF</span> == <span class="code-builtin">ord</span>(<span class="code-string">'q'</span>):
+        <span class="code-keyword">break</span>
+
+<span class="code-variable">cap</span>.<span class="code-method">release</span>()
+cv2.destroyAllWindows()
+                    </code></pre>
                 </div>
             </div>
         </section>
 
+        <hr class="section-separator" />
+
+        <section id="cta-section" class="content-section cta-section">
+            <div class="cta-content" data-aos="fade-up" data-aos-delay="100">
+                <h2>Get Started with <span class="pulse-text">CivicEye</span></h2>
+                <p data-aos="fade-up" data-aos-delay="200">Download the latest version for your operating system and
+                    start improving traffic safety today. Access real-time violation detection powered by AI, right on
+                    your local machine.</p>
+                <div class="hero-buttons" style="margin-top: 0; justify-content: center;" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <a href="download.html" class="hero-btn primary">
+                        <span>Download Now</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-download">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" x2="12" y1="15" y2="3" />
+                        </svg>
+                    </a>
+                    <a href="contact-us.html" class="hero-btn secondary"><span>Contact Us</span></a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -237,44 +541,40 @@ root.<span class="code-function">mainloop</span>()
                         onerror="this.onerror=null; this.src='https://placehold.co/150x40/111111/FFFFFF?text=CivicEye';" />
                 </div>
                 <div class="footer-description">
-                    Civic Eye is an advanced AI-powered software designed to <br>
-                    detect and monitor traffic violations using civilian CCTV cameras.
+                    Civic Eye: AI-powered traffic violation monitoring using existing CCTV, prioritizing local
+                    processing and privacy.
                 </div>
                 <div class="footer-social">
-                    <a href="#" target="_blank" aria-label="Facebook Profile">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/facebook.svg"
-                            alt="Facebook" />
-                    </a>
-                    <a href="#" target="_blank" aria-label="Instagram Profile">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/instagram.svg"
-                            alt="Instagram" />
-                    </a>
-                    <a href="#" target="_blank" aria-label="LinkedIn Profile">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg"
-                            alt="LinkedIn" />
-                    </a>
-                    <a href="#" target="_blank" aria-label="YouTube Profile">
-                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/youtube.svg" alt="YouTube" />
-                    </a>
+                    <a href="#" target="_blank" aria-label="Facebook Profile"><img
+                            src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/facebook.svg"
+                            alt="Facebook" /></a>
+                    <a href="#" target="_blank" aria-label="Instagram Profile"><img
+                            src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/instagram.svg"
+                            alt="Instagram" /></a>
+                    <a href="#" target="_blank" aria-label="LinkedIn Profile"><img
+                            src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/linkedin.svg"
+                            alt="LinkedIn" /></a>
+                    <a href="#" target="_blank" aria-label="YouTube Profile"><img
+                            src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/youtube.svg"
+                            alt="YouTube" /></a>
                 </div>
             </div>
-
             <div class="footer-links-section">
                 <div class="footer-links-column">
                     <h3>Quick Links</h3>
                     <nav>
-                        <a href="index.html">Home</a>
-                        <a href="download.html">Download</a>
-                        <a href="team.html">Team</a>
-                        <a href="contact-us.html">Contact Us</a>
+                        <a href="#hero-page">Home</a>
+                        <a href="#features">Features</a>
+                        <a href="#detection-workflow">Workflow</a>
+                        <a href="#tech-details">Tech</a>
                     </nav>
                 </div>
                 <div class="footer-links-column">
                     <h3>Resources</h3>
                     <nav>
-                        <a href="#features">Features</a>
-                        <a href="#tech-details">Requirements</a>
+                        <a href="#">Download</a>
                         <a href="#">Documentation</a>
+                        <a href="#tech-details">Requirements</a>
                     </nav>
                 </div>
                 <div class="footer-links-column">
@@ -284,254 +584,126 @@ root.<span class="code-function">mainloop</span>()
                     <p>info@civiceye.example.com</p>
                 </div>
                 <div class="footer-links-column">
+                    <h3>Legal</h3>
+                    <nav>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                    </nav>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <div>&copy; 2025 Civic Eye. All rights reserved.</div>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a> <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Sitemap</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Initialize Particles.js and other scripts when DOM is ready
         document.addEventListener("DOMContentLoaded", () => {
-            // Particles.js initialization (config remains the same)
+            // Initialize Particles.js
             particlesJS("particles-js", {
-                particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: "#7BD3EA" }, shape: { type: "circle" }, opacity: { value: 0.4, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.1, sync: false } }, size: { value: 2.5, random: true, anim: { enable: true, speed: 3, size_min: 0.1, sync: false } }, line_linked: { enable: true, distance: 140, color: "#7BD3EA", opacity: 0.3, width: 1 }, move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false } }, interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 80, duration: 0.4 }, push: { particles_nb: 4 } } }, retina_detect: true
+                "particles": {
+                    "number": { "value": 100 },
+                    "color": { "value": "#38bdf8" }, /* Blue */
+                    "shape": { "type": "circle" },
+                    "opacity": {
+                        "value": 0.5, "random": true,
+                        "anim": { "enable": true, "speed": 0.8, "opacity_min": 0.15, "sync": false }
+                    },
+                    "size": {
+                        "value": 3, "random": true,
+                        "anim": { "enable": false }
+                    },
+                    "line_linked": {
+                        "enable": true, "distance": 150, "color": "#38bdf8", /* Blue */
+                        "opacity": 0.4, /* Slightly increased */
+                        "width": 1.3 /* Slightly increased */
+                    },
+                    "move": {
+                        "enable": true, "speed": 1.8, "direction": "none", "random": true,
+                        "straight": false, "out_mode": "out", "bounce": false,
+                        "attract": { "enable": false }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": true, "mode": "repulse" },
+                        "onclick": { "enable": false },
+                        "resize": true
+                    },
+                    "modes": {
+                        "repulse": { "distance": 80, "duration": 0.4 }
+                    }
+                },
+                "retina_detect": true
             });
 
 
-            // --- three.js Hero Animation (Original Version - Reverted) ---
-            const visualContainer = document.querySelector('.hero-visual');
-            const canvas = document.getElementById('heroCanvas3D');
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+                easing: 'ease-out-cubic',
+            });
 
-            // Check if container, canvas, and THREE library exist
-            if (visualContainer && canvas && typeof THREE !== 'undefined') {
-                let scene, camera, renderer, hologramGroup; // Use hologramGroup
-                let mouseX = 0, mouseY = 0;
-                let targetRotationX = 0, targetRotationY = 0;
-                let containerWidth, containerHeight;
-                const windowHalfX = window.innerWidth / 2;
-                const windowHalfY = window.innerHeight / 2;
-
-                // Initialize the 3D scene
-                function init3D() {
-                    scene = new THREE.Scene();
-
-                    // Get container dimensions, provide fallback
-                    containerWidth = visualContainer.clientWidth;
-                    containerHeight = visualContainer.clientHeight || 300;
-                    if (containerHeight === 0) containerHeight = 300; // Ensure non-zero height
-
-                    // Setup camera
-                    camera = new THREE.PerspectiveCamera(60, containerWidth / containerHeight, 0.1, 1000);
-                    camera.position.z = 3; // Original camera position
-
-                    // Setup renderer
-                    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-                    renderer.setSize(containerWidth, containerHeight);
-                    renderer.setPixelRatio(window.devicePixelRatio); // Adjust for high DPI screens
-
-                    // Add lighting
-                    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7); // Original ambient light
-                    scene.add(ambientLight);
-                    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0); // Original directional light
-                    directionalLight.position.set(2, 3, 2).normalize(); // Position light source
-                    scene.add(directionalLight);
-
-                    // --- Create Hologram Eye Object (Wireframe Layers - Original) ---
-                    hologramGroup = new THREE.Group(); // Use hologramGroup
-
-                    // Sclera (Outer Edges - Purple)
-                    const scleraGeo = new THREE.SphereGeometry(1.2, 24, 16); // Radius 1.2
-                    const edgesSclera = new THREE.EdgesGeometry(scleraGeo);
-                    const scleraMat = new THREE.LineBasicMaterial({
-                        color: 0x8300fe, // Purple
-                        transparent: true,
-                        opacity: 0.5, // Adjusted opacity
-                        linewidth: 1
-                    });
-                    const scleraLines = new THREE.LineSegments(edgesSclera, scleraMat);
-                    hologramGroup.add(scleraLines);
-
-                    // Inner Detail Layer (Particle Blue)
-                    const innerGeo = new THREE.SphereGeometry(0.9, 16, 12); // Radius 0.9
-                    const edgesInner = new THREE.EdgesGeometry(innerGeo);
-                    const innerMat = new THREE.LineBasicMaterial({
-                        color: 0x7BD3EA, // Particle blue
-                        transparent: true,
-                        opacity: 0.35, // Slightly more visible
-                        linewidth: 1
-                    });
-                    const innerLines = new THREE.LineSegments(edgesInner, innerMat);
-                    innerLines.rotation.set(0.3, 0.4, 0.1);
-                    hologramGroup.add(innerLines);
-
-                    // Iris (Colored Outline - Purple)
-                    const irisGeo = new THREE.CircleGeometry(0.5, 32); // Slightly larger iris
-                    const edgesIris = new THREE.EdgesGeometry(irisGeo);
-                    const irisMat = new THREE.LineBasicMaterial({
-                        color: 0x8300fe, // Purple
-                        transparent: true,
-                        opacity: 0.85, // Increased opacity
-                        linewidth: 2 // Thicker line
-                    });
-                    const irisLines = new THREE.LineSegments(edgesIris, irisMat);
-                    irisLines.position.z = 0.85; // Position slightly less forward
-                    hologramGroup.add(irisLines);
-
-                    // Pupil (Smaller Outline - Particle Blue)
-                    const pupilGeo = new THREE.CircleGeometry(0.2, 32); // Slightly larger pupil
-                    const edgesPupil = new THREE.EdgesGeometry(pupilGeo);
-                    const pupilMat = new THREE.LineBasicMaterial({
-                        color: 0x7BD3EA, // Particle Blue
-                        transparent: true,
-                        opacity: 1.0, // Opaque
-                        linewidth: 1.5 // Slightly thicker
-                    });
-                    const pupilLines = new THREE.LineSegments(edgesPupil, pupilMat);
-                    pupilLines.position.z = 0.86; // Position slightly in front of iris
-                    hologramGroup.add(pupilLines);
-
-                    scene.add(hologramGroup); // Add the main group
-
-                    // Add event listeners
-                    document.addEventListener('mousemove', onDocumentMouseMove, false);
-                    window.addEventListener('resize', onWindowResize, false);
-
-                    // Start the animation loop
-                    animate();
-                }
-
-                // Handle mouse movement to rotate the eye (Original logic)
-                function onDocumentMouseMove(event) {
-                    mouseX = (event.clientX - windowHalfX);
-                    mouseY = (event.clientY - windowHalfY);
-                    // Target rotation based on mouse position relative to center
-                    targetRotationY = (mouseX * 0.001); // Adjust sensitivity
-                    targetRotationX = (mouseY * 0.001);
-                }
-
-                // Handle window resize to adjust camera and renderer (Original logic)
-                function onWindowResize() {
-                    containerWidth = visualContainer.clientWidth;
-                    // Use Math.max for fallback height
-                    containerHeight = Math.max(visualContainer.clientHeight, 300);
-
-                    // Update camera and renderer if dimensions are valid
-                    if (containerHeight > 0 && containerWidth > 0) {
-                        camera.aspect = containerWidth / containerHeight; // Update aspect ratio
-                        camera.updateProjectionMatrix(); // Apply changes
-                        renderer.setSize(containerWidth, containerHeight); // Resize renderer output
-                    }
-                }
-
-                // Animation loop (Original logic)
-                function animate() {
-                    requestAnimationFrame(animate); // Request next frame
-
-                    const time = Date.now() * 0.00015; // Original time factor
-
-                    // Calculate idle drift targets
-                    const idleTargetX = Math.sin(time * 0.7) * 0.08;
-                    const idleTargetY = Math.cos(time * 0.5) * 0.08;
-
-                    // Combine mouse target and idle drift target
-                    const mouseInfluenceFactor = Math.min(1, Math.sqrt(targetRotationX ** 2 + targetRotationY ** 2) * 5);
-                    const finalTargetX = targetRotationX * mouseInfluenceFactor + idleTargetX * (1 - mouseInfluenceFactor);
-                    const finalTargetY = targetRotationY * mouseInfluenceFactor + idleTargetY * (1 - mouseInfluenceFactor);
-
-                    // Apply continuous rotation
-                    hologramGroup.rotation.z += 0.001; // Adjust spin axis/speed if needed
-
-                    // Apply mouse/idle-based rotation smoothly to the whole group
-                    hologramGroup.rotation.x += (finalTargetX - hologramGroup.rotation.x) * 0.05; // Slower smoothing
-                    hologramGroup.rotation.y += (finalTargetY - hologramGroup.rotation.y) * 0.05;
-
-                    // Render the scene
-                    renderer.render(scene, camera);
-                }
-
-                // Use requestAnimationFrame to ensure the DOM is ready before initializing 3D
-                requestAnimationFrame(init3D);
-
-            } else {
-                // Log error if essential components are missing
-                console.error("Could not find container, canvas, or THREE library for 3D init.");
-                // Optionally hide the container if 3D cannot be initialized
-                if (visualContainer) visualContainer.style.display = 'none';
+            // Initialize Lucide Icons
+            try {
+                lucide.createIcons();
+                console.log("Lucide icons initialized.");
+            } catch (e) {
+                console.error("Lucide icons initialization failed:", e);
             }
 
-
-            // --- Typewriter Effect --- (Code remains the same)
-            const typewriterElement = document.getElementById('typewriter');
-            const textToType = "AI-Powered Traffic Monitoring";
+            // --- Typing Effect for Hero Info ---
+            const infoElement = document.querySelector('.hero-content .info .typed-text');
+            const cursorElement = document.querySelector('.hero-content .info .cursor');
+            const textToType = "Leveraging advanced AI to detect traffic violations like helmet usage from CCTV feeds in real-time. Processed locally for privacy and efficiency.";
             let charIndex = 0;
-            let typingTimeout;
 
-            function typeWriter() {
-                if (typewriterElement && charIndex < textToType.length) {
-                    typewriterElement.textContent += textToType.charAt(charIndex);
+            function typeText() {
+                if (infoElement && charIndex < textToType.length) {
+                    infoElement.textContent += textToType.charAt(charIndex);
                     charIndex++;
-                    typingTimeout = setTimeout(typeWriter, 100);
-                } else if (typewriterElement) {
-                    typingTimeout = setTimeout(() => {
-                        if (typewriterElement) {
-                            typewriterElement.textContent = '';
-                            charIndex = 0;
-                            typeWriter();
-                        }
-                    }, 3000);
-                }
-            }
-            function stopTypewriter() {
-                clearTimeout(typingTimeout);
-                if (typewriterElement) {
-                    typewriterElement.textContent = textToType;
-                    try {
-                        const styleSheet = document.styleSheets[0];
-                        for (let i = styleSheet.cssRules.length - 1; i >= 0; i--) {
-                            if (styleSheet.cssRules[i].selectorText === '#typewriter::after') {
-                                styleSheet.deleteRule(i);
-                                break;
-                            }
-                        }
-                    } catch (e) {
-                        console.warn("Could not remove typewriter cursor style:", e);
-                    }
+                    setTimeout(typeText, 50); // Adjust typing speed (milliseconds)
+                } else if (cursorElement) {
+                    cursorElement.style.animation = 'none';
+                    cursorElement.style.opacity = '1';
                 }
             }
 
-            if (typewriterElement) {
-                typewriterElement.textContent = '';
-                charIndex = 0;
-                typeWriter();
-            } else {
-                console.error("Typewriter target element (#typewriter) not found");
+            if (infoElement) {
+                setTimeout(typeText, 1000);
             }
 
-            // --- Scroll Arrow Click Listener --- (Code remains the same)
-            const scrollArrow = document.querySelector('.scroll-arrow');
-            if (scrollArrow) {
-                scrollArrow.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const featuresSection = document.getElementById('features');
-                    if (featuresSection) {
-                        featuresSection.scrollIntoView({ behavior: 'smooth' });
-                    }
+            // --- Copy Code Button Functionality ---
+            const copyButton = document.getElementById('copy-code-btn');
+            const codeToCopy = document.getElementById('code-to-copy');
+
+            if (copyButton && codeToCopy) {
+                copyButton.addEventListener('click', () => {
+                    const codeText = codeToCopy.textContent || codeToCopy.innerText;
+                    navigator.clipboard.writeText(codeText).then(() => {
+                        // Optional: Show feedback to the user (e.g., change button text/icon)
+                        copyButton.title = 'Copied!';
+                        const icon = copyButton.querySelector('svg');
+                        if (icon) icon.outerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><polyline points="20 6 9 17 4 12"/></svg>'; // Check icon
+                        setTimeout(() => {
+                            copyButton.title = 'Copy Code';
+                            if (icon) icon.outerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>'; // Restore clipboard icon
+                            lucide.createIcons(); // Re-initialize icons if needed
+                        }, 2000); // Reset after 2 seconds
+                    }).catch(err => {
+                        console.error('Failed to copy code: ', err);
+                        copyButton.title = 'Failed to copy';
+                    });
                 });
             }
-
-            // --- Section Scroll Arrow Click Listener ---
-            // This element doesn't exist in this version of the HTML,
-            // so no listener is needed here.
-            // const sectionScrollArrow = document.querySelector('.section-scroll-arrow');
-            // if (sectionScrollArrow) { ... }
-
 
         });
     </script>
