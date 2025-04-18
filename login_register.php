@@ -1,7 +1,9 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 require_once 'config.php';
+
 
 // Registration logic
 if (isset($_POST['register'])) {
@@ -34,7 +36,7 @@ if (isset($_POST['login'])) {
             $_SESSION['email'] = $user['email'];
 
             // Redirect to a common user dashboard
-            header("Location: user_page.php");
+            header("Location: index.php");
             exit();
         }
     }

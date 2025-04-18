@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,33 +23,56 @@
 </head>
 
 <body>
-    <<nav class="navbar">
-        <a href="index.html" class="navbar-logo">
-            <img src="IMAGES/logo1.png" alt="Civic Eye Logo"
-                onerror="this.onerror=null; this.src='https://placehold.co/160x45/101015/FFFFFF?text=CivicEye';" />
-        </a>
-        <div class="navbar-links">
-            <a href="index.html">Home</a>
-            <a href="download.html" >Download</a> <a href="team.html" class="active">Team</a>
-            <a href="contact-us.html">Contact Us</a>
-            <a href="login.php" class="login-btn-link">
-                <button class="login-btn">LOGIN / SIGNUP</button> </a>
-        </div>
-        <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
-            <i data-lucide="menu"></i>
-        </button>
-    </nav>
+<nav class="navbar">
+    <a href="index.php" class="navbar-logo">
+        <img src="IMAGES/logo1.png" alt="Civic Eye Logo">
+    </a>
 
-    <div class="mobile-nav"> <button class="close-menu" aria-label="Close navigation menu"> <i data-lucide="x"></i>
-        </button>
-        <a href="index.html"><i data-lucide="home"></i>Home</a>
-        <a href="download.html"><i data-lucide="download-cloud"></i>Download</a>
-        <a href="team.html"><i data-lucide="users"></i>Team</a>
-        <a href="contact-us.html"><i data-lucide="mail"></i>Contact Us</a>
-        <a href="login.php" class="login-btn-link">
-            <button class="login-btn">LOGIN / SIGNUP</button> </a>
+    <div class="navbar-links">
+        <a href="index.php">Home</a>
+        <a href="download.php">Download</a>
+        <a href="team.php">Team</a>
+        <a href="contact-us.php">Contact Us</a>
+        <?php if (isset($_SESSION['email'])): ?>
+            <a href="user_page.php" class="login-btn-link">
+                <button class="login-btn">DASHBOARD</button>
+            </a>
+        <?php else: ?>
+            <a href="login.php" class="login-btn-link">
+                <button class="login-btn">LOGIN / SIGNUP</button>
+            </a>
+        <?php endif; ?>
     </div>
-    <div class="overlay"></div>
+
+    <!-- Hamburger menu icon -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <i data-lucide="menu"></i>
+    </button>
+</nav>
+
+<!-- Mobile Nav Panel -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="close-menu" id="closeMenu" aria-label="Close menu">
+        <i data-lucide="x"></i>
+    </button>
+
+    <a href="index.php">Home</a>
+    <a href="download.php">Download</a>
+    <a href="team.php">Team</a>
+    <a href="contact-us.php">Contact Us</a>
+    <?php if (isset($_SESSION['email'])): ?>
+        <a href="user_page.php" class="login-btn-link">
+            <button class="login-btn">DASHBOARD</button>
+        </a>
+    <?php else: ?>
+        <a href="login.php" class="login-btn-link">
+            <button class="login-btn">LOGIN / SIGNUP</button>
+        </a>
+    <?php endif; ?>
+</div>
+
+<!-- Mobile overlay -->
+<div class="overlay" id="overlay"></div>
 
     <div id="particles-js"></div>
 
@@ -257,65 +283,88 @@
                 });
             } else { console.error("particles.js not loaded"); }
 
-            // --- Initialize AOS (Animate On Scroll) ---
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 700,
-                    once: true,
-                    offset: 80,
-                    easing: 'ease-out-cubic',
-                });
-            } else { console.error("AOS not loaded"); }
+                // --- AOS Initialization ---
+     if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 700,
+            once: true,
+            offset: 80,
+            easing: 'ease-out-cubic',
+        });
+    } else {
+        console.error("AOS not loaded");
+    }
 
-            // --- Initialize Lucide Icons ---
-            try {
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons(); // Initialize icons used in HTML
-                    console.log("Lucide icons initialized.");
-                } else {
-                    console.error("Lucide library not loaded.");
-                }
-            } catch (e) {
-                console.error("Lucide icons initialization failed:", e);
+    // --- Lucide Icons Initialization ---
+    try {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons(); // Initializes all <i data-lucide="icon-name">
+            console.log("Lucide icons initialized.");
+        } else {
+            console.error("Lucide library not loaded.");
+        }
+    } catch (e) {
+        console.error("Lucide icons initialization failed:", e);
+    }
+
+    // --- Footer Year Update ---
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // --- Mobile Navigation Toggle ---
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+    if (menuToggle && closeMenu && mobileNav && overlay) {
+        const openMenu = () => {
+            mobileNav.classList.add('open');
+            overlay.classList.add('open');
+            document.body.classList.add('no-scroll');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        };
+
+        const closeMenuFunc = () => {
+            mobileNav.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.classList.remove('no-scroll');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        };
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openMenu();
+        });
+
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenuFunc);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+                closeMenuFunc();
             }
+        });
 
-            // --- Update Footer Year ---
-            const yearSpan = document.getElementById('currentYear');
-            if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
+        mobileNav.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    } else {
+        console.warn("Mobile menu elements not found:");
+        if (!menuToggle) console.warn("- #menuToggle missing");
+        if (!mobileNav) console.warn("- #mobileNav missing");
+        if (!closeMenu) console.warn("- #closeMenu missing");
+        if (!overlay) console.warn("- #overlay missing");
+    }
 
-            // --- Mobile Navbar Toggle (Logic from Landing Page) ---
-            const menuToggle = document.querySelector('.menu-toggle');
-            const closeMenu = document.querySelector('.mobile-nav .close-menu');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const overlay = document.querySelector('.overlay');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
 
-            if (menuToggle && mobileNav && closeMenu && overlay) {
-                const openMobileMenu = () => {
-                    mobileNav.classList.add('open');
-                    overlay.classList.add('open');
-                    document.body.classList.add('no-scroll');
-                    menuToggle.setAttribute('aria-expanded', 'true');
-                };
-                const closeMobileMenu = () => {
-                    mobileNav.classList.remove('open');
-                    overlay.classList.remove('open');
-                    document.body.classList.remove('no-scroll');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                };
-                menuToggle.addEventListener('click', (event) => { event.stopPropagation(); openMobileMenu(); });
-                closeMenu.addEventListener('click', closeMobileMenu);
-                overlay.addEventListener('click', closeMobileMenu);
-                mobileNavLinks.forEach(link => { link.addEventListener('click', closeMobileMenu); });
-                document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && mobileNav.classList.contains('open')) { closeMobileMenu(); } });
-                mobileNav.addEventListener('click', (event) => { event.stopPropagation(); });
-            } else {
-                console.warn("Mobile navigation elements not found. Check selectors.");
-                if (!menuToggle) console.warn("- .menu-toggle missing");
-                if (!mobileNav) console.warn("- .mobile-nav missing");
-                if (!closeMenu) console.warn("- .mobile-nav .close-menu missing");
-                if (!overlay) console.warn("- .overlay missing");
-            }
 
         });
     </script>

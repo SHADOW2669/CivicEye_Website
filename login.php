@@ -45,15 +45,15 @@ function isActiveForm($formName, $activeForm){
     <div id="particles-js"></div>
 
     <nav class="navbar">
-        <a href="index.html" class="navbar-logo">
+        <a href="index.php" class="navbar-logo">
             <img src="IMAGES/logo1.png" alt="Civic Eye Logo">
         </a>
 
         <div class="navbar-links">
-            <a href="index.html">Home</a>
-            <a href="download.html">Download</a>
-            <a href="team.html">Team</a>
-            <a href="contact-us.html">Contact Us</a>
+            <a href="index.php">Home</a>
+            <a href="download.php">Download</a>
+            <a href="team.php">Team</a>
+            <a href="contact-us.php">Contact Us</a>
             <span class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button>
             </span>
@@ -73,10 +73,10 @@ function isActiveForm($formName, $activeForm){
         <button class="close-menu-btn" aria-label="Close navigation menu">
             <i data-lucide="x"></i>
         </button>
-        <a href="index.html">Home</a>
-        <a href="download.html">Download</a>
-        <a href="team.html">Team</a>
-        <a href="contact-us.html">Contact Us</a>
+        <a href="index.php">Home</a>
+        <a href="download.php">Download</a>
+        <a href="team.php">Team</a>
+        <a href="contact-us.php">Contact Us</a>
         <span class="login-btn-link">
             <button class="login-btn">LOGIN / SIGNUP</button>
         </span>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,32 +28,55 @@
     <div id="particles-js"></div>
 
     <nav class="navbar">
-        <a href="index.html" class="navbar-logo">
-            <img src="IMAGES/logo1.png" alt="Civic Eye Logo"
-                onerror="this.onerror=null; this.src='https://placehold.co/160x45/101015/FFFFFF?text=CivicEye';" />
-        </a>
-        <div class="navbar-links">
-            <a href="index.html">Home</a>
-            <a href="download.html" class="active">Download</a> <a href="team.html">Team</a>
-            <a href="contact-us.html">Contact Us</a>
-            <a href="login.php" class="login-btn-link">
-                <button class="login-btn">LOGIN / SIGNUP</button> </a>
-        </div>
-        <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
-            <i data-lucide="menu"></i>
-        </button>
-    </nav>
+    <a href="index.php" class="navbar-logo">
+        <img src="IMAGES/logo1.png" alt="Civic Eye Logo">
+    </a>
 
-    <div class="mobile-nav"> <button class="close-menu" aria-label="Close navigation menu"> <i data-lucide="x"></i>
-        </button>
-        <a href="index.html"><i data-lucide="home"></i>Home</a>
-        <a href="download.html"><i data-lucide="download-cloud"></i>Download</a>
-        <a href="team.html"><i data-lucide="users"></i>Team</a>
-        <a href="contact-us.html"><i data-lucide="mail"></i>Contact Us</a>
-        <a href="login.php" class="login-btn-link">
-            <button class="login-btn">LOGIN / SIGNUP</button> </a>
+    <div class="navbar-links">
+        <a href="index.php">Home</a>
+        <a href="download.php">Download</a>
+        <a href="team.php">Team</a>
+        <a href="contact-us.php">Contact Us</a>
+        <?php if (isset($_SESSION['email'])): ?>
+            <a href="user_page.php" class="login-btn-link">
+                <button class="login-btn">DASHBOARD</button>
+            </a>
+        <?php else: ?>
+            <a href="login.php" class="login-btn-link">
+                <button class="login-btn">LOGIN / SIGNUP</button>
+            </a>
+        <?php endif; ?>
     </div>
-    <div class="overlay"></div>
+
+    <!-- Hamburger menu icon -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <i data-lucide="menu"></i>
+    </button>
+</nav>
+
+<!-- Mobile Nav Panel -->
+<div class="mobile-nav" id="mobileNav">
+    <button class="close-menu" id="closeMenu" aria-label="Close menu">
+        <i data-lucide="x"></i>
+    </button>
+
+    <a href="index.php">Home</a>
+    <a href="download.php">Download</a>
+    <a href="team.php">Team</a>
+    <a href="contact-us.php">Contact Us</a>
+    <?php if (isset($_SESSION['email'])): ?>
+        <a href="user_page.php" class="login-btn-link">
+            <button class="login-btn">DASHBOARD</button>
+        </a>
+    <?php else: ?>
+        <a href="login.php" class="login-btn-link">
+            <button class="login-btn">LOGIN / SIGNUP</button>
+        </a>
+    <?php endif; ?>
+</div>
+
+<!-- Mobile overlay -->
+<div class="overlay" id="overlay"></div>
 
 
     <main>
@@ -355,17 +381,17 @@
                 <div class="footer-links-column">
                     <h3>Quick Links</h3>
                     <nav>
-                        <a href="index.html">Home</a>
-                        <a href="download.html">Download</a>
-                        <a href="team.html">Team</a>
-                        <a href="contact-us.html">Contact Us</a>
-                        <a href="login.html">Login / Signup</a>
+                        <a href="index.php">Home</a>
+                        <a href="download.php">Download</a>
+                        <a href="team.php">Team</a>
+                        <a href="contact-us.php">Contact Us</a>
+                        <a href="login.php">Login / Signup</a>
                     </nav>
                 </div>
                 <div class="footer-links-column">
                     <h3>Resources</h3>
                     <nav>
-                        <a href="index.html#features">Features</a>
+                        <a href="index.php#features">Features</a>
                         <a href="#windows-section-anchor">Windows Guide</a>
                         <a href="#linux-section-anchor">Linux Guide</a>
                         <a href="https://github.com/SHADOW2669/CivicEye" target="_blank"
@@ -405,108 +431,164 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // --- Initialize Particles.js ---
-            if (typeof particlesJS !== 'undefined') {
-                particlesJS("particles-js", { /* Particles config */
-                    "particles": { "number": { "value": 70, "density": { "enable": true, "value_area": 900 } }, "color": { "value": ["#8300fe", "#a855f7", "#38bdf8", "#666"] }, "shape": { "type": "circle" }, "opacity": { "value": 0.6, "random": true, "anim": { "enable": true, "speed": 0.9, "opacity_min": 0.15, "sync": false } }, "size": { "value": 3.0, "random": true, "anim": { "enable": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#555", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 1.8, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": true, "rotateX": 800, "rotateY": 1400 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 160, "line_linked": { "opacity": 0.7 } }, "push": { "particles_nb": 4 } } }, "retina_detect": true
-                });
-            } else { console.error("particles.js not loaded"); }
+ document.addEventListener("DOMContentLoaded", () => {
+    // --- Initialize Particles.js ---
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 70, "density": { "enable": true, "value_area": 900 } },
+                "color": { "value": ["#8300fe", "#a855f7", "#38bdf8", "#666"] },
+                "shape": { "type": "circle" },
+                "opacity": {
+                    "value": 0.6, "random": true,
+                    "anim": { "enable": true, "speed": 0.9, "opacity_min": 0.15, "sync": false }
+                },
+                "size": { "value": 3.0, "random": true },
+                "line_linked": {
+                    "enable": true, "distance": 150,
+                    "color": "#555", "opacity": 0.4, "width": 1
+                },
+                "move": {
+                    "enable": true, "speed": 1.8, "random": true,
+                    "out_mode": "out", "attract": { "enable": true, "rotateX": 800, "rotateY": 1400 }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 160, "line_linked": { "opacity": 0.7 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    } else {
+        console.error("particles.js not loaded");
+    }
 
-            // --- Initialize AOS (Animate On Scroll) ---
-            if (typeof AOS !== 'undefined') { AOS.init({ duration: 900, once: false, offset: 100, easing: 'ease-out-quart' }); } else { console.error("AOS not loaded"); }
+    // --- AOS Initialization ---
+    if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out-cubic' });
+    } else {
+        console.error("AOS not loaded");
+    }
 
-            // --- Mobile Navbar Toggle (Logic from Landing Page) ---
-            const menuToggle = document.querySelector('.menu-toggle');
-            const closeMenu = document.querySelector('.mobile-nav .close-menu'); // More specific selector
-            const mobileNav = document.querySelector('.mobile-nav');
-            const overlay = document.querySelector('.overlay');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+    // --- Lucide Icons Initialization ---
+    try {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+            console.log("Lucide icons initialized.");
+        } else {
+            console.error("Lucide library not loaded.");
+        }
+    } catch (e) {
+        console.error("Lucide icons initialization failed:", e);
+    }
 
-            if (menuToggle && mobileNav && closeMenu && overlay) {
-                const openMobileMenu = () => {
-                    mobileNav.classList.add('open');
-                    overlay.classList.add('open');
-                    document.body.classList.add('no-scroll');
-                    menuToggle.setAttribute('aria-expanded', 'true');
-                };
-                const closeMobileMenu = () => {
-                    mobileNav.classList.remove('open');
-                    overlay.classList.remove('open');
-                    document.body.classList.remove('no-scroll');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                };
-                menuToggle.addEventListener('click', (event) => { event.stopPropagation(); openMobileMenu(); });
-                closeMenu.addEventListener('click', closeMobileMenu);
-                overlay.addEventListener('click', closeMobileMenu);
-                mobileNavLinks.forEach(link => { link.addEventListener('click', closeMobileMenu); });
-                document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && mobileNav.classList.contains('open')) { closeMobileMenu(); } });
-                mobileNav.addEventListener('click', (event) => { event.stopPropagation(); });
-            } else {
-                // Log which elements are missing for debugging
-                console.warn("Mobile navigation elements not found. Check selectors:");
-                if (!menuToggle) console.warn("- .menu-toggle missing");
-                if (!mobileNav) console.warn("- .mobile-nav missing");
-                if (!closeMenu) console.warn("- .mobile-nav .close-menu missing"); // Check specific selector
-                if (!overlay) console.warn("- .overlay missing");
+    // --- Footer Year Update ---
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // --- Mobile Navigation Toggle ---
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+    if (menuToggle && closeMenu && mobileNav && overlay) {
+        const openMenu = () => {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            document.body.classList.add('no-scroll');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        };
+
+        const closeMenuFunc = () => {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        };
+
+        menuToggle.addEventListener('click', e => {
+            e.stopPropagation();
+            openMenu();
+        });
+
+        closeMenu.addEventListener('click', closeMenuFunc);
+        overlay.addEventListener('click', closeMenuFunc);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenuFunc));
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMenuFunc();
+            }
+        });
+
+        mobileNav.addEventListener('click', e => e.stopPropagation());
+    }
+
+    // --- Smooth Scrolling for Anchor Links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId.length > 1) {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const navHeight = document.querySelector('.navbar')?.offsetHeight || 70;
+                    const topPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                    window.scrollTo({ top: topPos, behavior: "smooth" });
+                }
+            }
+        });
+    });
+
+    // --- Clipboard Copy Functionality ---
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const pre = button.closest('pre');
+            const code = pre?.querySelector('code');
+            const text = code?.textContent || '';
+            const copyText = button.querySelector('.copy-text');
+            const copyIcon = button.querySelector('.copy-icon');
+            const checkIcon = button.querySelector('.check-icon');
+
+            if (!code || !navigator.clipboard) {
+                console.error("Clipboard API not available.");
+                if (copyText) copyText.textContent = 'Error';
+                return;
             }
 
-            // --- Initialize Lucide Icons ---
-            try { if (typeof lucide !== 'undefined') { lucide.createIcons(); console.log("Lucide icons initialized."); } else { console.error("Lucide library not loaded."); } } catch (e) { console.error("Lucide icons initialization failed:", e); }
+            try {
+                await navigator.clipboard.writeText(text);
+                if (copyText) copyText.style.display = 'none';
+                if (copyIcon) copyIcon.style.display = 'none';
+                if (checkIcon) checkIcon.style.display = 'inline-block';
+                button.setAttribute('aria-label', 'Copied!');
 
-            // --- Update Footer Year ---
-            const yearSpan = document.getElementById('currentYear');
-            if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
-
-            // --- Smooth Scrolling for Anchor Links ---
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    let targetId = this.getAttribute('href');
-                    if (targetId.startsWith('#') && targetId.length > 1) {
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            e.preventDefault();
-                            const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 70;
-                            const elementPosition = targetElement.getBoundingClientRect().top;
-                            const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
-                            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                        }
-                    }
-                });
-            });
-
-            // --- Clipboard Copy Functionality ---
-            const copyButtons = document.querySelectorAll('.copy-btn');
-            copyButtons.forEach(button => {
-                button.addEventListener('click', async () => {
-                    const preElement = button.closest('pre');
-                    const codeElement = preElement?.querySelector('code');
-                    const copyTextElement = button.querySelector('.copy-text');
-                    const copyIcon = button.querySelector('.copy-icon');
-                    const checkIcon = button.querySelector('.check-icon');
-                    if (!codeElement || !navigator.clipboard) { console.error("Couldn't find code element or clipboard API unavailable."); if (copyTextElement) copyTextElement.textContent = 'Error'; return; }
-                    const textToCopy = codeElement.textContent || '';
-                    try {
-                        await navigator.clipboard.writeText(textToCopy);
-                        if (copyTextElement) copyTextElement.style.display = 'none';
-                        if (copyIcon) copyIcon.style.display = 'none';
-                        if (checkIcon) checkIcon.style.display = 'inline-block';
-                        button.setAttribute('aria-label', 'Copied!');
-                        setTimeout(() => {
-                            if (copyTextElement) copyTextElement.style.display = 'inline-block';
-                            if (copyIcon) copyIcon.style.display = 'inline-block';
-                            if (checkIcon) checkIcon.style.display = 'none';
-                            button.setAttribute('aria-label', 'Copy command');
-                        }, 2000);
-                    } catch (err) {
-                        console.error('Failed to copy text: ', err);
-                        if (copyTextElement) copyTextElement.textContent = 'Failed';
-                        setTimeout(() => { if (copyTextElement) copyTextElement.textContent = 'Copy'; }, 2000);
-                    }
-                });
-            });
-
+                setTimeout(() => {
+                    if (copyText) copyText.style.display = 'inline-block';
+                    if (copyIcon) copyIcon.style.display = 'inline-block';
+                    if (checkIcon) checkIcon.style.display = 'none';
+                    button.setAttribute('aria-label', 'Copy command');
+                }, 2000);
+            } catch (err) {
+                console.error('Copy failed:', err);
+                if (copyText) copyText.textContent = 'Failed';
+                setTimeout(() => { if (copyText) copyText.textContent = 'Copy'; }, 2000);
+            }
         });
+    });
+});
+
     </script>
 </body>
 
