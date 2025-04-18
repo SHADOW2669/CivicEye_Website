@@ -1,3 +1,25 @@
+<?php
+
+session_start();
+
+$errors = [
+    'login' => $_SESSION['login_error'] ?? '',
+    'register' => $_SESSION['register_error'] ?? ''
+];
+$activeForm = $_SESSION['active_form'] ?? 'login';
+
+session_unset();
+
+function showError($error){
+    return !empty($error) ? "<p class='error-message'>$error</p>" : '';
+}
+
+function isActiveForm($formName, $activeForm){
+    return $formName === $activeForm ? 'active' : '';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +53,7 @@
             <a href="index.html">Home</a>
             <a href="download.html">Download</a>
             <a href="team.html">Team</a>
-            <a href="contact-us.html">Contact Us</a>
+            <a href="conact-us.html">Contact Us</a>
             <span class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button>
             </span>
@@ -64,28 +86,28 @@
         id="form-wrapper">
 
         <div class="absolute top-0 left-0 w-full h-full">
-            <div id="login-form-container" class="form-container">
-                <form action="#" method="post" class="w-full">
+            <div id="login-form-container" class="form-container <?= isActiveForm('login', $activeForm); ?>">
+                <form action="login_register.php" method="post" class="w-full">
                     <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center font-orbitron text-white">Login
                     </h2>
+                    <?= showError($errors['login']); ?>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
                     <a href="#"
                         class="block text-right text-xs md:text-sm text-[#ff5722] hover:underline mb-4 md:mb-6">Forgot
                         password?</a>
-                    <button type="submit">Login</button>
-                    <input type="hidden" name="form_type" value="login">
+                    <button type="submit" name="login" value="login">Login</button>
                 </form>
             </div>
-            <div id="register-form-container" class="form-container">
-                <form action="#" method="post" class="w-full">
+            <div id="register-form-container" class="form-container <?= isActiveForm('register', $activeForm); ?>">
+                <form action="login_register.php" method="post" class="w-full">
                     <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center font-orbitron text-white">Register
                     </h2>
+                    <?= showError($errors['register']); ?>
                     <input type="text" name="name" placeholder="Username" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Register</button>
-                    <input type="hidden" name="form_type" value="register">
+                    <button type="submit" name="register" value="register">Register</button>
                 </form>
             </div>
         </div>
