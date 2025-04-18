@@ -12,6 +12,9 @@
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.396.0/dist/umd/lucide.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="conact-us.css" />
 
 </head>
@@ -26,17 +29,34 @@
             <a href="index.html">Home</a>
             <a href="download.html">Download</a>
             <a href="team.html">Team</a>
-            <a href="conact-us.html">Contact Us</a>
+            <a href="conact-us.html" class="active">Contact Us</a>
             <a href="login.html" class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button>
             </a>
         </div>
+        <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+            <i data-lucide="menu"></i>
+        </button>
     </nav>
+
+    <div class="mobile-nav">
+        <button class="close-menu" aria-label="Close navigation menu">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="index.html"><i data-lucide="home"></i>Home</a>
+        <a href="download.html"><i data-lucide="download-cloud"></i>Download</a>
+        <a href="team.html"><i data-lucide="users"></i>Team</a>
+        <a href="contact-us.html"><i data-lucide="mail"></i>Contact Us</a>
+        <a href="login.html" class="login-btn-link">
+            <button class="login-btn">LOGIN / SIGNUP</button>
+        </a>
+    </div>
+    <div class="overlay"></div>
 
     <div id="particles-js"></div>
 
     <main>
-        <div class="contact-section-container">
+        <div class="contact-section-container" data-aos="fade-up">
             <div class="contact-header">
                 <h1>Contact Us</h1>
                 <p>Have questions or feedback? We'd love to hear from you. Reach out using the details below or send us
@@ -47,8 +67,7 @@
                 <div class="contact-info">
                     <div class="info-item">
                         <div class="icon">
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/map-pin.svg"
-                                alt="Address Icon" />
+                            <i data-lucide="map-pin"></i>
                         </div>
                         <div class="details">
                             <h4>Address</h4>
@@ -57,8 +76,7 @@
                     </div>
                     <div class="info-item">
                         <div class="icon">
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/phone.svg"
-                                alt="Phone Icon" />
+                            <i data-lucide="phone"></i>
                         </div>
                         <div class="details">
                             <h4>Phone</h4>
@@ -67,8 +85,7 @@
                     </div>
                     <div class="info-item">
                         <div class="icon">
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/mail.svg"
-                                alt="Email Icon" />
+                            <i data-lucide="mail"></i>
                         </div>
                         <div class="details">
                             <h4>Email</h4>
@@ -77,13 +94,12 @@
                     </div>
                     <div class="info-item">
                         <div class="icon">
-                            <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/github.svg"
-                                alt="GitHub Icon" />
+                            <i data-lucide="github"></i>
                         </div>
                         <div class="details">
                             <h4>Issues / Support</h4>
-                            <p><a href="https://github.com/SHADOW2669/CivicEye/issues" target="_blank">Report on
-                                    GitHub</a></p>
+                            <p><a href="https://github.com/SHADOW2669/CivicEye/issues" target="_blank"
+                                    rel="noopener noreferrer">Report on GitHub</a></p>
                         </div>
                     </div>
                 </div>
@@ -115,15 +131,89 @@
         </div>
     </main>
 
-    <script>
-        // Initialize Particles.js
-        document.addEventListener("DOMContentLoaded", () => {
-            particlesJS("particles-js", {
-                // Configuration remains the same
-                particles: { number: { value: 80, density: { enable: true, value_area: 800 } }, color: { value: "#7BD3EA" }, shape: { type: "circle" }, opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } }, size: { value: 3, random: true, anim: { enable: true, speed: 4, size_min: 0.1, sync: false } }, line_linked: { enable: true, distance: 150, color: "#7BD3EA", opacity: 0.4, width: 1 }, move: { enable: true, speed: 3, direction: "none", random: false, straight: false, out_mode: "out", bounce: false } }, interactivity: { detect_on: "canvas", events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } } }, retina_detect: true
-            });
+    <footer>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <div>&copy; <span id="currentYear"></span> Civic Eye. All rights reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-            // Handle Contact Form Submission
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- Initialize Particles.js ---
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", { /* Particles config */
+                    "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": ["#8300FE", "#a855f7", "#38bdf8"] }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#555", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": false }, "resize": true }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.7 } } } }, "retina_detect": true
+                });
+            } else { console.error("particles.js not loaded"); }
+
+            // --- Initialize AOS (Animate On Scroll) ---
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 700,
+                    once: true,
+                    offset: 80,
+                    easing: 'ease-out-cubic',
+                });
+            } else { console.error("AOS not loaded"); }
+
+            // --- Initialize Lucide Icons ---
+            try {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons(); // Initialize icons used in HTML
+                    console.log("Lucide icons initialized.");
+                } else {
+                    console.error("Lucide library not loaded.");
+                }
+            } catch (e) {
+                console.error("Lucide icons initialization failed:", e);
+            }
+
+            // --- Update Footer Year ---
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
+
+            // --- Mobile Navbar Toggle (Logic from Landing Page) ---
+            const menuToggle = document.querySelector('.menu-toggle');
+            const closeMenu = document.querySelector('.mobile-nav .close-menu');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const overlay = document.querySelector('.overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+            if (menuToggle && mobileNav && closeMenu && overlay) {
+                const openMobileMenu = () => {
+                    mobileNav.classList.add('open');
+                    overlay.classList.add('open');
+                    document.body.classList.add('no-scroll');
+                    menuToggle.setAttribute('aria-expanded', 'true');
+                };
+                const closeMobileMenu = () => {
+                    mobileNav.classList.remove('open');
+                    overlay.classList.remove('open');
+                    document.body.classList.remove('no-scroll');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                };
+                menuToggle.addEventListener('click', (event) => { event.stopPropagation(); openMobileMenu(); });
+                closeMenu.addEventListener('click', closeMobileMenu);
+                overlay.addEventListener('click', closeMobileMenu);
+                mobileNavLinks.forEach(link => { link.addEventListener('click', closeMobileMenu); });
+                document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && mobileNav.classList.contains('open')) { closeMobileMenu(); } });
+                mobileNav.addEventListener('click', (event) => { event.stopPropagation(); });
+            } else {
+                console.warn("Mobile navigation elements not found. Check selectors.");
+                if (!menuToggle) console.warn("- .menu-toggle missing");
+                if (!mobileNav) console.warn("- .mobile-nav missing");
+                if (!closeMenu) console.warn("- .mobile-nav .close-menu missing");
+                if (!overlay) console.warn("- .overlay missing");
+            }
+
+            // --- Handle Contact Form Submission ---
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function (event) {
@@ -141,7 +231,6 @@
                     const issueTitle = `Contact Form Submission: ${name}`;
 
                     // Create Issue Body (using Markdown)
-                    // Include a warning about potentially public email
                     let issueBody = `**Submitted by:** ${name}\n`;
                     if (email) {
                         issueBody += `**Email:** ${email} _(Note: Email submitted via web form)_\n`;

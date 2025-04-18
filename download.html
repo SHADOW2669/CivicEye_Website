@@ -27,12 +27,12 @@
     <nav class="navbar">
         <a href="index.html" class="navbar-logo">
             <img src="IMAGES/logo1.png" alt="Civic Eye Logo"
-                 onerror="this.onerror=null; this.src='https://placehold.co/160x45/101015/FFFFFF?text=CivicEye';" />
+                onerror="this.onerror=null; this.src='https://placehold.co/160x45/101015/FFFFFF?text=CivicEye';" />
         </a>
         <div class="navbar-links">
             <a href="index.html">Home</a>
             <a href="download.html" class="active">Download</a> <a href="team.html">Team</a>
-            <a href="contact-us.html">Contact Us</a>
+            <a href="conact-us.html">Contact Us</a>
             <a href="login.html" class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button> </a>
         </div>
@@ -42,13 +42,13 @@
     </nav>
 
     <div class="mobile-nav"> <button class="close-menu" aria-label="Close navigation menu"> <i data-lucide="x"></i>
-         </button>
-         <a href="index.html"><i data-lucide="home"></i>Home</a>
-         <a href="download.html"><i data-lucide="download-cloud"></i>Download</a>
-         <a href="team.html"><i data-lucide="users"></i>Team</a>
-         <a href="contact-us.html"><i data-lucide="mail"></i>Contact Us</a>
-         <a href="login.html" class="login-btn-link">
-             <button class="login-btn">LOGIN / SIGNUP</button> </a>
+        </button>
+        <a href="index.html"><i data-lucide="home"></i>Home</a>
+        <a href="download.html"><i data-lucide="download-cloud"></i>Download</a>
+        <a href="team.html"><i data-lucide="users"></i>Team</a>
+        <a href="contact-us.html"><i data-lucide="mail"></i>Contact Us</a>
+        <a href="login.html" class="login-btn-link">
+            <button class="login-btn">LOGIN / SIGNUP</button> </a>
     </div>
     <div class="overlay"></div>
 
@@ -59,9 +59,11 @@
             <p>Get the latest version of CivicEye for your operating system. AI-powered traffic violation detection,
                 running locally on your machine for enhanced privacy and efficiency.</p>
             <div class="download-os-links">
-                <a href="#windows-section-anchor" class="btn-os-link windows"> <i data-lucide="laptop"></i> <span>Windows</span>
+                <a href="#windows-section-anchor" class="btn-os-link windows"> <i data-lucide="laptop"></i>
+                    <span>Windows</span>
                 </a>
-                <a href="#linux-section-anchor" class="btn-os-link linux"> <i data-lucide="terminal"></i> <span>Linux</span>
+                <a href="#linux-section-anchor" class="btn-os-link linux"> <i data-lucide="terminal"></i>
+                    <span>Linux</span>
                 </a>
             </div>
         </header>
@@ -290,7 +292,8 @@
                             (<code>admin</code> / <code>1234</code>) or provided ones.</li>
                         <li><strong>Video Source Input (Terminal)</strong>: The script will ask for the path to a video
                             file. Enter the full path or press Enter to use the default webcam (usually
-                            <code>/dev/video0</code>).</li>
+                            <code>/dev/video0</code>).
+                        </li>
                         <li><strong>Violation Detection & Display</strong>: An OpenCV window opens, showing the video
                             feed. YOLOv8 processes frames, highlighting "Without Helmet" violations with bounding boxes.
                         </li>
