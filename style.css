@@ -230,6 +230,7 @@
        /* Close Button for Mobile Menu */
        .close-menu-btn {
            position: absolute;
+           /* Position within the menu */
            top: 1.5rem;
            right: 1.5rem;
            background: none;
@@ -237,20 +238,30 @@
            cursor: pointer;
            padding: 0.25rem;
            line-height: 0;
+           color: #fff;
+           /* ** Set default color to white ** */
        }
 
-       /* Style the close button icon */
-       .close-menu-btn i.lucide {
+       /* Style the close button icon (targeting the SVG Lucide generates) */
+       .close-menu-btn svg {
+           /* ** Updated selector to target SVG ** */
            width: 30px;
            height: 30px;
-           color: #9ca3af;
+           stroke: currentColor;
+           /* ** Use button's color property for the stroke ** */
            stroke-width: 2;
            transition: color 0.3s ease, transform 0.3s ease;
        }
 
-       .close-menu-btn:hover i.lucide {
-           color: #fff;
+       .close-menu-btn:hover {
+           color: #c084fc;
+           /* ** Change color to light purple on hover ** */
+       }
+
+       .close-menu-btn:hover svg {
+           /* Apply transform to SVG on button hover */
            transform: rotate(90deg);
+           /* Rotate effect */
        }
 
        /* =============================
