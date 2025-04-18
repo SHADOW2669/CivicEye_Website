@@ -53,7 +53,7 @@ function isActiveForm($formName, $activeForm){
             <a href="index.html">Home</a>
             <a href="download.html">Download</a>
             <a href="team.html">Team</a>
-            <a href="conact-us.html">Contact Us</a>
+            <a href="contact-us.html">Contact Us</a>
             <span class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button>
             </span>
