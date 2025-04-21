@@ -1,4 +1,4 @@
-# Civic Eye Website [Server Files]
+# Civic Eye Website
 
 This repository contains the source code for the official informational website for **Civic Eye**, an AI-powered traffic violation detection software. The website serves as a central hub for users to learn about the Civic Eye application, download the software, meet the team, find contact information, and register/login.
 
