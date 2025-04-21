@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,28 +24,23 @@ session_start();
 
 <body>
     <div id="particles-js"></div>
-    <?php
-    session_start();
-    ?>
+
     <nav class="navbar">
-        <a href="index.php" class="navbar-logo">
+        <a href="index.html" class="navbar-logo">
             <img src="IMAGES/logo1.png" alt="Civic Eye Logo">
         </a>
 
         <div class="navbar-links">
-            <a href="index.php">Home</a>
-            <a href="download.php">Download</a>
-            <a href="team.php">Team</a>
-            <a href="contact-us.php" class="active">Contact Us</a>
-            <?php if (isset($_SESSION['email'])): ?>
-                <a href="user_page.php" class="login-btn-link">
+            <a href="index.html">Home</a>
+            <a href="download.html">Download</a>
+            <a href="team.html">Team</a>
+            <a href="contact-us.html" class="active">Contact Us</a>
+                <a href="user_page.html" class="login-btn-link">
                     <button class="login-btn">DASHBOARD</button>
                 </a>
-            <?php else: ?>
-                <a href="login.php" class="login-btn-link">
+                <a href="login.html" class="login-btn-link">
                     <button class="login-btn">LOGIN / SIGNUP</button>
                 </a>
-            <?php endif; ?>
         </div>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
@@ -61,19 +53,16 @@ session_start();
             <i data-lucide="x"></i>
         </button>
 
-        <a href="index.php"><i data-lucide="home"></i>Home</a>
-        <a href="download.php"><i data-lucide="download"></i>Download</a>
-        <a href="team.php"><i data-lucide="users"></i>Team</a>
-        <a href="contact-us.php"><i data-lucide="mail"></i>Contact Us</a>
-        <?php if (isset($_SESSION['email'])): ?>
-            <a href="user_page.php" class="login-btn-link">
+        <a href="index.html"><i data-lucide="home"></i>Home</a>
+        <a href="download.html"><i data-lucide="download"></i>Download</a>
+        <a href="team.html"><i data-lucide="users"></i>Team</a>
+        <a href="contact-us.html"><i data-lucide="mail"></i>Contact Us</a>
+            <a href="user_page.html" class="login-btn-link">
                 <button class="login-btn">DASHBOARD</button>
             </a>
-        <?php else: ?>
-            <a href="login.php" class="login-btn-link">
+            <a href="login.html" class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button>
             </a>
-        <?php endif; ?>
     </div>
 
     <div class="overlay" id="overlay"></div>
