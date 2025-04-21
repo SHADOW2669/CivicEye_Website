@@ -5,80 +5,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Civic Eye - AI Traffic Monitoring</title>
+
+    <link rel="shortcut icon" href="IMAGES/ppg.png" type="image/x-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.396.0/dist/umd/lucide.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="shortcut icon" href="IMAGES/ppg.png" type="image/x-icon">
+
     <link rel="stylesheet" href="style.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.396.0/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 </head>
 
 <body>
     <div id="particles-js"></div>
 
-    <?php session_start(); ?>
 
-<nav class="navbar">
-    <a href="#hero-page" class="navbar-logo">
-        <img src="IMAGES/logo1.png"
-            onerror="this.onerror=null; this.src='https://placehold.co/150x40/111111/FFFFFF?text=CivicEye';"
-            alt="Civic Eye Logo">
-    </a>
+    <nav class="navbar">
+        <a href="#hero-page" class="navbar-logo">
+            <img src="IMAGES/logo1.png" alt="Civic Eye Logo">
+        </a>
 
-    <div class="navbar-links">
-        <a href="index.php">Home</a>
-        <a href="download.php">Download</a>
-        <a href="team.php">Team</a>
-        <a href="contact-us.php">Contact Us</a>
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="download.html">Download</a>
+            <a href="team.html">Team</a>
+            <a href="contact-us.html">Contact Us</a>
 
-        <?php if(isset($_SESSION['email'])): ?>
-            <a href="user_page.php" class="login-btn-link">
+                <a href="user_page.html" class="login-btn-link">
+                    <button class="login-btn">DASHBOARD</button>
+                </a>
+                <a href="login.html" class="login-btn-link">
+                    <button class="login-btn">LOGIN / SIGNUP</button>
+                </a>
+        </div>
+
+        <button class="hamburger-menu" aria-label="Open navigation menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="mobile-nav-menu">
+        <button class="close-menu-btn" aria-label="Close navigation menu">
+            <i data-lucide="x"></i>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="team.html">Team</a>
+        <a href="contact-us.html">Contact Us</a>
+
+            <a href="user_page.html" class="login-btn-link">
                 <button class="login-btn">DASHBOARD</button>
             </a>
-        <?php else: ?>
-            <a href="login.php" class="login-btn-link">
+            <a href="login.html" class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button>
             </a>
-        <?php endif; ?>
     </div>
-
-    <button class="hamburger-menu" aria-label="Open navigation menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    </button>
-</nav>
-
-<div class="mobile-nav-menu">
-    <button class="close-menu-btn" aria-label="Close navigation menu">
-        <i data-lucide="x"></i>
-    </button>
-    <a href="index.php">Home</a>
-    <a href="download.php">Download</a>
-    <a href="team.php">Team</a>
-    <a href="contact-us.php">Contact Us</a>
-
-    <?php if(isset($_SESSION['email'])): ?>
-        <a href="user_page.php" class="login-btn-link">
-            <button class="login-btn">DASHBOARD</button>
-        </a>
-    <?php else: ?>
-        <a href="login.php" class="login-btn-link">
-            <button class="login-btn">LOGIN / SIGNUP</button>
-        </a>
-    <?php endif; ?>
-</div>
-
 
     <main>
         <header id="hero-page" class="hero centered-hero">
@@ -283,70 +276,83 @@
                         </button>
                     </div>
                     <pre><code class="language-python" id="code-to-copy">
-<span class="code-keyword">import</span> <span class="code-variable">cv2</span>  <span class="code-comment"># OpenCV for image processing</span>
-<span class="code-keyword">import</span> <span class="code-variable">math</span>  <span class="code-comment"># Math module for calculations</span>
-<span class="code-keyword">import</span> <span class="code-variable">cvzone</span>  <span class="code-comment"># Cvzone for easy OpenCV functionalities</span>
-<span class="code-keyword">import</span> <span class="code-variable">os</span>  <span class="code-comment"># OS module for file operations</span>
-<span class="code-keyword">from</span> <span class="code-variable">ultralytics</span> <span class="code-keyword">import</span> <span class="code-variable">YOLO</span>  <span class="code-comment"># YOLO model for object detection</span>
+<span class="code-comment"># Import necessary libraries</span>
+<span class="code-keyword">import</span> <span class="code-variable">cv2</span>
+<span class="code-keyword">import</span> <span class="code-variable">math</span>
+<span class="code-keyword">import</span> <span class="code-variable">cvzone</span>
+<span class="code-keyword">import</span> <span class="code-variable">os</span>
+<span class="code-keyword">from</span> <span class="code-variable">ultralytics</span> <span class="code-keyword">import</span> <span class="code-variable">YOLO</span>
 
-<span class="code-comment"># Ask user for media input</span>
-<span class="code-variable">media_input</span> = <span class="code-builtin">input</span>(<span class="code-string">"Enter video file path or press Enter to use the default camera: "</span>).strip()
-<span class="code-keyword">if</span> <span class="code-variable">media_input</span> == <span class="code-string">""</span>:
-    <span class="code-variable">cap</span> = cv2.VideoCapture(<span class="code-number">0</span>)  <span class="code-comment"># Use default camera</span>
+<span class="code-comment"># Get media input (camera or video file)</span>
+<span class="code-variable">media_input</span> = <span class="code-builtin">input</span>(<span class="code-string">"Enter video path or leave blank for camera: "</span>).strip()
+<span class="code-keyword">if</span> <span class="code-keyword">not</span> <span class="code-variable">media_input</span>:
+    <span class="code-variable">cap</span> = cv2.VideoCapture(<span class="code-number">0</span>) <span class="code-comment"># Default camera</span>
 <span class="code-keyword">else</span>:
-    <span class="code-variable">cap</span> = cv2.VideoCapture(<span class="code-variable">media_input</span>)  <span class="code-comment"># Use provided video file</span>
+    <span class="code-variable">cap</span> = cv2.VideoCapture(<span class="code-variable">media_input</span>) <span class="code-comment"># Video file</span>
 
-<span class="code-comment"># Load YOLO model with custom weights</span>
-<span class="code-variable">model</span> = YOLO(<span class="code-string">"Weights/best.pt"</span>)  <span class="code-comment"># Load trained YOLO model</span>
+<span class="code-comment"># Load the pre-trained YOLOv8 model</span>
+<span class="code-variable">model</span> = YOLO(<span class="code-string">"Weights/best.pt"</span>)
 
-<span class="code-comment"># Define class names</span>
-<span class="code-variable">classNames</span> = [<span class="code-string">'With Helmet'</span>, <span class="code-string">'Without Helmet'</span>]  <span class="code-comment"># Labels for detected objects</span>
+<span class="code-comment"># Define class names for detection</span>
+<span class="code-variable">classNames</span> = [<span class="code-string">'With Helmet'</span>, <span class="code-string">'Without Helmet'</span>]
 
-<span class="code-comment"># Directory to store detected images</span>
+<span class="code-comment"># Setup directory for saving violation images</span>
 <span class="code-variable">save_dir</span> = <span class="code-string">"Detects"</span>
-os.makedirs(<span class="code-variable">save_dir</span>, exist_ok=<span class="code-boolean">True</span>)  <span class="code-comment"># Create directory if it doesn't exist</span>
+os.makedirs(<span class="code-variable">save_dir</span>, exist_ok=<span class="code-boolean">True</span>)
 
-<span class="code-variable">violating_bikes</span> = {}  <span class="code-comment"># Dictionary to track detected bikes with violations</span>
-<span class="code-variable">frame_count</span> = <span class="code-number">0</span>  <span class="code-comment"># Counter to track frames processed</span>
+<span class="code-variable">violating_ids</span> = {} <span class="code-comment"># Track saved violations to avoid duplicates per run</span>
+<span class="code-variable">frame_count</span> = <span class="code-number">0</span>
 
+<span class="code-comment"># Main detection loop</span>
 <span class="code-keyword">while</span> <span class="code-boolean">True</span>:
-    <span class="code-variable">success</span>, <span class="code-variable">img</span> = <span class="code-variable">cap</span>.<span class="code-method">read</span>()  <span class="code-comment"># Read a frame from the video or camera</span>
+    <span class="code-variable">success</span>, <span class="code-variable">img</span> = <span class="code-variable">cap</span>.<span class="code-method">read</span>()
     <span class="code-keyword">if</span> <span class="code-keyword">not</span> <span class="code-variable">success</span>:
-        <span class="code-keyword">break</span>  <span class="code-comment"># Stop processing if video ends or camera fails</span>
+        <span class="code-keyword">break</span> <span class="code-comment"># End of video or camera error</span>
 
-    <span class="code-variable">results</span> = <span class="code-variable">model</span>(<span class="code-variable">img</span>, stream=<span class="code-boolean">True</span>)  <span class="code-comment"># Perform object detection on the frame</span>
-    <span class="code-variable">detected_violations</span> = <span class="code-boolean">False</span>  <span class="code-comment"># Flag to track violations in the frame</span>
+    <span class="code-comment"># Run YOLO model on the current frame</span>
+    <span class="code-variable">results</span> = <span class="code-variable">model</span>(<span class="code-variable">img</span>, stream=<span class="code-boolean">True</span>)
+    <span class="code-variable">frame_has_violation</span> = <span class="code-boolean">False</span>
 
+    <span class="code-comment"># Process detection results</span>
     <span class="code-keyword">for</span> <span class="code-variable">r</span> <span class="code-keyword">in</span> <span class="code-variable">results</span>:
-        <span class="code-variable">boxes</span> = <span class="code-variable">r</span>.<span class="code-variable">boxes</span>  <span class="code-comment"># Extract bounding boxes</span>
+        <span class="code-variable">boxes</span> = <span class="code-variable">r</span>.<span class="code-variable">boxes</span>
         <span class="code-keyword">for</span> <span class="code-variable">box</span> <span class="code-keyword">in</span> <span class="code-variable">boxes</span>:
-            <span class="code-variable">x1</span>, <span class="code-variable">y1</span>, <span class="code-variable">x2</span>, <span class="code-variable">y2</span> = <span class="code-builtin">map</span>(<span class="code-builtin">int</span>, <span class="code-variable">box</span>.<span class="code-variable">xyxy</span>[<span class="code-number">0</span>])  <span class="code-comment"># Get bounding box coordinates</span>
-            <span class="code-variable">conf</span> = math.ceil((<span class="code-variable">box</span>.<span class="code-variable">conf</span>[<span class="code-number">0</span>] * <span class="code-number">100</span>)) / <span class="code-number">100</span>  <span class="code-comment"># Confidence score</span>
-            <span class="code-variable">cls</span> = <span class="code-builtin">int</span>(<span class="code-variable">box</span>.<span class="code-variable">cls</span>[<span class="code-number">0</span>])  <span class="code-comment"># Class ID</span>
+            <span class="code-comment"># Extract bounding box coordinates</span>
+            <span class="code-variable">x1</span>, <span class="code-variable">y1</span>, <span class="code-variable">x2</span>, <span class="code-variable">y2</span> = <span class="code-builtin">map</span>(<span class="code-builtin">int</span>, <span class="code-variable">box</span>.<span class="code-variable">xyxy</span>[<span class="code-number">0</span>])
+            <span class="code-comment"># Get confidence score and class ID</span>
+            <span class="code-variable">conf</span> = math.ceil((<span class="code-variable">box</span>.<span class="code-variable">conf</span>[<span class="code-number">0</span>] * <span class="code-number">100</span>)) / <span class="code-number">100</span>
+            <span class="code-variable">cls</span> = <span class="code-builtin">int</span>(<span class="code-variable">box</span>.<span class="code-variable">cls</span>[<span class="code-number">0</span>])
+            <span class="code-variable">currentClass</span> = <span class="code-variable">classNames</span>[<span class="code-variable">cls</span>]
 
             <span class="code-comment"># Draw bounding box and label</span>
             cvzone.cornerRect(<span class="code-variable">img</span>, (<span class="code-variable">x1</span>, <span class="code-variable">y1</span>, <span class="code-variable">x2</span> - <span class="code-variable">x1</span>, <span class="code-variable">y2</span> - <span class="code-variable">y1</span>))
-            cvzone.putTextRect(<span class="code-variable">img</span>, <span class="code-string">f'{classNames[cls]} {conf}'</span>, (<span class="code-builtin">max</span>(<span class="code-number">0</span>, <span class="code-variable">x1</span>), <span class="code-builtin">max</span>(<span class="code-number">35</span>, <span class="code-variable">y1</span>)), scale=<span class="code-number">1</span>, thickness=<span class="code-number">1</span>)
+            cvzone.putTextRect(<span class="code-variable">img</span>, <span class="code-string">f'{currentClass} {conf}'</span>,
+                               (<span class="code-builtin">max</span>(<span class="code-number">0</span>, <span class="code-variable">x1</span>), <span class="code-builtin">max</span>(<span class="code-number">35</span>, <span class="code-variable">y1</span>)),
+                               scale=<span class="code-number">1</span>, thickness=<span class="code-number">1</span>)
 
-            <span class="code-comment"># Check for violation</span>
-            <span class="code-keyword">if</span> <span class="code-variable">classNames</span>[<span class="code-variable">cls</span>] == <span class="code-string">"Without Helmet"</span>:
-                <span class="code-variable">detected_violations</span> = <span class="code-boolean">True</span>
+            <span class="code-comment"># Check if the detected class is a violation</span>
+            <span class="code-keyword">if</span> <span class="code-variable">currentClass</span> == <span class="code-string">"Without Helmet"</span>:
+                <span class="code-variable">frame_has_violation</span> = <span class="code-boolean">True</span>
 
-    <span class="code-comment"># Save image if violation detected</span>
-    <span class="code-keyword">if</span> <span class="code-variable">detected_violations</span>:
-        <span class="code-variable">img_id</span> = <span class="code-string">f"violation_{frame_count}.jpg"</span>
-        <span class="code-keyword">if</span> <span class="code-variable">img_id</span> <span class="code-keyword">not</span> <span class="code-keyword">in</span> <span class="code-variable">violating_bikes</span>:
-            <span class="code-variable">filename</span> = os.path.join(<span class="code-variable">save_dir</span>, <span class="code-variable">img_id</span>)
-            cv2.imwrite(<span class="code-variable">filename</span>, <span class="code-variable">img</span>)
-            <span class="code-variable">violating_bikes</span>[<span class="code-variable">img_id</span>] = <span class="code-boolean">True</span>
-            <span class="code-builtin">print</span>(<span class="code-string">f"Saved violation image: {filename}"</span>)
+    <span class="code-comment"># Save the frame if a violation was detected in it</span>
+    <span class="code-keyword">if</span> <span class="code-variable">frame_has_violation</span>:
+        <span class="code-variable">img_filename</span> = <span class="code-string">f"violation_{frame_count:04d}.jpg"</span> <span class="code-comment"># Padded frame number</span>
+        <span class="code-comment"># Simple check to avoid saving the exact same frame number repeatedly</span>
+        <span class="code-keyword">if</span> <span class="code-variable">img_filename</span> <span class="code-keyword">not</span> <span class="code-keyword">in</span> <span class="code-variable">violating_ids</span>:
+            <span class="code-variable">save_path</span> = os.path.join(<span class="code-variable">save_dir</span>, <span class="code-variable">img_filename</span>)
+            cv2.imwrite(<span class="code-variable">save_path</span>, <span class="code-variable">img</span>)
+            <span class="code-variable">violating_ids</span>[<span class="code-variable">img_filename</span>] = <span class="code-boolean">True</span>
+            <span class="code-builtin">print</span>(<span class="code-string">f"Violation detected! Saved: {save_path}"</span>)
 
     <span class="code-variable">frame_count</span> += <span class="code-number">1</span>
 
-    cv2.imshow(<span class="code-string">"Image"</span>, <span class="code-variable">img</span>)
+    <span class="code-comment"># Display the processed frame</span>
+    cv2.imshow(<span class="code-string">"Civic Eye Detection"</span>, <span class="code-variable">img</span>)
+    <span class="code-comment"># Exit loop if 'q' is pressed</span>
     <span class="code-keyword">if</span> cv2.waitKey(<span class="code-number">1</span>) & <span class="code-number">0xFF</span> == <span class="code-builtin">ord</span>(<span class="code-string">'q'</span>):
         <span class="code-keyword">break</span>
 
+<span class="code-comment"># Release resources</span>
 <span class="code-variable">cap</span>.<span class="code-method">release</span>()
 cv2.destroyAllWindows()
                     </code></pre>
@@ -444,60 +450,65 @@ cv2.destroyAllWindows()
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Initialize Particles.js
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 80 },
-                    "color": { "value": ["#8300fe", "#38bdf8", "#555"] },
-                    "shape": { "type": "circle" },
-                    "opacity": {
-                        "value": 0.6, "random": true,
-                        "anim": { "enable": true, "speed": 0.6, "opacity_min": 0.15, "sync": false }
-                    },
-                    "size": {
-                        "value": 2.5, "random": true,
-                        "anim": { "enable": false }
-                    },
-                    "line_linked": {
-                        "enable": true, "distance": 130, "color": "#555",
-                        "opacity": 0.5,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true, "speed": 1.5, "direction": "none", "random": true,
-                        "straight": false, "out_mode": "out", "bounce": false,
-                        "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": { "enable": true, "mode": "grab" },
-                        "onclick": { "enable": true, "mode": "push" },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": { "distance": 140, "line_linked": { "opacity": 0.7 } },
-                        "push": { "particles_nb": 4 }
-                    }
-                },
-                "retina_detect": true
-            });
 
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                        "color": { "value": ["#8300fe", "#38bdf8", "#555"] },
+                        "shape": { "type": "circle" },
+                        "opacity": {
+                            "value": 0.6, "random": true,
+                            "anim": { "enable": true, "speed": 0.6, "opacity_min": 0.15, "sync": false }
+                        },
+                        "size": {
+                            "value": 2.5, "random": true,
+                            "anim": { "enable": false }
+                        },
+                        "line_linked": {
+                            "enable": true, "distance": 130, "color": "#555",
+                            "opacity": 0.5, "width": 1
+                        },
+                        "move": {
+                            "enable": true, "speed": 1.5, "direction": "none", "random": true,
+                            "straight": false, "out_mode": "out", "bounce": false,
+                            "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": { "enable": true, "mode": "grab" },
+                            "onclick": { "enable": true, "mode": "push" },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": { "distance": 140, "line_linked": { "opacity": 0.7 } },
+                            "push": { "particles_nb": 4 }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            } else {
+                console.error("particles.js library not loaded.");
+            }
 
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                once: false,
-                offset: 50,
-                easing: 'ease-out-cubic',
-            });
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: false,
+                    offset: 50,
+                    easing: 'ease-out-cubic',
+                });
+            } else {
+                console.error("AOS library not loaded.");
+            }
 
-            // --- Typing Effect ---
             const infoElement = document.querySelector('.hero-content .info .typed-text');
             const cursorElement = document.querySelector('.hero-content .info .cursor');
             const textToType = "Advanced AI detects traffic violations like helmet usage from CCTV feeds in real-time. Local processing ensures privacy.";
             let charIndex = 0;
+
             function typeText() {
                 if (infoElement && charIndex < textToType.length) {
                     infoElement.textContent += textToType.charAt(charIndex);
@@ -508,62 +519,71 @@ cv2.destroyAllWindows()
                     cursorElement.style.opacity = '1';
                 }
             }
-            if (infoElement) {
+
+            if (infoElement && cursorElement) {
                 infoElement.textContent = '';
+                cursorElement.style.opacity = '1';
                 setTimeout(typeText, 800);
             }
 
-            // --- Copy Code Button ---
             const copyButton = document.getElementById('copy-code-btn');
-            const codeToCopy = document.getElementById('code-to-copy');
-            if (copyButton && codeToCopy) {
+            const codeToCopyElement = document.getElementById('code-to-copy');
+
+            if (copyButton && codeToCopyElement) {
                 copyButton.addEventListener('click', () => {
-                    const codeText = codeToCopy.textContent || codeToCopy.innerText;
+                    const codeText = codeToCopyElement.textContent || codeToCopyElement.innerText;
                     navigator.clipboard.writeText(codeText).then(() => {
                         copyButton.title = 'Copied!';
                         copyButton.innerHTML = '<i data-lucide="check" style="width: 16px; height: 16px; vertical-align: middle; color: #28c940;"></i>';
-                        lucide.createIcons();
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
                         setTimeout(() => {
                             copyButton.title = 'Copy Code';
                             copyButton.innerHTML = '<i data-lucide="clipboard" style="width: 16px; height: 16px; vertical-align: middle;"></i>';
-                            lucide.createIcons();
+                            if (typeof lucide !== 'undefined') lucide.createIcons();
                         }, 2000);
                     }).catch(err => {
                         console.error('Failed to copy code: ', err);
                         copyButton.title = 'Failed to copy';
                         copyButton.innerHTML = '<i data-lucide="x-circle" style="width: 16px; height: 16px; vertical-align: middle; color: #ff5f57;"></i>';
-                        lucide.createIcons();
+                        if (typeof lucide !== 'undefined') lucide.createIcons();
                         setTimeout(() => {
                             copyButton.title = 'Copy Code';
                             copyButton.innerHTML = '<i data-lucide="clipboard" style="width: 16px; height: 16px; vertical-align: middle;"></i>';
-                            lucide.createIcons();
+                            if (typeof lucide !== 'undefined') lucide.createIcons();
                         }, 2000);
                     });
                 });
             }
 
-            // --- Mobile Navigation Toggle ---
             const hamburgerBtn = document.querySelector('.hamburger-menu');
             const mobileNav = document.querySelector('.mobile-nav-menu');
             const closeNavBtn = document.querySelector('.close-menu-btn');
-            const navLinks = mobileNav.querySelectorAll('a');
-            const toggleNav = (event) => {
-                if (event) event.stopPropagation();
-                mobileNav.classList.toggle('active');
-                document.body.classList.toggle('no-scroll', mobileNav.classList.contains('active'));
-            };
-            const closeNav = () => {
-                if (mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                    document.body.classList.remove('no-scroll');
-                }
-            };
+
             if (hamburgerBtn && mobileNav && closeNavBtn) {
+                const navLinks = mobileNav.querySelectorAll('a');
+
+                const toggleNav = (event) => {
+                    if (event) event.stopPropagation();
+                    const isActive = mobileNav.classList.toggle('active');
+                    document.body.classList.toggle('no-scroll', isActive);
+                };
+
+                const closeNav = () => {
+                    if (mobileNav.classList.contains('active')) {
+                        mobileNav.classList.remove('active');
+                        document.body.classList.remove('no-scroll');
+                    }
+                };
+
                 hamburgerBtn.addEventListener('click', toggleNav);
                 closeNavBtn.addEventListener('click', closeNav);
+
                 navLinks.forEach(link => {
-                    link.addEventListener('click', () => { closeNav(); });
+                    link.addEventListener('click', () => {
+                        setTimeout(closeNav, 100);
+                    });
                 });
+
                 document.addEventListener('click', (event) => {
                     if (mobileNav.classList.contains('active') &&
                         !mobileNav.contains(event.target) &&
@@ -571,17 +591,27 @@ cv2.destroyAllWindows()
                         closeNav();
                     }
                 });
+
                 mobileNav.addEventListener('click', (event) => {
                     event.stopPropagation();
                 });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && mobileNav.classList.contains('active')) {
+                        closeNav();
+                    }
+                });
             }
 
-            // Initialize Lucide Icons (for icons other than the hamburger)
-            try {
-                lucide.createIcons();
-                console.log("Lucide icons (excluding hamburger) initialized.");
-            } catch (e) {
-                console.error("Lucide icons initialization failed:", e);
+            if (typeof lucide !== 'undefined') {
+                try {
+                    lucide.createIcons();
+                    console.log("Lucide icons initialized.");
+                } catch (e) {
+                    console.error("Lucide icons initialization failed:", e);
+                }
+            } else {
+                console.error("Lucide library not loaded.");
             }
 
         });

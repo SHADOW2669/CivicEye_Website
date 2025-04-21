@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,75 +5,70 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Civic Eye | Download</title>
-    <link rel="shortcut icon" href="https://placehold.co/32x32/8300FE/FFFFFF?text=CE" type="image/x-icon">
+
+    <link rel="shortcut icon" href="IMAGES/ppg.png" type="image/x-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.396.0/dist/umd/lucide.min.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="shortcut icon" href="IMAGES/ppg.png" type="image/x-icon">
+
     <link rel="stylesheet" href="download.css" />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.396.0/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 </head>
 
 <body>
     <div id="particles-js"></div>
 
-    <nav class="navbar">
-    <a href="index.php" class="navbar-logo">
-        <img src="IMAGES/logo1.png" alt="Civic Eye Logo">
-    </a>
 
-    <div class="navbar-links">
-        <a href="index.php">Home</a>
-        <a href="download.php">Download</a>
-        <a href="team.php">Team</a>
-        <a href="contact-us.php">Contact Us</a>
-        <?php if (isset($_SESSION['email'])): ?>
-            <a href="user_page.php" class="login-btn-link">
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="IMAGES/logo1.png" alt="Civic Eye Logo"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x45/050507/FFFFFF?text=CivicEye';">
+        </a>
+
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="download.html" class="active">Download</a>
+            <a href="team.html">Team</a>
+            <a href="contact-us.html">Contact Us</a>
+                <a href="user_page.html" class="login-btn-link">
+                    <button class="login-btn">DASHBOARD</button>
+                </a>
+                <a href="login.html" class="login-btn-link">
+                    <button class="login-btn">LOGIN / SIGNUP</button>
+                </a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <i data-lucide="menu"></i>
+        </button>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <i data-lucide="x"></i>
+        </button>
+
+        <a href="index.html">Home</a>
+        <a href="download.html">Download</a>
+        <a href="team.html">Team</a>
+        <a href="contact-us.html">Contact Us</a>
+            <a href="user_page.html" class="login-btn-link">
                 <button class="login-btn">DASHBOARD</button>
             </a>
-        <?php else: ?>
-            <a href="login.php" class="login-btn-link">
+            <a href="login.html" class="login-btn-link">
                 <button class="login-btn">LOGIN / SIGNUP</button>
             </a>
-        <?php endif; ?>
     </div>
 
-    <!-- Hamburger menu icon -->
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        <i data-lucide="menu"></i>
-    </button>
-</nav>
-
-<!-- Mobile Nav Panel -->
-<div class="mobile-nav" id="mobileNav">
-    <button class="close-menu" id="closeMenu" aria-label="Close menu">
-        <i data-lucide="x"></i>
-    </button>
-
-    <a href="index.php">Home</a>
-    <a href="download.php">Download</a>
-    <a href="team.php">Team</a>
-    <a href="contact-us.php">Contact Us</a>
-    <?php if (isset($_SESSION['email'])): ?>
-        <a href="user_page.php" class="login-btn-link">
-            <button class="login-btn">DASHBOARD</button>
-        </a>
-    <?php else: ?>
-        <a href="login.php" class="login-btn-link">
-            <button class="login-btn">LOGIN / SIGNUP</button>
-        </a>
-    <?php endif; ?>
-</div>
-
-<!-- Mobile overlay -->
-<div class="overlay" id="overlay"></div>
+    <div class="overlay" id="overlay"></div>
 
 
     <main>
@@ -288,20 +280,18 @@ session_start();
                             <a href="https://github.com/SHADOW2669/CivicEye/releases" target="_blank"
                                 rel="noopener noreferrer">Releases page</a>.
                             <div class="download-button-container">
-                                <a href="https://github.com/SHADOW2669/CivicEye/archive/refs/tags/linux.zip"
+                                <a href="https://github.com/SHADOW2669/CivicEye/archive/refs/tags/v1.2.zip"
                                     class="hero-btn primary"> <i data-lucide="download"></i>
                                     <span>Download Latest (Linux)</span> </a>
                             </div>
                         </li>
                         <li><strong>Navigate to Project Directory:</strong>
                             <pre><code>cd CivicEye</code><button class="copy-btn" aria-label="Copy command"><span class="copy-text">Copy</span><i data-lucide="copy" class="copy-icon"></i><i data-lucide="check" class="check-icon" style="display:none;"></i></button></pre>
-                            (If you downloaded and extracted a zip, navigate into the extracted folder).
                         </li>
                         <li><strong>Run Setup Script:</strong> <br />Make the setup script executable and run it. This
                             script handles virtual environment creation and dependency installation.
                             <pre><code class="language-bash">chmod +x setup_civiceye.sh
 ./setup_civiceye.sh</code><button class="copy-btn" aria-label="Copy command"><span class="copy-text">Copy</span><i data-lucide="copy" class="copy-icon"></i><i data-lucide="check" class="check-icon" style="display:none;"></i></button></pre>
-                            You might need <code>sudo</code> for installing system packages if prompted.
                         </li>
                         <li><strong>Run the Application:</strong> <br />Make the run script executable and launch the
                             software:
@@ -381,17 +371,17 @@ session_start();
                 <div class="footer-links-column">
                     <h3>Quick Links</h3>
                     <nav>
-                        <a href="index.php">Home</a>
-                        <a href="download.php">Download</a>
-                        <a href="team.php">Team</a>
-                        <a href="contact-us.php">Contact Us</a>
-                        <a href="login.php">Login / Signup</a>
+                        <a href="index.html">Home</a>
+                        <a href="download.html">Download</a>
+                        <a href="team.html">Team</a>
+                        <a href="contact-us.html">Contact Us</a>
+                        <a href="login.html">Login / Signup</a>
                     </nav>
                 </div>
                 <div class="footer-links-column">
                     <h3>Resources</h3>
                     <nav>
-                        <a href="index.php#features">Features</a>
+                        <a href="index.html#features">Features</a>
                         <a href="#windows-section-anchor">Windows Guide</a>
                         <a href="#linux-section-anchor">Linux Guide</a>
                         <a href="https://github.com/SHADOW2669/CivicEye" target="_blank"
@@ -431,163 +421,174 @@ session_start();
     </footer>
 
     <script>
- document.addEventListener("DOMContentLoaded", () => {
-    // --- Initialize Particles.js ---
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 70, "density": { "enable": true, "value_area": 900 } },
-                "color": { "value": ["#8300fe", "#a855f7", "#38bdf8", "#666"] },
-                "shape": { "type": "circle" },
-                "opacity": {
-                    "value": 0.6, "random": true,
-                    "anim": { "enable": true, "speed": 0.9, "opacity_min": 0.15, "sync": false }
-                },
-                "size": { "value": 3.0, "random": true },
-                "line_linked": {
-                    "enable": true, "distance": 150,
-                    "color": "#555", "opacity": 0.4, "width": 1
-                },
-                "move": {
-                    "enable": true, "speed": 1.8, "random": true,
-                    "out_mode": "out", "attract": { "enable": true, "rotateX": 800, "rotateY": 1400 }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": { "distance": 160, "line_linked": { "opacity": 0.7 } },
-                    "push": { "particles_nb": 4 }
-                }
-            },
-            "retina_detect": true
-        });
-    } else {
-        console.error("particles.js not loaded");
-    }
-
-    // --- AOS Initialization ---
-    if (typeof AOS !== 'undefined') {
-        AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out-cubic' });
-    } else {
-        console.error("AOS not loaded");
-    }
-
-    // --- Lucide Icons Initialization ---
-    try {
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-            console.log("Lucide icons initialized.");
-        } else {
-            console.error("Lucide library not loaded.");
-        }
-    } catch (e) {
-        console.error("Lucide icons initialization failed:", e);
-    }
-
-    // --- Footer Year Update ---
-    const yearSpan = document.getElementById('currentYear');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
-
-    // --- Mobile Navigation Toggle ---
-    const menuToggle = document.getElementById('menuToggle');
-    const closeMenu = document.getElementById('closeMenu');
-    const mobileNav = document.getElementById('mobileNav');
-    const overlay = document.getElementById('overlay');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-
-    if (menuToggle && closeMenu && mobileNav && overlay) {
-        const openMenu = () => {
-            mobileNav.classList.add('active');
-            overlay.classList.add('active');
-            document.body.classList.add('no-scroll');
-            menuToggle.setAttribute('aria-expanded', 'true');
-        };
-
-        const closeMenuFunc = () => {
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        };
-
-        menuToggle.addEventListener('click', e => {
-            e.stopPropagation();
-            openMenu();
-        });
-
-        closeMenu.addEventListener('click', closeMenuFunc);
-        overlay.addEventListener('click', closeMenuFunc);
-        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenuFunc));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                closeMenuFunc();
-            }
-        });
-
-        mobileNav.addEventListener('click', e => e.stopPropagation());
-    }
-
-    // --- Smooth Scrolling for Anchor Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId.length > 1) {
-                const target = document.querySelector(targetId);
-                if (target) {
-                    e.preventDefault();
-                    const navHeight = document.querySelector('.navbar')?.offsetHeight || 70;
-                    const topPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-                    window.scrollTo({ top: topPos, behavior: "smooth" });
-                }
-            }
-        });
-    });
-
-    // --- Clipboard Copy Functionality ---
-    document.querySelectorAll('.copy-btn').forEach(button => {
-        button.addEventListener('click', async () => {
-            const pre = button.closest('pre');
-            const code = pre?.querySelector('code');
-            const text = code?.textContent || '';
-            const copyText = button.querySelector('.copy-text');
-            const copyIcon = button.querySelector('.copy-icon');
-            const checkIcon = button.querySelector('.check-icon');
-
-            if (!code || !navigator.clipboard) {
-                console.error("Clipboard API not available.");
-                if (copyText) copyText.textContent = 'Error';
-                return;
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize Particles.js
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": { "value": 70, "density": { "enable": true, "value_area": 900 } },
+                        "color": { "value": ["#8300fe", "#a855f7", "#38bdf8", "#666"] },
+                        "shape": { "type": "circle" },
+                        "opacity": {
+                            "value": 0.6, "random": true,
+                            "anim": { "enable": true, "speed": 0.9, "opacity_min": 0.15, "sync": false }
+                        },
+                        "size": { "value": 3.0, "random": true },
+                        "line_linked": {
+                            "enable": true, "distance": 150,
+                            "color": "#555", "opacity": 0.4, "width": 1
+                        },
+                        "move": {
+                            "enable": true, "speed": 1.8, "random": true,
+                            "out_mode": "out", "attract": { "enable": true, "rotateX": 800, "rotateY": 1400 }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": { "enable": true, "mode": "grab" },
+                            "onclick": { "enable": true, "mode": "push" },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": { "distance": 160, "line_linked": { "opacity": 0.7 } },
+                            "push": { "particles_nb": 4 }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            } else {
+                console.error("particles.js not loaded");
             }
 
+            // Initialize AOS (Animate On Scroll)
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out-cubic' });
+            } else {
+                console.error("AOS not loaded");
+            }
+
+            // Initialize Lucide Icons
             try {
-                await navigator.clipboard.writeText(text);
-                if (copyText) copyText.style.display = 'none';
-                if (copyIcon) copyIcon.style.display = 'none';
-                if (checkIcon) checkIcon.style.display = 'inline-block';
-                button.setAttribute('aria-label', 'Copied!');
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                    console.log("Lucide icons initialized.");
+                } else {
+                    console.error("Lucide library not loaded.");
+                }
+            } catch (e) {
+                console.error("Lucide icons initialization failed:", e);
+            }
 
-                setTimeout(() => {
-                    if (copyText) copyText.style.display = 'inline-block';
-                    if (copyIcon) copyIcon.style.display = 'inline-block';
-                    if (checkIcon) checkIcon.style.display = 'none';
-                    button.setAttribute('aria-label', 'Copy command');
-                }, 2000);
-            } catch (err) {
-                console.error('Copy failed:', err);
-                if (copyText) copyText.textContent = 'Failed';
-                setTimeout(() => { if (copyText) copyText.textContent = 'Copy'; }, 2000);
+            // Update Footer Year
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Mobile Navigation Logic
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('overlay');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+            if (menuToggle && closeMenu && mobileNav && overlay) {
+                const openMenu = () => {
+                    mobileNav.classList.add('open');
+                    overlay.classList.add('open');
+                    document.body.classList.add('no-scroll'); // Prevent body scroll
+                    menuToggle.setAttribute('aria-expanded', 'true');
+                };
+
+                const closeMenuFunc = () => {
+                    mobileNav.classList.remove('open');
+                    overlay.classList.remove('open');
+                    document.body.classList.remove('no-scroll'); // Allow body scroll
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                };
+
+                menuToggle.addEventListener('click', e => {
+                    e.stopPropagation(); // Prevent click from closing immediately
+                    openMenu();
+                });
+
+                closeMenu.addEventListener('click', closeMenuFunc);
+                overlay.addEventListener('click', closeMenuFunc); // Close when clicking overlay
+                mobileNavLinks.forEach(link => link.addEventListener('click', closeMenuFunc)); // Close when clicking a link
+                document.addEventListener('keydown', e => {
+                    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+                        closeMenuFunc(); // Close on escape key
+                    }
+                });
+
+                mobileNav.addEventListener('click', e => e.stopPropagation()); // Prevent clicks inside nav from closing it
+            } else {
+                console.warn("Mobile navigation elements not found or IDs mismatch.");
+            }
+
+            // Smooth Scrolling for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId.length > 1 && targetId.startsWith('#')) {
+                        const target = document.querySelector(targetId);
+                        if (target) {
+                            e.preventDefault();
+                            const navHeight = document.querySelector('.navbar')?.offsetHeight || 70;
+                            // Calculate position considering navbar height and a small offset
+                            const topPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                            window.scrollTo({ top: topPos, behavior: "smooth" });
+                        }
+                    }
+                });
+            });
+
+            // Clipboard Copy Functionality for Code Blocks
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', async () => {
+                    const pre = button.closest('pre');
+                    const code = pre?.querySelector('code');
+                    const text = code?.textContent || '';
+                    const copyText = button.querySelector('.copy-text'); // Assumes span with this class exists for "Copy" text
+                    const copyIcon = button.querySelector('.copy-icon'); // Assumes i tag with this class for copy icon
+                    const checkIcon = button.querySelector('.check-icon'); // Assumes i tag with this class for check icon
+
+                    if (!code || !navigator.clipboard) {
+                        console.error("Clipboard API not available or code element not found.");
+                        if (copyText) copyText.textContent = 'Error'; // Provide feedback
+                        return;
+                    }
+
+                    try {
+                        await navigator.clipboard.writeText(text);
+                        // Visual feedback for successful copy
+                        if (copyText) copyText.style.display = 'none';
+                        if (copyIcon) copyIcon.style.display = 'none';
+                        if (checkIcon) checkIcon.style.display = 'inline-block';
+                        button.setAttribute('aria-label', 'Copied!');
+
+                        // Reset button appearance after 2 seconds
+                        setTimeout(() => {
+                            if (copyText) copyText.style.display = 'inline-block';
+                            if (copyIcon) copyIcon.style.display = 'inline-block';
+                            if (checkIcon) checkIcon.style.display = 'none';
+                            button.setAttribute('aria-label', 'Copy command');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Copy failed:', err);
+                        if (copyText) copyText.textContent = 'Failed'; // Provide feedback
+                        // Reset button appearance after 2 seconds
+                        setTimeout(() => { if (copyText) copyText.textContent = 'Copy'; }, 2000);
+                    }
+                });
+            });
+
+            // Try to prevent browser scroll restoration on page load/refresh
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
             }
         });
-    });
-});
 
     </script>
 </body>
