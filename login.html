@@ -23,8 +23,10 @@
     <div id="particles-js"></div>
 
     <nav class="navbar">
-        <a href="index.html" class="navbar-logo">
-            <img src="IMAGES/logo1.png" alt="Civic Eye Logo">
+        <a href="#hero-page" class="navbar-logo">
+            <img src="IMAGES/logo1.png"
+                onerror="this.onerror=null; this.src='https://placehold.co/150x40/0a0a0a/FFFFFF?text=CivicEye';"
+                alt="Civic Eye Logo">
         </a>
 
         <div class="navbar-links">
@@ -32,9 +34,12 @@
             <a href="download.html">Download</a>
             <a href="team.html">Team</a>
             <a href="contact-us.html">Contact Us</a>
-            <span class="login-btn-link">
-                <button class="login-btn">LOGIN / SIGNUP</button>
-            </span>
+            <a href="user_page.html">User Dashboard</a>
+            <a href="admin.html">Admin Dashboard</a>
+
+                <a href="login.html" class="login-btn-link">
+                    <button class="login-btn">LOGIN / SIGNUP</button>
+                </a>
         </div>
 
         <button class="hamburger-menu" aria-label="Open navigation menu">
@@ -49,26 +54,29 @@
 
     <div class="mobile-nav-menu">
         <button class="close-menu-btn" aria-label="Close navigation menu">
-            <i data-lucide="x"></i>
-        </button>
+            <i data-lucide="x"></i> </button>
         <a href="index.html">Home</a>
         <a href="download.html">Download</a>
         <a href="team.html">Team</a>
         <a href="contact-us.html">Contact Us</a>
-        <span class="login-btn-link">
-            <button class="login-btn">LOGIN / SIGNUP</button>
-        </span>
+        <a href="user_page.html">User Dashboard</a>
+        <a href="admin.html">Admin Dashboard</a>
+
+            <a href="login.html" class="login-btn-link">
+                <button class="login-btn">LOGIN / SIGNUP</button>
+            </a>
+
     </div>
 
     <div class="relative w-[90%] max-w-4xl h-[500px] md:h-[450px] bg-black bg-opacity-20 backdrop-blur-sm rounded-2xl overflow-hidden neon-glow-border flex mt-0"
         id="form-wrapper">
 
         <div class="absolute top-0 left-0 w-full h-full">
-            <div id="login-form-container" class="form-container ">
-                <form action="login_register.html" method="post" class="w-full">
+            <div id="login-form-container" class="form-container <?= isActiveForm('login', $activeForm); ?>">
+                <form action="login_register.php" method="post" class="w-full">
                     <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center font-orbitron text-white">Login
                     </h2>
-                    
+                    <?= showError($errors['login']); ?>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
                     <a href="#"
@@ -77,11 +85,11 @@
                     <button type="submit" name="login" value="login">Login</button>
                 </form>
             </div>
-            <div id="register-form-container" class="form-container ">
-                <form action="login_register.html" method="post" class="w-full">
+            <div id="register-form-container" class="form-container <?= isActiveForm('register', $activeForm); ?>">
+                <form action="login_register.php" method="post" class="w-full">
                     <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center font-orbitron text-white">Register
                     </h2>
-                    
+                    <?= showError($errors['register']); ?>
                     <input type="text" name="name" placeholder="Username" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Password" required>
