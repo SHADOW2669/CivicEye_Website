@@ -1,36 +1,49 @@
 name: Check civiceye.my Status
 
+# Controls when the workflow will run
 on:
-  schedule:
-    - cron: '*/10 * * * *'  # every 10 minutes
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Runs the workflow on a schedule (e.g., every hour)
+  schedule:
+    - cron: '0 * * * *' # This cron expression means "at minute 0 of every hour"
+
 jobs:
-  check-site:
+  # This workflow contains a single job called "check_site"
+  check_site:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Check civiceye.my
-        id: check
+      # Step to check the website status
+      - name: Ping civiceye.my
         run: |
-          code=$(curl -s -o /dev/null -w "%{http_code}" https://civiceye.my || echo 000)
-          echo "Status code: $code"
-          if [[ "$code" -ge 200 && "$code" -lt 400 ]]; then
-            echo "status=up" >> $GITHUB_OUTPUT
-          else
-            echo "status=down" >> $GITHUB_OUTPUT
+          # Send a HEAD request (faster as it doesn't download the body)
+          # -s: silent mode
+          # -o /dev/null: discard body output
+          # -w "%{http_code}": output only the HTTP status code
+          # --max-time 10: set a timeout of 10 seconds for the request
+          # --fail: make curl return an error code if the HTTP status is 4xx or 5xx
+          # Use https as civiceye.my redirects to https
+          response_code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 https://civiceye.my)
 
-      - name: Create badge file
-        run: |
-          mkdir -p badges
-          if [ "${{ steps.check.outputs.status }}" == "up" ]; then
-            echo '{"schemaVersion":1,"label":"CivicEye","message":"🟢 Up","color":"brightgreen"}' > badges/status.json
+          echo "HTTP Status Code: $response_code"
+
+          # Check if the response code indicates success (2xx or 3xx range)
+          if [ "$response_code" -ge 200 ] && [ "$response_code" -lt 400 ]; then
+            echo "civiceye.my is online and responding successfully."
+            exit 0 # Exit with success
           else
-            echo '{"schemaVersion":1,"label":"CivicEye","message":"🔴 Down","color":"red"}' > badges/status.json
+            echo "civiceye.my is offline or returned an error status code: $response_code."
+            exit 1 # Exit with failure
           fi
-
-      - name: Commit badge
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: 'badges/status.json'
-          message: 'Update status badge'
-          default_author: github_actions
+      # Optional: Add another step here if you want to use a dedicated GitHub Action from the Marketplace
+      # For example, using 'jtalk/url-health-check-action@v4':
+      # - name: HTTP Check civiceye.my
+      #   uses: jtalk/url-health-check-action@v4
+      #   with:
+      #     url: https://civiceye.my
+      #     max-attempts: 3 # Optional: Number of attempts
+      #     retry-delay: 5s # Optional: Delay between retries
