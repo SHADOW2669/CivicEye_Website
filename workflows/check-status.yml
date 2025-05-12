@@ -1,0 +1,35 @@
+name: Check civiceye.my Status
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # every 10 minutes
+  workflow_dispatch:
+
+jobs:
+  check-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check website
+        id: check
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" https://civiceye.my || echo 000)
+          echo "Status code: $code"
+          if [[ "$code" -ge 200 && "$code" -lt 400 ]]; then
+            echo "status=up" >> $GITHUB_OUTPUT
+          else
+            echo "status=down" >> $GITHUB_OUTPUT
+
+      - name: Save status to badge
+        run: |
+          mkdir -p badges
+          if [ "${{ steps.check.outputs.status }}" == "up" ]; then
+            echo '{"schemaVersion":1,"label":"CivicEye","message":"🟢 Up","color":"brightgreen"}' > badges/status.json
+          else
+            echo '{"schemaVersion":1,"label":"CivicEye","message":"🔴 Down","color":"red"}' > badges/status.json
+          fi
+
+      - name: Commit badge
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Update site status badge'
+          add: 'badges/status.json'
