@@ -9,7 +9,7 @@ jobs:
   check-site:
     runs-on: ubuntu-latest
     steps:
-      - name: Check website
+      - name: Check civiceye.my
         id: check
         run: |
           code=$(curl -s -o /dev/null -w "%{http_code}" https://civiceye.my || echo 000)
@@ -19,7 +19,7 @@ jobs:
           else
             echo "status=down" >> $GITHUB_OUTPUT
 
-      - name: Save status to badge
+      - name: Create badge file
         run: |
           mkdir -p badges
           if [ "${{ steps.check.outputs.status }}" == "up" ]; then
@@ -31,5 +31,6 @@ jobs:
       - name: Commit badge
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'Update site status badge'
           add: 'badges/status.json'
+          message: 'Update status badge'
+          default_author: github_actions
