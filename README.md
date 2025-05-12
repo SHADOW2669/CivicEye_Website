@@ -2,6 +2,7 @@
 
 The **Civic Eye Website** is the official frontend for **Civic Eye**, an AI-powered helmet violation detection system. This server-side edition offers authentication, app downloads, team bios, contact features, and detection result storage — all connected to a backend powered by PHP and MySQL.
 
+[![CivicEye Website Status](https://github.com/SHADOW2669/CivicEye_Website/actions/workflows/check-status.yml/badge.svg)](https://civiceye.my)
 
 ## Table of Contents
 
